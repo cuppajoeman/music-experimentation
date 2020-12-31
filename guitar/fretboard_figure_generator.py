@@ -1,3 +1,6 @@
+import os,sys
+# Hack in parent dir
+sys.path.insert(1, os.path.join(sys.path[0], '..'))
 import cairo
 import math
 from chord_generation import *
@@ -98,7 +101,6 @@ def create_fret_representation(filename, start_fret, chord):
     def show_mult_pos_on_fb(list_of_positions, ctx):
         for pos in list_of_positions:
             # String representation is backwards
-            print(pos)
             x = STRINGS - 1 - pos[0]
             y = pos[1]
             interval = pos[2]

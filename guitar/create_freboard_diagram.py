@@ -1,3 +1,6 @@
+import os,sys
+# Hack in parent dir
+sys.path.insert(1, os.path.join(sys.path[0], '..'))
 from chord_generation import *
 
 # PATTERNS
