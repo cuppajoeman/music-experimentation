@@ -40,7 +40,7 @@ E_STRING_FRET_MAPPING = {
 
 def create_fret_representation(filename, start_fret, chord):
 
-    surface = cairo.SVGSurface(filename + ".svg", TRUE_WIDTH , TRUE_HEIGHT)
+    surface = cairo.SVGSurface("generated_assets/" + filename + ".svg", TRUE_WIDTH , TRUE_HEIGHT)
 
     ctx = cairo.Context(surface)
     ctx.scale(PIXEL_SCALE, PIXEL_SCALE)
@@ -110,10 +110,14 @@ def create_fret_representation(filename, start_fret, chord):
 
     show_mult_pos_on_fb(positions, ctx)
 
-if __name__ == '__main__':
-    blues = ["G#7", "A7", "B7"]
-    for c in blues:
-        note = c[:-1]
-        create_fret_representation(c, E_STRING_FRET_MAPPING[note], [0, 4, 7, 10])
+#if __name__ == '__main__':
+    #blues = ["G#7", "A7", "B7"]
+    #for c in blues:
+    #    note = c[:-1]
+    #    create_fret_representation(c, E_STRING_FRET_MAPPING[note], [0, 4, 7, 10])
+
+    #for s, c in PATTERNS:
+    #    r_pos = random.randint(0, 12)
+    #    create_fret_representation(s, r_pos, c)
         
 
