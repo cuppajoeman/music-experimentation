@@ -1,3 +1,6 @@
+import os, sys
+# Hack in parent dir
+sys.path.insert(1, os.path.join(sys.path[0], '..'))
 import random
 from theory import *
 

@@ -1,7 +1,7 @@
 import os,sys
 # Hack in parent dir
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
-from chord_generation import *
+from fretboard_position_generator import *
 from fretboard_figure_generator import *
 from fretboard_txt_generator import *
 

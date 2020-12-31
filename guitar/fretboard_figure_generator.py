@@ -1,9 +1,6 @@
-import os,sys
-# Hack in parent dir
-sys.path.insert(1, os.path.join(sys.path[0], '..'))
 import cairo
 import math
-from chord_generation import *
+from fretboard_position_generator import *
 
 WIDTH = 1
 HEIGHT = 4
