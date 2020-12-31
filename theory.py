@@ -1,5 +1,4 @@
-# Parameters
-RATE = 44100    # samples per second
+#import roman
 # Musical System
 BASE_FREQUENCY = 440.0
 EQUIVALENCE_RATIO = 2
@@ -29,38 +28,38 @@ ROMAN_NUMERALS = [
      "XII"
 ]
 ROMAN_NUMERALS_V2 = {
-        "I": [1, 'maj_tri'],
-        "II": [2, 'maj_tri'],
-        "ii": [2, 'min_tri'],
-        "III": [3, 'maj_tri'],
-        "IV": [4, 'maj_tri'],
-        "V": [5, 'maj_tri'],
-        "VI": [6, 'maj_tri'],
-        "VII": [7, 'maj_tri'],
-        "VIII": [8, 'maj_tri'],
-        "IX": [9, 'maj_tri'],
-        "X": [10, 'maj_tri'],
-        "XI": [11, 'maj_tri'],
-        "XII": [12, 'maj_tri']
+        "I": 'maj_tri',
+        "II": 'maj_tri',
+        "ii": 'min_tri',
+        "III": 'maj_tri',
+        "IV": 'maj_tri',
+        "V": 'maj_tri',
+        "VI": 'maj_tri',
+        "VII": 'maj_tri',
+        "VIII": 'maj_tri',
+        "IX": 'maj_tri',
+        "X": 'maj_tri',
+        "XI": 'maj_tri',
+        "XII": 'maj_tri'
 }
 
 LETTERS = ["C","D","E","F","G","A","B"]
 
 # CHORDS
 chords = {
-        'maj_tri': [0, 4, 7],
-        'min_tri': [0, 3, 7],
-        'dom7': [0, 4, 7, 10],
-        'maj7': [0, 4, 7, 11],
-        'min7': [0, 3, 7, 10], 
-        'dim7': [0, 3, 6, 9],
-        'half_dim7': [0, 3, 6, 10],
-        'dom7flat9':[0, 3, 7, 11],
-        'aug_maj7': [0, 4, 8, 10],
-        'min7flat5':[0, 3, 6, 10],
+        'maj_tri': (0, 4, 7),
+        'min_tri': (0, 3, 7),
+        'dom7': (0, 4, 7, 10),
+        'maj7': (0, 4, 7, 11),
+        'min7': (0, 3, 7, 10), 
+        'dim7': (0, 3, 6, 9),
+        'half_dim7': (0, 3, 6, 10),
+        'dom7flat9':(0, 3, 7, 11),
+        'aug_maj7': (0, 4, 8, 10),
+        'min7flat5':(0, 3, 6, 10),
         # Because 9 = 14 semitones, flat 9, 13 and 13 % 12 = 1
-        'dom7flat9':[0, 4, 7, 10, 1], 
-        'dom7sharp9': [0, 4, 7, 10, 3]
+        'dom7flat9':(0, 4, 7, 10, 1), 
+        'dom7sharp9': (0, 4, 7, 10, 3)
         }
 
 letter_to_semitone = {
@@ -82,3 +81,4 @@ letter_to_semitone = {
         'Bb':10,
         'B':11
 }
+semitone_to_letter = {v: k for k, v in letter_to_semitone.items()}
