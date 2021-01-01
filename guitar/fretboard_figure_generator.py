@@ -53,8 +53,6 @@ def create_fret_representation(filename, chords):
         # Move over to do the next drawing
         ctx.translate(WIDTH,0)
 
-        ctx.save()
-
         # PADDING
         # Center everything
         ctx.translate(PADDING_X,PADDING_Y)
@@ -106,6 +104,9 @@ def create_fret_representation(filename, chords):
         positions = chord_constructor(start_fret, intervals, False)
 
         show_mult_pos_on_fb(positions, ctx)
+
+        # Undo padding translation
+        ctx.translate(-PADDING_X,-PADDING_Y)
 
 def show_pos_on_fretboard(x, y, interval, ctx):
     ctx.set_source_rgb(1, 1, 1)
