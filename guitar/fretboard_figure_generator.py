@@ -5,8 +5,8 @@ from fretboard_position_generator import *
 WIDTH = 1
 HEIGHT = 4
 PIXEL_SCALE = 200
-PADDING_X = WIDTH/10
-PADDING_Y = HEIGHT/10
+PADDING_X = WIDTH/10.0
+PADDING_Y = HEIGHT/10.0
 
 TRUE_WIDTH = PIXEL_SCALE*(WIDTH + 2 * PADDING_X)
 TRUE_HEIGHT = PIXEL_SCALE*(HEIGHT + 2 * PADDING_Y)
@@ -51,15 +51,25 @@ def create_fret_representation(filename, chords):
 
     for j in range(num_chords):
         # Move over to do the next drawing
-        ctx.translate(WIDTH,0)
 
         # PADDING
-        # Center everything
-        ctx.translate(PADDING_X,PADDING_Y)
-
         ctx.rectangle(0, 0, WIDTH + 2 * PADDING_X , HEIGHT + 2 * PADDING_Y)
-        ctx.set_source_rgb(1, 1, 1)
+        ctx.set_source_rgb(.5, .5, .5)
         ctx.fill()
+
+        # LABEL DIAGRAM
+        root_note, chord_type = chords[j]
+        label = root_note + " " + chord_type
+
+        ctx.set_font_size(PADDING_Y/2)
+        (tx, ty, width, height, dx, dy) = ctx.text_extents(label)
+        ctx.set_source_rgb(0, 0, 0)
+        ctx.move_to( (WIDTH + 2 * PADDING_X)/2 - width/2 ,PADDING_Y/2 + height/2)
+        ctx.show_text(label)
+
+
+        # Recenter because of padding
+        ctx.translate(PADDING_X,PADDING_Y)
 
         # BACKGROUND    
         ctx.rectangle(0, 0, WIDTH , HEIGHT)
@@ -107,6 +117,7 @@ def create_fret_representation(filename, chords):
 
         # Undo padding translation
         ctx.translate(-PADDING_X,-PADDING_Y)
+        ctx.translate(WIDTH + 2 * PADDING_X,0)
 
 def show_pos_on_fretboard(x, y, interval, ctx):
     ctx.set_source_rgb(1, 1, 1)
@@ -136,8 +147,7 @@ def show_mult_pos_on_fb(list_of_positions, ctx):
 
 if __name__ == '__main__':
     #blues = ["G#7", "A7", "B7"]
-    blues = [("G#", "dom7"), ("A", "dom7"), ("B", "dom7"), ("C", "dom7")]
-    blues = blues * 4
+    blues = [("A", "dom7"), ("D", "dom7"), ("E", "dom7")]
     #for c in blues:
     #    note = c[:-1]
     #    create_fret_representation(c, E_STRING_FRET_MAPPING[note], [0, 4, 7, 10])

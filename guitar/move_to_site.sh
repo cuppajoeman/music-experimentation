@@ -1,2 +1,2 @@
 #!/bin/bash
-mv *.svg ~/site/music
+mv generated_assets/*.svg ~/site/music
