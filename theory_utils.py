@@ -87,12 +87,12 @@ def analyze_roman_chords(rf):
     return rf
 
 
-sf = generate_scale_frequencies(110, scales['mel_min'])
-sn = [freq_to_sci(y) for y in sf ]
-
-rf = construct_roman_frequencies(sf)
-
-print(analyze_roman_chords(rf))
+#sf = generate_scale_frequencies(110, scales['mel_min'])
+#sn = [freq_to_sci(y) for y in sf ]
+#
+#rf = construct_roman_frequencies(sf)
+#
+#print(analyze_roman_chords(rf))
 
 #for k in rf:
 #    rf[k] = [freq_to_sci(y) for y in rf[k] ]

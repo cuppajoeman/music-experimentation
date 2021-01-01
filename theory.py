@@ -64,7 +64,10 @@ intervals_to_semitone = {
         ('m10', 'A9'): 15,
         ('M10', 'd11'): 16,
         ('P11', 'A10'): 17,
-        ('d12', 'A11'): 18
+        ('d12', 'A11'): 18,
+        ('P12', 'd13'): 19,
+        ('m13', 'A12'): 20,
+        ('M13', 'd14'): 21
         }
 
 # CHORDS
@@ -81,7 +84,7 @@ chords = {
         'min7flat5':(0, 3, 6, 10),
         # Because 9 = 14 semitones, flat 9, 13 and 13 % 12 = 1
         'dom7flat9':(0, 4, 7, 10, 1), 
-        'dom7sharp9': (0, 4, 7, 10, 3)
+        'dom7sharp9': (0, 4, 7, 10, 3),
         'dom13': (0, 4, 7, 10, 17)
         }
 # TODO do away with the one above, there for legacy for now
@@ -93,13 +96,14 @@ chord_to_interval = {
         'min7': (0, 3, 7, 10), 
         'dim7': (0, 3, 6, 9),
         'half_dim7': (0, 3, 6, 10),
-        'dom7flat9':(0, 3, 7, 11),
+        #'dom7flat9':(0, 3, 7, 11),
         'aug_maj7': (0, 4, 8, 10),
         'min7flat5':(0, 3, 6, 10),
         # Because 9 = 14 semitones, flat 9, 13 and 13 % 12 = 1
-        'dom7flat9':(0, 4, 7, 10, 1), 
-        'dom7sharp9': (0, 4, 7, 10, 3)
-        'dom13': (0, 4, 7, 10, 17)
+        'dom7flat9':(0, 4, 7, 10, 13), 
+        'dom7sharp9': (0, 4, 7, 10, 15),
+        'dom13': (0, 4, 7, 10, 17),
+        'dom7flat13':(0, 4, 7, 10,20 ) 
         }
 interval_to_chord = {v: k for k, v in chord_to_interval.items()}
 # TODO: Convert it to tuples and then get a one to one mapping
