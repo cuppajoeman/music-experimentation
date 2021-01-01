@@ -37,7 +37,9 @@ E_STRING_FRET_MAPPING = {
 
 def create_fret_representation(filename, chords):
 
-    surface = cairo.SVGSurface("generated_assets/" + filename + ".svg", TRUE_WIDTH , TRUE_HEIGHT)
+    num_chords = len(chords)
+
+    surface = cairo.SVGSurface("generated_assets/" + filename + ".svg", TRUE_WIDTH * num_chords , TRUE_HEIGHT)
     
 
     ctx = cairo.Context(surface)
@@ -46,9 +48,10 @@ def create_fret_representation(filename, chords):
     ctx.select_font_face("Arial", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
 
     num_chords = len(chords)
+    print(num_chords)
 
     # BACKGROUND    
-    ctx.rectangle(0, 0, WIDTH * num_chords , HEIGHT)
+    ctx.rectangle(0, 0, WIDTH , HEIGHT)
     ctx.set_source_rgb(0, 0, 0)
     ctx.fill()
 
