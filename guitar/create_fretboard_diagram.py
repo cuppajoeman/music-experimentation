@@ -11,31 +11,31 @@ from fretboard_txt_generator import *
 
 
 PATTERNS = {
-    "EQUIVALENCE": [
-                               0
-                   ],
-    "NEARBY_INTERVALS": [
+    "EQUIVALENCE": (
+                               0,
+                   ),
+    "NEARBY_INTERVALS": (
                             4,5,6,
                             11,0,1,
                             6,7,8
-                        ],
-    "MISSING_INTERVALS": [
+                        ),
+    "MISSING_INTERVALS": (
                             3,     
                             10, 0  ,2,
                                     9
-                        ],
-    "FURTHER_INTERVALS": [
+                        ),
+    "FURTHER_INTERVALS": (
                                     3,4,5,6,7,
                                     10,11,0,1,2,
                                     8,9
-                            ],
-    "LINE_Y_EQUALS_X": [0, 6 ],
-    "LINE_Y_EQUALS_MINUS_X": [0, 4, 8 ],
+                            ),
+    "LINE_Y_EQUALS_X": (0, 6 ),
+    "LINE_Y_EQUALS_MINUS_X": (0, 4, 8 ),
     # Because gcd(7, 12) = 1
-    "LINE_Y_EQUALS_2X": [0, 7, 2, 9, 4, 11, 6, 1, 8, 3, 10, 5 ],
-    "LINE_Y_EQUALS_MINUS_2X": [ 0,3,6,9 ],
-    "LINE_Y_EQUALS_3X": [0, 8, 4 ],
-    "LINE_Y_EQUALS_MINUS_3X": [0,2,4,6,8,10],
+    "LINE_Y_EQUALS_2X": (0, 7, 2, 9, 4, 11, 6, 1, 8, 3, 10, 5 ),
+    "LINE_Y_EQUALS_MINUS_2X": ( 0,3,6,9 ),
+    "LINE_Y_EQUALS_3X": (0, 8, 4 ),
+    "LINE_Y_EQUALS_MINUS_3X": (0,2,4,6,8,10),
     }
 
 # Linear interval demonstration
@@ -87,26 +87,27 @@ PATTERNS = {
 #
 # SHOW CHORDS
 
-for s,c in chords.items():
-    r_pos = random.randint(0, 12)
-    print(s)
-    tbm = chord_constructor(r_pos, c, False)
-    mark_fretboard_no_gui(tbm, FRETBOARD)
-    print_mat_v2(FRETBOARD)
-    FRETBOARD = [["-"] * NUM_FRETS for _ in range(6)]
+#for s,c in chord_to_interval.items():
+#    r_pos = random.randint(0, 12)
+#    print(s)
+#    tbm = chord_constructor(r_pos, c, False)
+#    mark_fretboard_no_gui(tbm, FRETBOARD)
+#    print_mat_v2(FRETBOARD)
+#    FRETBOARD = [["-"] * NUM_FRETS for _ in range(6)]
+#
 
+blues = [("A", "dom7"), ("D", "dom7"), ("E", "dom7")]
+create_fret_representation("blues",blues )
 
-blues = ["G#7", "A7", "B7"]
-for c in blues:
-    note = c[:-1]
-    create_fret_representation(c, E_STRING_FRET_MAPPING[note], [0, 4, 7, 10])
-
+print(PATTERNS.items())
 for s, c in PATTERNS.items():
+    print("hi", s, c)
     r_pos = random.randint(0, 12)
-    create_fret_representation(s, r_pos, c)
+    create_fret_representation(s, [(r_pos, c)])
 
-for s, c in chords.items():
+for s, c in chord_to_interval.items():
     r_pos = random.randint(0, 12)
-    create_fret_representation(s, r_pos, c)
+    print("hi", s, c)
+    create_fret_representation(s, [(r_pos, c)])
     
 

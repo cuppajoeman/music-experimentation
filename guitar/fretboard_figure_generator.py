@@ -58,8 +58,28 @@ def create_fret_representation(filename, chords):
         ctx.fill()
 
         # LABEL DIAGRAM
+
         root_note, chord_type = chords[j]
-        label = root_note + " " + chord_type
+        label = ''
+
+        if isinstance(root_note, int):
+            start_fret = root_note
+            label += str(root_note)
+        else:
+            #otherwise it's a letter
+            start_fret = E_STRING_FRET_MAPPING[root_note]
+            label += root_note
+
+        if isinstance(chord_type, str):
+            label += " " + chord_type
+            intervals = chord_to_interval[chord_type]
+        else:
+            # Otherwise it's a list of intervals
+            label += " Intervals: " + str(chord_type)
+            intervals = chord_type
+            
+        print(intervals)
+
 
         ctx.set_font_size(PADDING_Y/2)
         (tx, ty, width, height, dx, dy) = ctx.text_extents(label)
@@ -105,10 +125,7 @@ def create_fret_representation(filename, chords):
 
         # Prepare for note generation
 
-        root_note, chord_type = chords[j]
-        intervals = chord_to_interval[chord_type]
-        start_fret = E_STRING_FRET_MAPPING[root_note]
-        print( root_note, chord_type, intervals,  start_fret )
+        #print( root_note, chord_type, intervals,  start_fret )
 
 
         positions = chord_constructor(start_fret, intervals, False)
