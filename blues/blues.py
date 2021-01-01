@@ -7,6 +7,7 @@ from sound import *
 KEY = sys.argv[1]
 
 
+# TODO: After roman analysis, we won't need to pass in the chord type.
 changes = [
         ("I", "maj_tri", 1), ("IV", "maj_tri", 1), ("I", "maj_tri", 1),("I", "dom7", 1),
         ("IV", "maj_tri", 1), ("IV", "dom7", 1), ("I", "maj_tri", 1),("I", "dom7", 1),
