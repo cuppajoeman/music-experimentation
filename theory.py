@@ -99,6 +99,7 @@ chord_to_interval = {
         #'dom7flat9':(0, 3, 7, 11),
         'aug_maj7': (0, 4, 8, 10),
         'min7flat5':(0, 3, 6, 10),
+        'min7flat9':(0, 3, 7, 10, 13),
         # Because 9 = 14 semitones, flat 9, 13 and 13 % 12 = 1
         'dom7flat9':(0, 4, 7, 10, 13), 
         'dom7sharp9': (0, 4, 7, 10, 15),
