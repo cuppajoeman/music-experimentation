@@ -49,8 +49,7 @@ def create_fret_representation(filename, chords):
 
     for j in range(num_chords):
         # Move over to do the next drawing
-        print(WIDTH * j)
-        ctx.translate(WIDTH * j,0)
+        ctx.translate(WIDTH,0)
 
         # BACKGROUND    
         ctx.rectangle(0, 0, WIDTH , HEIGHT)
