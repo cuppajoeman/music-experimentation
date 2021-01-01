@@ -41,18 +41,15 @@ def create_fret_representation(filename, chords):
 
     surface = cairo.SVGSurface("generated_assets/" + filename + ".svg", TRUE_WIDTH * num_chords , TRUE_HEIGHT)
     
-
     ctx = cairo.Context(surface)
     ctx.scale(PIXEL_SCALE, PIXEL_SCALE)
 
     ctx.select_font_face("Arial", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
 
-    num_chords = len(chords)
-    print(num_chords)
-
 
     for j in range(num_chords):
         # Move over to do the next drawing
+        print(WIDTH * j)
         ctx.translate(WIDTH * j,0)
 
         # BACKGROUND    
@@ -92,6 +89,7 @@ def create_fret_representation(filename, chords):
         root_note, chord_type = chords[j]
         intervals = chord_to_interval[chord_type]
         start_fret = E_STRING_FRET_MAPPING[root_note]
+        print( root_note, chord_type, intervals,  start_fret )
 
 
         positions = chord_constructor(start_fret, intervals, False)
@@ -109,7 +107,7 @@ def show_pos_on_fretboard(x, y, interval, ctx):
     ctx.arc(x_pos,shifted_y ,rad , 0, 2*math.pi)
     ctx.fill()
 
-
+    # Make text fit in middle of circle
     ctx.set_font_size(rad)
     (tx, ty, width, height, dx, dy) = ctx.text_extents(interval)
     ctx.set_source_rgb(0, 0, 0)
@@ -126,7 +124,7 @@ def show_mult_pos_on_fb(list_of_positions, ctx):
 
 if __name__ == '__main__':
     #blues = ["G#7", "A7", "B7"]
-    blues = [("G#", "dom7"), ("A", "dom7"), ("B", "dom7")]
+    blues = [("G#", "dom7"), ("A", "dom7"), ("B", "dom7"), ("C", "dom7")]
     #for c in blues:
     #    note = c[:-1]
     #    create_fret_representation(c, E_STRING_FRET_MAPPING[note], [0, 4, 7, 10])
