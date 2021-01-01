@@ -125,7 +125,7 @@ def show_mult_pos_on_fb(list_of_positions, ctx):
 if __name__ == '__main__':
     #blues = ["G#7", "A7", "B7"]
     blues = [("G#", "dom7"), ("A", "dom7"), ("B", "dom7"), ("C", "dom7")]
-    blues = [("G#", "dom7"), ("A", "dom7"), ("C", "dom7")]
+    blues = blues * 4
     #for c in blues:
     #    note = c[:-1]
     #    create_fret_representation(c, E_STRING_FRET_MAPPING[note], [0, 4, 7, 10])
