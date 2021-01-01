@@ -20,8 +20,7 @@ def create_song(title, BPM, chord_changes, times=1):
         chord_movement = chord_generator(root_freq, chord_to_interval[chord_type], duration * SPMEA)
         all_waves = np.append(all_waves, chord_movement)
 
-    for _ in range(times):
-        final = np.append(final, all_waves)
+    final = np.tile(all_waves, times)
 
     # Write the samples to a file
     wavio.write('generated_songs/' + title + ".wav", final, RATE, sampwidth=3)

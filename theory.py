@@ -74,6 +74,7 @@ intervals_to_semitone = {
 chords = {
         'maj_tri': (0, 4, 7),
         'min_tri': (0, 3, 7),
+        'min6': (0, 3, 7, 9 ), 
         'dom7': (0, 4, 7, 10),
         'maj7': (0, 4, 7, 11),
         'min7': (0, 3, 7, 10), 
@@ -91,6 +92,7 @@ chords = {
 chord_to_interval = {
         'maj_tri': (0, 4, 7),
         'min_tri': (0, 3, 7),
+        'min6': (0, 3, 7, 9 ), 
         'dom7': (0, 4, 7, 10),
         'maj7': (0, 4, 7, 11),
         'min7': (0, 3, 7, 10), 
