@@ -50,22 +50,19 @@ def create_fret_representation(filename, chords):
     num_chords = len(chords)
     print(num_chords)
 
-    # BACKGROUND    
-    ctx.rectangle(0, 0, WIDTH , HEIGHT)
-    ctx.set_source_rgb(0, 0, 0)
-    ctx.fill()
 
-    for i in range(num_chords):
-        root_note, chord_type = chords[i]
-        intervals = chord_to_interval[chord_type]
-        start_fret = E_STRING_FRET_MAPPING[root_note]
+    for j in range(num_chords):
         # Move over to do the next drawing
-        ctx.translate(WIDTH * i,0)
+        ctx.translate(WIDTH * j,0)
+
+        # BACKGROUND    
+        ctx.rectangle(0, 0, WIDTH , HEIGHT)
+        ctx.set_source_rgb(0, 0, 0)
+        ctx.fill()
 
         # PREPARE BRUSH
         ctx.set_source_rgb(1,1,1)
         ctx.set_line_width(0.01)
-
 
         # DRAW NUT
         ctx.rectangle(0, 2 * Y_UNIT/3, WIDTH, Y_UNIT/3)
@@ -90,6 +87,11 @@ def create_fret_representation(filename, chords):
 
         ctx.stroke()
 
+        # Prepare for note generation
+
+        root_note, chord_type = chords[j]
+        intervals = chord_to_interval[chord_type]
+        start_fret = E_STRING_FRET_MAPPING[root_note]
 
 
         positions = chord_constructor(start_fret, intervals, False)
