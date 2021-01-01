@@ -7,4 +7,4 @@ song = [
         ('C5', 'min7', 1), ('F5', 'dom7', 1), ('Bb4', 'dom7', .5), ('G5', 'dom7flat9', .5), ('C5', 'min7', .5), ('F5', 'dom7', .5)
 ]
 
-create_song("sonny moon for two advanced", 140, song)
+create_song("sonny moon for two advanced", 140, song, 8)

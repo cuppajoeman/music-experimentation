@@ -15,7 +15,6 @@ def single_tone_generator(frequency, duration):
 def sum_frequencies(frequencies, duration):
     out_wave = np.zeros(int(duration * RATE))
     for f in frequencies:
-        print(f, duration)
         single_tone = single_tone_generator(f, duration)
         out_wave= np.add(out_wave, single_tone)
     return out_wave
@@ -25,7 +24,6 @@ def chord_generator(root_freq, intervals, duration):
     # TODO: use sum_frequencies in here
     for i in intervals:
         freq = root_freq * (2 ** (i/12.0))
-        print(freq, duration)
         single_tone = single_tone_generator(freq, duration)
         out_wave= np.add(out_wave, single_tone)
     return out_wave
@@ -64,13 +62,11 @@ def construct_romans(scale_freqs):
     duration = 1
     roman_chords = {}
     N = len(scale_freqs) - 1
-    print(N)
 
     for i in range(N+1):
         # third up + 2 scale tones
         # 5 th up + 4 scale tones
         # need room to go up by four
-        print("=== NEW CHORD ===", i)
         chord = np.zeros(int(duration * RATE))
         for j in [0, 2, 4]:
             # We need to go to the next octave if we're out of the current scale
@@ -78,13 +74,11 @@ def construct_romans(scale_freqs):
             mult = 2 if i + j >= N else 1
             # 7 needs to map to 0 (7 unique notes in a scale 0, ... 6)
             freq = scale_freqs[(i + j) % N] * mult
-            print("===", (i + j), (i + j) % 8  , mult, freq)
             single_tone = single_tone_generator(freq, duration)
             chord = np.add(chord, single_tone)
 
         numeral = ROMAN_NUMERALS[i % len(ROMAN_NUMERALS)]
         roman_chords[numeral] = chord
-        #print(roman_chords)
 
     return roman_chords
 
@@ -137,8 +131,8 @@ def augment_chord(frequencies, interval):
 
 # Write the samples to a file
 #print(construct_romans(generate_scale_frequencies(sci_to_freq("C4"), scales['maj'])))
-print(generate_scale_frequencies(sci_to_freq("C5"), scales['maj']))
-r = construct_romans(generate_scale_frequencies(sci_to_freq("C5"), scales['maj'])).values()
+#print(generate_scale_frequencies(sci_to_freq("C5"), scales['maj']))
+#r = construct_romans(generate_scale_frequencies(sci_to_freq("C5"), scales['maj'])).values()
 
 #wavio.write("sine.wav", construct_scale(sci_to_freq("C4"), scales['maj'], 2), RATE, sampwidth=3)
-wavio.write("romans.wav", gen_chord_progression(r), RATE, sampwidth=3)
+#wavio.write("romans.wav", gen_chord_progression(r), RATE, sampwidth=3)
