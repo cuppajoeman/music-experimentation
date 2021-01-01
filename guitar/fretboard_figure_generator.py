@@ -5,9 +5,11 @@ from fretboard_position_generator import *
 WIDTH = 1
 HEIGHT = 4
 PIXEL_SCALE = 200
+PADDING_X = WIDTH/10
+PADDING_Y = HEIGHT/10
 
-TRUE_WIDTH = WIDTH*PIXEL_SCALE
-TRUE_HEIGHT = HEIGHT*PIXEL_SCALE
+TRUE_WIDTH = PIXEL_SCALE*(WIDTH + 2 * PADDING_X)
+TRUE_HEIGHT = PIXEL_SCALE*(HEIGHT + 2 * PADDING_Y)
 
 FRETS = 24
 STRINGS = 6
@@ -50,6 +52,16 @@ def create_fret_representation(filename, chords):
     for j in range(num_chords):
         # Move over to do the next drawing
         ctx.translate(WIDTH,0)
+
+        ctx.save()
+
+        # PADDING
+        # Center everything
+        ctx.translate(PADDING_X,PADDING_Y)
+
+        ctx.rectangle(0, 0, WIDTH + 2 * PADDING_X , HEIGHT + 2 * PADDING_Y)
+        ctx.set_source_rgb(1, 1, 1)
+        ctx.fill()
 
         # BACKGROUND    
         ctx.rectangle(0, 0, WIDTH , HEIGHT)
