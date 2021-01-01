@@ -6,7 +6,7 @@ WIDTH = 1
 HEIGHT = 4
 PIXEL_SCALE = 200
 PADDING_X = WIDTH/10.0
-PADDING_Y = HEIGHT/10.0
+PADDING_Y = HEIGHT/20
 
 TRUE_WIDTH = PIXEL_SCALE*(WIDTH + 2 * PADDING_X)
 TRUE_HEIGHT = PIXEL_SCALE*(HEIGHT + 2 * PADDING_Y)
@@ -81,7 +81,7 @@ def create_fret_representation(filename, chords):
         print(intervals)
 
 
-        ctx.set_font_size(PADDING_Y/2)
+        ctx.set_font_size(PADDING_Y/4)
         (tx, ty, width, height, dx, dy) = ctx.text_extents(label)
         ctx.set_source_rgb(0, 0, 0)
         ctx.move_to( (WIDTH + 2 * PADDING_X)/2 - width/2 ,PADDING_Y/2 + height/2)
