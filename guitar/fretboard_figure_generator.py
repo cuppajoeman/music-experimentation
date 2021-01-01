@@ -64,28 +64,23 @@ def create_fret_representation(filename, chords):
 
         if isinstance(root_note, int):
             start_fret = root_note
-            label += str(root_note)
         else:
             #otherwise it's a letter
             start_fret = E_STRING_FRET_MAPPING[root_note]
-            label += root_note
 
         if isinstance(chord_type, str):
-            label += " " + chord_type
             intervals = chord_to_interval[chord_type]
         else:
             # Otherwise it's a list of intervals
-            label += " Intervals: " + str(chord_type)
             intervals = chord_type
             
-        print(intervals)
 
 
         ctx.set_font_size(PADDING_Y/4)
-        (tx, ty, width, height, dx, dy) = ctx.text_extents(label)
+        (tx, ty, width, height, dx, dy) = ctx.text_extents(filename)
         ctx.set_source_rgb(0, 0, 0)
         ctx.move_to( (WIDTH + 2 * PADDING_X)/2 - width/2 ,PADDING_Y/2 + height/2)
-        ctx.show_text(label)
+        ctx.show_text(filename)
 
 
         # Recenter because of padding
