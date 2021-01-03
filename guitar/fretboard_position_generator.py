@@ -6,7 +6,9 @@ from theory import *
 
 NUM_FRETS = 24
 NUM_STRINGS = 6
-BASE_EQUIVALENCE_PATTERN = [0, -5, 2, -3, 5, 0]
+# min of abs to get these numbers
+#BASE_EQUIVALENCE_PATTERN = [0, -5, 2, -3, 5, 0]
+BASE_EQUIVALENCE_PATTERN = [0, -5, 2, -3, 4, -1]
 FRETBOARD = [["-"] * NUM_FRETS for _ in range(6)]
 
 
