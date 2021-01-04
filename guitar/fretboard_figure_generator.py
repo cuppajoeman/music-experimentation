@@ -11,7 +11,8 @@ PADDING_Y = HEIGHT/20
 TRUE_WIDTH = PIXEL_SCALE*(WIDTH + 2 * PADDING_X)
 TRUE_HEIGHT = PIXEL_SCALE*(HEIGHT + 2 * PADDING_Y)
 
-FRETS = 24
+# We have to add one because 0, ..., 24 makes 25
+FRETS = 24 + 1
 STRINGS = 6
 
 X_UNIT = WIDTH/(STRINGS-1)
@@ -54,10 +55,12 @@ def create_fret_representation(filename, chords, printable=False):
 
         # PADDING
         ctx.rectangle(0, 0, WIDTH + 2 * PADDING_X , HEIGHT + 2 * PADDING_Y)
-        ctx.set_source_rgb(.5, .5, .5)
         if printable:
+            ctx.set_source_rgb(0, 0, 0)
+            ctx.set_line_width(0.01)
             ctx.stroke()
         else:
+            ctx.set_source_rgb(.5, .5, .5)
             ctx.fill()
 
         # LABEL DIAGRAM
@@ -73,17 +76,19 @@ def create_fret_representation(filename, chords, printable=False):
 
         if isinstance(chord_type, str):
             intervals = chord_to_interval[chord_type]
+            title = chord_short_name_to_full[chord_type]
         else:
             # Otherwise it's a list of intervals
-            intervals = chord_type
+            intervals = chord_type 
+            title = filename.title()
             
 
 
         ctx.set_font_size(PADDING_Y/4)
-        (tx, ty, width, height, dx, dy) = ctx.text_extents(filename)
+        (tx, ty, width, height, dx, dy) = ctx.text_extents(title)
         ctx.set_source_rgb(0, 0, 0)
         ctx.move_to( (WIDTH + 2 * PADDING_X)/2 - width/2 ,PADDING_Y/2 + height/2)
-        ctx.show_text(filename)
+        ctx.show_text(title)
 
 
         # Recenter because of padding
@@ -92,7 +97,7 @@ def create_fret_representation(filename, chords, printable=False):
         # BACKGROUND    
         ctx.rectangle(0, 0, WIDTH , HEIGHT)
         if printable:
-            ctx.set_source_rgb(0, 0, 0)
+            ctx.set_source_rgb(1, 1, 1)
             ctx.stroke()
         else:
             ctx.set_source_rgb(0, 0, 0)
@@ -136,14 +141,19 @@ def create_fret_representation(filename, chords, printable=False):
 
         positions = chord_constructor(start_fret, intervals, False)
 
-        show_mult_pos_on_fb(positions, ctx)
+        show_mult_pos_on_fb(positions, ctx, printable)
 
         # Undo padding translation
         ctx.translate(-PADDING_X,-PADDING_Y)
         ctx.translate(WIDTH + 2 * PADDING_X,0)
 
-def show_pos_on_fretboard(x, y, interval, ctx):
-    ctx.set_source_rgb(1, 1, 1)
+def show_pos_on_fretboard(x, y, interval, ctx, printable=False):
+
+    if printable:
+        ctx.set_source_rgb(0, 0, 0)
+    else:
+        ctx.set_source_rgb(1, 1, 1)
+
     x_pos = x * X_UNIT 
     # We have to do this because the first fret isn't visible
     y_pos = (y+1) * Y_UNIT
@@ -156,17 +166,22 @@ def show_pos_on_fretboard(x, y, interval, ctx):
     # Make text fit in middle of circle
     ctx.set_font_size(rad)
     (tx, ty, width, height, dx, dy) = ctx.text_extents(interval)
-    ctx.set_source_rgb(0, 0, 0)
+
+    if printable:
+        ctx.set_source_rgb(1, 1, 1)
+    else:
+        ctx.set_source_rgb(0, 0, 0)
+
     ctx.move_to(x_pos - width/2,shifted_y + height/2)
     ctx.show_text(interval)
 
-def show_mult_pos_on_fb(list_of_positions, ctx):
+def show_mult_pos_on_fb(list_of_positions, ctx, printable=False):
     for pos in list_of_positions:
         # String representation is backwards
         x = STRINGS - 1 - pos[0]
         y = pos[1]
         interval = pos[2]
-        show_pos_on_fretboard(x, y,interval, ctx)
+        show_pos_on_fretboard(x, y,interval, ctx, printable)
 
 if __name__ == '__main__':
     #blues = ["G#7", "A7", "B7"]

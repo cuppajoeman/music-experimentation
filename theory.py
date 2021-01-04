@@ -98,17 +98,33 @@ chord_to_interval = {
         'min7': (0, 3, 7, 10), 
         'dim7': (0, 3, 6, 9),
         'half_dim7': (0, 3, 6, 10),
-        #'dom7flat9':(0, 3, 7, 11),
         'aug_maj7': (0, 4, 8, 10),
-        'min7flat5':(0, 3, 6, 10),
         'min7flat9':(0, 3, 7, 10, 13),
-        # Because 9 = 14 semitones, flat 9, 13 and 13 % 12 = 1
         'dom7flat9':(0, 4, 7, 10, 13), 
+        'dom9':(0, 4, 7, 10, 14), 
         'dom7sharp9': (0, 4, 7, 10, 15),
-        'dom13': (0, 4, 7, 10, 17),
+        'dom13': (0, 4, 7, 10, 14, 17),
         'dom7flat13':(0, 4, 7, 10,20 ) 
         }
 interval_to_chord = {v: k for k, v in chord_to_interval.items()}
+
+chord_short_name_to_full = {
+        'maj_tri': "Major Triad",
+        'min_tri': "Minor Triad",
+        'min6': "Minor 6th", 
+        'dom7': "Dominant 7th",
+        'maj7': "Major 7th",
+        'min7': "Minor 7th", 
+        'dim7': "Diminished 7th",
+        'half_dim7': "Half-Diminished 7th",
+        'aug_maj7': "Augmented Major 7th",
+        'min7flat9': "Minor 7th flat 9",
+        'dom7flat9': "Dominant 7th flat 9", 
+        'dom9': "Dominant 9th", 
+        'dom7sharp9': "Dominant 7th sharp 9",
+        'dom13': "Dominant 13th",
+        'dom7flat13': "Dominant 7th flat 13"
+        }
 # TODO: Convert it to tuples and then get a one to one mapping
 letter_to_semitone = {
         'C':0 ,
