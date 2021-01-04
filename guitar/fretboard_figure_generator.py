@@ -37,7 +37,7 @@ E_STRING_FRET_MAPPING = {
 'Eb':11,
 }
 
-def create_fret_representation(filename, chords):
+def create_fret_representation(filename, chords, printable=False):
 
     num_chords = len(chords)
 
@@ -55,7 +55,10 @@ def create_fret_representation(filename, chords):
         # PADDING
         ctx.rectangle(0, 0, WIDTH + 2 * PADDING_X , HEIGHT + 2 * PADDING_Y)
         ctx.set_source_rgb(.5, .5, .5)
-        ctx.fill()
+        if printable:
+            ctx.stroke()
+        else:
+            ctx.fill()
 
         # LABEL DIAGRAM
 
@@ -88,11 +91,19 @@ def create_fret_representation(filename, chords):
 
         # BACKGROUND    
         ctx.rectangle(0, 0, WIDTH , HEIGHT)
-        ctx.set_source_rgb(0, 0, 0)
-        ctx.fill()
+        if printable:
+            ctx.set_source_rgb(0, 0, 0)
+            ctx.stroke()
+        else:
+            ctx.set_source_rgb(0, 0, 0)
+            ctx.fill()
 
         # PREPARE BRUSH
-        ctx.set_source_rgb(1,1,1)
+        if printable:
+            ctx.set_source_rgb(0,0,0)
+        else:
+            ctx.set_source_rgb(1,1,1)
+
         ctx.set_line_width(0.01)
 
         # DRAW NUT
