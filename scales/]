@@ -19,11 +19,12 @@ NUM_SEMITONES = 12
 NUM_DEGREES = 7
 PATTERN_LENGTH = 7
 
-TABLE_COLS = 2 * 7 
+TABLE_COLS = 2 * 7
 TABLE_ROWS = NUM_DEGREES + 1
 
-X_UNIT = WIDTH/(14)
-Y_UNIT = HEIGHT/(8)
+
+X_UNIT = WIDTH/(TABLE_COLS)
+Y_UNIT = HEIGHT/(TABLE_ROWS)
 
 def create_table_for_patterns(filename, patterns, printable=False):
 
@@ -83,15 +84,15 @@ def create_table_for_patterns(filename, patterns, printable=False):
         # DRAW GRID
 
         # Add one for the top row which displays the pattern
-        for i in range(TABLE_ROWS + 1 ):
-            y_pos = HEIGHT/(TABLE_ROWS) * i
+        for i in range(TABLE_ROWS ):
+            y_pos = HEIGHT/(TABLE_ROWS - 1) * i
             ctx.move_to(0, y_pos)
             ctx.line_to(WIDTH , y_pos)
         ctx.stroke()
         
-        for i in range(TABLE_COLS+1):
+        for i in range(NUM_SEMITONES):
             # We use -1, because we only want 5 gaps, which gives 6 strings
-            x_pos = WIDTH/(TABLE_COLS) * i  
+            x_pos = WIDTH/(NUM_SEMITONES ) * i  
             ctx.move_to(x_pos, 0)
             #ctx.arc(x_pos,0 ,15, 0, 2*math.pi)
             ctx.line_to(x_pos, HEIGHT)
@@ -154,7 +155,7 @@ def draw_at_pos_in_table(x, y, text, ctx, printable=False):
     else:
         ctx.set_source_rgb(1, 1, 1)
 
-    x_pos = x * X_UNIT + X_UNIT/2
+    x_pos = x * X_UNIT 
     y_pos = y * Y_UNIT + Y_UNIT/2
 
     sz = min(X_UNIT, Y_UNIT)
