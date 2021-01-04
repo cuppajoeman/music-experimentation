@@ -103,8 +103,8 @@ for s, c in PATTERNS.items():
     r_pos = random.randint(0, 12)
     create_fret_representation(s, [(r_pos, c)], True)
 
-for s, c in chord_to_interval.items():
+for s in chord_to_interval:
     r_pos = random.randint(0, 12)
-    create_fret_representation(s, [(r_pos, c)], True)
+    create_fret_representation(s, [(r_pos, s)], True)
     
 
