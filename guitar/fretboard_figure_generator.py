@@ -74,14 +74,13 @@ def create_fret_representation(filename, chords, printable=False):
             #otherwise it's a letter
             start_fret = E_STRING_FRET_MAPPING[root_note]
 
-        if isinstance(chord_type, str):
+        if not isinstance(chord_type, tuple):
             intervals = chord_to_interval[chord_type]
             title = chord_short_name_to_full[chord_type]
         else:
             # Otherwise it's a list of intervals
             intervals = chord_type 
             title = filename.title()
-            
 
 
         ctx.set_font_size(PADDING_Y/4)
