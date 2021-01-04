@@ -89,11 +89,9 @@ chords = {
         'dom7sharp9': (0, 4, 7, 10, 3),
         'dom13': (0, 4, 7, 10, 17)
         }
+
 # TODO do away with the one above, there for legacy for now
-chord_to_interval = {
-        'maj_tri': (0, 4, 7),
-        'min_tri': (0, 3, 7),
-        'min6': (0, 3, 7, 9 ), 
+seventh_chord_to_interval =  {
         'dom7': (0, 4, 7, 10),
         'maj7': (0, 4, 7, 11),
         'min7': (0, 3, 7, 10), 
@@ -101,6 +99,12 @@ chord_to_interval = {
         'dim7': (0, 3, 6, 9),
         'half_dim7': (0, 3, 6, 10),
         'aug_maj7': (0, 4, 8, 10),
+}
+interval_to_seventh_chord = {v: k for k, v in seventh_chord_to_interval.items()}
+chord_to_interval = {
+        'maj_tri': (0, 4, 7),
+        'min_tri': (0, 3, 7),
+        'min6': (0, 3, 7, 9 ), 
         'min7flat9':(0, 3, 7, 10, 13),
         'dom7flat9':(0, 4, 7, 10, 13), 
         'dom9':(0, 4, 7, 10, 14), 
@@ -108,7 +112,9 @@ chord_to_interval = {
         'dom13': (0, 4, 7, 10, 14, 17),
         'dom7flat13':(0, 4, 7, 10,20 ) 
         }
+chord_to_interval.update(seventh_chord_to_interval)
 interval_to_chord = {v: k for k, v in chord_to_interval.items()}
+
 
 chord_short_name_to_full = {
         'maj_tri': "Major Triad",

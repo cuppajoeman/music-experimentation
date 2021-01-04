@@ -135,7 +135,7 @@ def gen_table_from_pattern(pattern):
 def sum_pat(pattern, offset):
     # Offset is where you start in the pattern
     N = len(pattern)
-    new_pat = [" "] * (N * 2)
+    new_pat = [""] * (N * 2)
     s = 0
     for i in range(N):
       # This makes it so it will thread between pattern
@@ -145,6 +145,19 @@ def sum_pat(pattern, offset):
       pos =  2*(i + offset) % (N * 2)
       new_pat[pos] = str(s)
       s += curr_pat_ele
+
+    # 7th chord analysis
+    idxs = []     
+    for c, itv in seventh_chord_to_interval.items():
+        contained = set(itv).issubset(set([int(x) for x in new_pat if x != ""]))
+        if contained:
+            for i in range(len(new_pat)):
+                if new_pat[i] != "" and int(new_pat[i]) in itv:
+                    idxs.append(i)
+   
+    for i in idxs:
+        new_pat[i] += "*" 
+
     return new_pat
 
 def draw_at_pos_in_table(x, y, text, ctx, printable=False):
@@ -184,7 +197,7 @@ if __name__ == '__main__':
     #for c in blues:
     #    note = c[:-1]
     #    create_fret_representation(c, E_STRING_FRET_MAPPING[note], [0, 4, 7, 10])
-    create_table_for_patterns("blues",[scales['maj']], True)
+    create_table_for_patterns("all_scales", list(scales.values()), True)
     #for i in range(7):
     #    print(sum_pat(scales['maj'], i))
 
