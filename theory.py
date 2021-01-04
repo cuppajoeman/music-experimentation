@@ -5,6 +5,7 @@ EQUIVALENCE_RATIO = 2
 NUMBER_ATOMIC_UNITS = 12
 
 # SPECIFIC TO WESTERN SYSTEM
+NUM_SEMITONES = 12
 scales = {
     'maj': [2, 2, 1, 2, 2, 2, 1],
     'min': [2, 1, 2, 2, 1, 2, 2],
@@ -96,6 +97,7 @@ chord_to_interval = {
         'dom7': (0, 4, 7, 10),
         'maj7': (0, 4, 7, 11),
         'min7': (0, 3, 7, 10), 
+        'min_maj7': (0, 3, 7, 11), 
         'dim7': (0, 3, 6, 9),
         'half_dim7': (0, 3, 6, 10),
         'aug_maj7': (0, 4, 8, 10),
@@ -115,6 +117,7 @@ chord_short_name_to_full = {
         'dom7': "Dominant 7th",
         'maj7': "Major 7th",
         'min7': "Minor 7th", 
+        'min_maj7': "Minor Major 7th", 
         'dim7': "Diminished 7th",
         'half_dim7': "Half-Diminished 7th",
         'aug_maj7': "Augmented Major 7th",
