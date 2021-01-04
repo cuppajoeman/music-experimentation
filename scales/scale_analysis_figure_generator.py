@@ -103,6 +103,7 @@ def create_table_for_patterns(filename, patterns, printable=False):
         #print( root_note, chord_type, intervals,  start_fret )
 
         pattern = patterns[j]
+        print(pattern)
 
         # The pattern is interwoven between the numbers
         # So we need an extra on the end thus (+1)
@@ -129,7 +130,7 @@ def create_table_for_patterns(filename, patterns, printable=False):
 def gen_table_from_pattern(pattern):
     table = []
     for i in range(len(pattern)):
-        table.append(sum_pat(scales['maj'], i))
+        table.append(sum_pat(pattern, i))
     return table
 
 def sum_pat(pattern, offset):
@@ -154,7 +155,7 @@ def sum_pat(pattern, offset):
             for i in range(len(new_pat)):
                 if new_pat[i] != "" and int(new_pat[i]) in itv:
                     idxs.append(i)
-   
+            break
     for i in idxs:
         new_pat[i] += "*" 
 
