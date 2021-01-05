@@ -6,7 +6,7 @@ from theory import *
 import cairo
 import math
 
-WIDTH = 4
+WIDTH = 7
 HEIGHT = 1
 PIXEL_SCALE = 200
 PADDING_X = WIDTH/20
