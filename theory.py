@@ -98,7 +98,7 @@ seventh_chord_to_interval =  {
         'min_maj7': (0, 3, 7, 11), 
         'dim7': (0, 3, 6, 9),
         'half_dim7': (0, 3, 6, 10),
-        'aug_maj7': (0, 4, 8, 10),
+        'aug_maj7': (0, 4, 8, 11),
 }
 interval_to_seventh_chord = {v: k for k, v in seventh_chord_to_interval.items()}
 chord_to_interval = {
