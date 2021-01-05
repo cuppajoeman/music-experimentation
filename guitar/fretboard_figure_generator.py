@@ -38,7 +38,7 @@ E_STRING_FRET_MAPPING = {
 'Eb':11,
 }
 
-def create_fret_representation(filename, chords, printable=False):
+def create_fret_representation(filename, chords, printable=False, cols_per_row=-1):
 
     num_chords = len(chords)
 
@@ -52,6 +52,12 @@ def create_fret_representation(filename, chords, printable=False):
 
     for j in range(num_chords):
         # Move over to do the next drawing
+
+        if cols_per_row != -1:
+            # Don't linebreak on first iteration
+            if cols_per_row != 0 and j % cols_per_row == 0:
+                ctx.translate(0, HEIGHT + 2 * PADDING_Y)
+
 
         # PADDING
         ctx.rectangle(0, 0, WIDTH + 2 * PADDING_X , HEIGHT + 2 * PADDING_Y)

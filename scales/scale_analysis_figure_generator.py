@@ -25,7 +25,7 @@ TABLE_ROWS = NUM_DEGREES + 1
 X_UNIT = WIDTH/(14)
 Y_UNIT = HEIGHT/(8)
 
-def create_table_for_patterns(filename, patterns, printable=False):
+def create_table_for_patterns(filename, patterns, printable=False, cols_per_row=-1):
 
     num_patterns = len(patterns)
 
@@ -39,6 +39,11 @@ def create_table_for_patterns(filename, patterns, printable=False):
 
     for j in range(num_patterns):
         # Move over to do the next drawing
+
+        if cols_per_row != -1:
+            # Don't linebreak on first iteration
+            if cols_per_row != 0 and j % cols_per_row == 0:
+                ctx.translate(0, HEIGHT + 2 * PADDING_Y)
 
         # PADDING
         ctx.rectangle(0, 0, WIDTH + 2 * PADDING_X , HEIGHT + 2 * PADDING_Y)
@@ -198,7 +203,7 @@ if __name__ == '__main__':
     #for c in blues:
     #    note = c[:-1]
     #    create_fret_representation(c, E_STRING_FRET_MAPPING[note], [0, 4, 7, 10])
-    create_table_for_patterns("all_scales", list(scales.values()), True)
+    create_table_for_patterns("all_scales", list(scales.values()), True, 2)
     #for i in range(7):
     #    print(sum_pat(scales['maj'], i))
 
