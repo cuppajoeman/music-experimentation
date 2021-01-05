@@ -48,7 +48,7 @@ SECOND_THIRD_BOUNDARY = [
     (1,6), 
     (1,7), 
     (1,8), 
-    (0,8) 
+    (0.5,8) 
 ]
 
 THIRD_FOURTH_BOUNDARY = [ 
@@ -61,11 +61,11 @@ THIRD_FOURTH_BOUNDARY = [
     (2,10), 
     (2,15), 
     (1,15), 
-    (0,15), 
+    (0.5,15), 
 ]
 
 FOURTH_FIFTH_BOUNDARY = [
-    (6,8), 
+    (5.5,8), 
     (5,8), 
     (5,13), 
     (4,13), 
@@ -77,7 +77,7 @@ FOURTH_FIFTH_BOUNDARY = [
 ]
 
 FIFTH_SIXTH_BOUNDARY = [
-    (6,20), 
+    (5.5,20), 
     (5,20), 
     (5,24)
 ]
@@ -242,12 +242,14 @@ def draw_path(path, ctx):
     # Move to the start position
     x_start, y_start = convert_coord_to_pos(path[0])
     x_start -= X_UNIT/2
+    y_start += Y_UNIT/2
     ctx.move_to(x_start, y_start)
 
     for point in path[1:]:
         x_pos, y_pos = convert_coord_to_pos(point)
         # apply shift so between strings
         x_pos -= X_UNIT/2
+        y_pos += Y_UNIT/2
         # Draw the line
         ctx.line_to(x_pos, y_pos)
         # Move our reference point there
