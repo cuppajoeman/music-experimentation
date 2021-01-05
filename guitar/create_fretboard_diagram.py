@@ -100,11 +100,13 @@ blues = [("A", "dom7"), ("D", "dom7"), ("E", "dom7")]
 create_fret_representation("blues",blues, True)
 
 for s, c in PATTERNS.items():
-    r_pos = random.randint(0, 12)
+    #r_pos = random.randint(0, 12)
+    r_pos = 8
     create_fret_representation(s, [(r_pos, c)], True)
 
 for s in chord_to_interval:
-    r_pos = random.randint(0, 12)
+    #r_pos = random.randint(0, 12)
+    r_pos = 8
     create_fret_representation(s, [(r_pos, s)], True)
     
 
