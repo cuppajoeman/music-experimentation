@@ -241,6 +241,7 @@ def draw_path(path, ctx):
 
     # Move to the start position
     x_start, y_start = convert_coord_to_pos(path[0])
+    x_start -= X_UNIT/2
     ctx.move_to(x_start, y_start)
 
     for point in path[1:]:
