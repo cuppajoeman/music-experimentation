@@ -146,25 +146,26 @@ def sum_pat(pattern, offset):
     new_pat = [""] * (N * 2)
     s = 0
     for i in range(N):
+      mark = "*" if i in (0, 2, 4, 6) else ""
       # This makes it so it will thread between pattern
       # p1 |    | p2 |    | p3 |    | 
       #    | s1 |    | s2 |    | s3 |
       curr_pat_ele = pattern[(i + offset) % N]
       pos =  2*(i + offset) % (N * 2)
-      new_pat[pos] = str(s)
+      new_pat[pos] = str(s) + mark
       s += curr_pat_ele
 
-    # 7th chord analysis
-    idxs = []     
-    for c, itv in seventh_chord_to_interval.items():
-        contained = set(itv).issubset(set([int(x) for x in new_pat if x != ""]))
-        if contained:
-            for i in range(len(new_pat)):
-                if new_pat[i] != "" and int(new_pat[i]) in itv:
-                    idxs.append(i)
-            break
-    for i in idxs:
-        new_pat[i] += "*" 
+    ## 7th chord analysis
+    #idxs = []     
+    #for c, itv in seventh_chord_to_interval.items():
+    #    contained = set(itv).issubset(set([int(x) for x in new_pat if x != ""]))
+    #    if contained:
+    #        for i in range(len(new_pat)):
+    #            if new_pat[i] != "" and int(new_pat[i]) in itv:
+    #                idxs.append(i)
+    #        break
+    #for i in idxs:
+    #    new_pat[i] += "*" 
 
     return new_pat
 
