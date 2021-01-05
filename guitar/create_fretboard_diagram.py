@@ -101,6 +101,7 @@ create_fret_representation("blues",blues, True)
 
 for s, c in PATTERNS.items():
     #r_pos = random.randint(0, 12)
+    print(s,c)
     r_pos = 8
     create_fret_representation(s, [(r_pos, c)], True)
 
@@ -109,4 +110,10 @@ for s in chord_to_interval:
     r_pos = 8
     create_fret_representation(s, [(r_pos, s)], True)
     
+for s,i in scales.items():
+    r_pos = 8
+    print(s,i)
+    create_fret_representation(s, [(r_pos, i)], True)
+
+
 

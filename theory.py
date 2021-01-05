@@ -7,11 +7,11 @@ NUMBER_ATOMIC_UNITS = 12
 # SPECIFIC TO WESTERN SYSTEM
 NUM_SEMITONES = 12
 scales = {
-    'maj': [2, 2, 1, 2, 2, 2, 1],
-    'min': [2, 1, 2, 2, 1, 2, 2],
+    'maj': (2, 2, 1, 2, 2, 2, 1),
+    'min': (2, 1, 2, 2, 1, 2, 2),
     # TODO define in terms of min
-    'harm_min': [2, 1, 2, 2, 1, 3, 1],
-    'mel_min': [2, 1, 2, 2, 2, 2, 1]
+    'harm_min': (2, 1, 2, 2, 1, 3, 1),
+    'mel_min': (2, 1, 2, 2, 2, 2, 1)
 }
 
 ROMAN_NUMERALS = [
