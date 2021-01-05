@@ -9,8 +9,8 @@ import math
 WIDTH = 7
 HEIGHT = 1
 PIXEL_SCALE = 200
-PADDING_X = WIDTH/20
-PADDING_Y = HEIGHT/5
+PADDING_X = WIDTH/10.0
+PADDING_Y = HEIGHT/20
 
 TRUE_WIDTH = PIXEL_SCALE*(WIDTH + 2 * PADDING_X)
 TRUE_HEIGHT = PIXEL_SCALE*(HEIGHT + 2 * PADDING_Y)
@@ -110,7 +110,6 @@ def create_table_for_patterns(filename, patterns, printable=False, cols_per_row=
         #print( root_note, chord_type, intervals,  start_fret )
 
         pattern = patterns[j]
-        print(pattern)
 
         # The pattern is interwoven between the numbers
         # So we need an extra on the end thus (+1)
@@ -122,7 +121,6 @@ def create_table_for_patterns(filename, patterns, printable=False, cols_per_row=
         full_table = gen_table_from_pattern(pattern)
         full_table.insert(0, top_row)
         
-        print(full_table)
 
         draw_table(full_table, ctx, printable)
 

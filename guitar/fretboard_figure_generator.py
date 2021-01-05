@@ -5,8 +5,8 @@ from fretboard_position_generator import *
 WIDTH = 1
 HEIGHT = 7
 PIXEL_SCALE = 200
-PADDING_X = WIDTH/20
-PADDING_Y = HEIGHT/5
+PADDING_X = WIDTH/10.0
+PADDING_Y = HEIGHT/20
 
 TRUE_WIDTH = PIXEL_SCALE*(WIDTH + 2 * PADDING_X)
 TRUE_HEIGHT = PIXEL_SCALE*(HEIGHT + 2 * PADDING_Y)
@@ -75,12 +75,10 @@ def create_fret_representation(filename, chords, printable=False, cols_per_row=-
             start_fret = E_STRING_FRET_MAPPING[root_note]
 
         if not isinstance(chord_type, tuple):
-            print("not tup", chord_type)
             intervals = chord_to_interval[chord_type]
             title = chord_short_name_to_full[chord_type]
         else:
             # Otherwise it's a list of intervals
-            print(" tup", chord_type)
             intervals = chord_type 
             title = filename.title()
 
