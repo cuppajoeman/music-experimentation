@@ -28,8 +28,9 @@ Y_UNIT = HEIGHT/(8)
 def create_table_for_patterns(filename, patterns, printable=False, cols_per_row=-1):
 
     num_patterns = len(patterns)
+    rows = (num_patterns//cols_per_row)
 
-    surface = cairo.SVGSurface("generated_assets/" + filename + ".svg", TRUE_WIDTH * num_patterns , TRUE_HEIGHT)
+    surface = cairo.SVGSurface("generated_assets/" + filename + ".svg", TRUE_WIDTH * cols_per_row , TRUE_HEIGHT * rows)
     
     ctx = cairo.Context(surface)
     ctx.scale(PIXEL_SCALE, PIXEL_SCALE)
@@ -43,7 +44,8 @@ def create_table_for_patterns(filename, patterns, printable=False, cols_per_row=
         if cols_per_row != -1:
             # Don't linebreak on first iteration
             if j != 0 and j % cols_per_row == 0:
-                ctx.translate(0, HEIGHT + 2 * PADDING_Y)
+                slap_that_typerwriter_left = -1 * cols_per_row * WIDTH + 2 * PADDING_X
+                ctx.translate(slap_that_typerwriter_left, HEIGHT + 2 * PADDING_Y)
 
         # PADDING
         ctx.rectangle(0, 0, WIDTH + 2 * PADDING_X , HEIGHT + 2 * PADDING_Y)
