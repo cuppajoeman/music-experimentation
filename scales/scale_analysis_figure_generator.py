@@ -44,7 +44,7 @@ def create_table_for_patterns(filename, patterns, printable=False, cols_per_row=
         if cols_per_row != -1:
             # Don't linebreak on first iteration
             if j != 0 and j % cols_per_row == 0:
-                slap_that_typerwriter_left = -1 * cols_per_row * WIDTH + 2 * PADDING_X
+                slap_that_typerwriter_left = -1 * cols_per_row * (WIDTH + 2 * PADDING_X)
                 ctx.translate(slap_that_typerwriter_left, HEIGHT + 2 * PADDING_Y)
 
         # PADDING
