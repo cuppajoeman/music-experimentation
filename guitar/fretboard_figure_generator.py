@@ -37,6 +37,53 @@ E_STRING_FRET_MAPPING = {
 'D#':11,
 'Eb':11,
 }
+SECOND_THIRD_BOUNDARY = [
+    (2,0), 
+    (2,1), 
+    (2,2), 
+    (2,3), 
+    (1,3), 
+    (1,4), 
+    (1,5), 
+    (1,6), 
+    (1,7), 
+    (1,8), 
+    (0,8) 
+]
+
+THIRD_FOURTH_BOUNDARY = [ 
+    (5,0), 
+    (5,1), 
+    (4,1), 
+    (4,5), 
+    (3,5), 
+    (3,10), 
+    (2,10), 
+    (2,15), 
+    (1,15), 
+    (0,15), 
+]
+
+FOURTH_FIFTH_BOUNDARY = [
+    (6,8), 
+    (5,8), 
+    (5,13), 
+    (4,13), 
+    (4,17), 
+    (3,17), 
+    (3,22), 
+    (2,22), 
+    (2,25), 
+]
+
+FIFTH_SIXTH_BOUNDARY = [
+    (6,20), 
+    (5,20), 
+    (5,25)
+]
+
+OCTAVE_BOUNDARIES = [SECOND_THIRD_BOUNDARY, THIRD_FOURTH_BOUNDARY, FOURTH_FIFTH_BOUNDARY, FIFTH_SIXTH_BOUNDARY]
+
 
 def create_fret_representation(filename, chords, printable=False, cols_per_row=-1):
 
@@ -133,10 +180,11 @@ def create_fret_representation(filename, chords, printable=False, cols_per_row=-
 
         ctx.stroke()
 
+        # Show octaves
+        for boundary in OCTAVE_BOUNDARIES:
+            draw_path(boundary, ctx)
+
         # Prepare for note generation
-
-        #print( root_note, chord_type, intervals,  start_fret )
-
 
         positions = chord_constructor(start_fret, intervals, False)
 
@@ -153,8 +201,8 @@ def show_pos_on_fretboard(x, y, interval, ctx, printable=False):
     else:
         ctx.set_source_rgb(1, 1, 1)
 
-    x_pos = x * X_UNIT 
-    # We have to do this because the first fret isn't visible
+    x_pos = x * X_UNIT
+    # We have to do this because the first fret is the zeroth
     y_pos = (y+1) * Y_UNIT
     # DRAW CIRCLE
     rad = min(X_UNIT, Y_UNIT)/4
@@ -181,6 +229,34 @@ def show_mult_pos_on_fb(list_of_positions, ctx, printable=False):
         y = pos[1]
         interval = pos[2]
         show_pos_on_fretboard(x, y,interval, ctx, printable)
+
+def draw_path(path, ctx):
+    # Save previous setup
+    ctx.save()
+    # Prepare brush
+    ctx.set_line_width(0.05)
+    ctx.set_source_rgb(.5,.5,.5)
+
+
+    # Move to the start position
+    x_start, y_start = convert_coord_to_pos(path[0])
+    ctx.move_to(x_start, y_start)
+
+    for point in path[1:]:
+        x_pos, y_pos = convert_coord_to_pos(point)
+        # Draw the line
+        ctx.line_to(x_pos, y_pos)
+        # Move our reference point there
+        ctx.move_to(x_pos, y_pos)
+
+
+    ctx.stroke()
+    # Put brush back
+    ctx.restore()
+
+def convert_coord_to_pos(point):
+   return (X_UNIT * point[0], Y_UNIT * point[1])
+
 
 if __name__ == '__main__':
     #blues = ["G#7", "A7", "B7"]
