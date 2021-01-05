@@ -231,11 +231,12 @@ def show_mult_pos_on_fb(list_of_positions, ctx, printable=False):
         show_pos_on_fretboard(x, y,interval, ctx, printable)
 
 def draw_path(path, ctx):
+    # TODO use rel_line_to, and then just encode the movement pattern?
     # Save previous setup
     ctx.save()
     # Prepare brush
-    ctx.set_line_width(0.05)
-    ctx.set_source_rgb(.5,.5,.5)
+    ctx.set_line_width(0.02)
+    ctx.set_source_rgb(0, 0, 0)
 
 
     # Move to the start position
