@@ -3,7 +3,7 @@ import math
 from fretboard_position_generator import *
 
 WIDTH = 1
-HEIGHT = 7
+HEIGHT = 5
 PIXEL_SCALE = 200
 PADDING_X = WIDTH/10.0
 PADDING_Y = HEIGHT/20

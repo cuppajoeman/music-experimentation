@@ -7,7 +7,7 @@ import cairo
 import math
 
 WIDTH = 7
-HEIGHT = 1
+HEIGHT = 2
 PIXEL_SCALE = 200
 PADDING_X = WIDTH/10.0
 PADDING_Y = HEIGHT/20
