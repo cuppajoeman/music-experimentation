@@ -42,7 +42,7 @@ def create_table_for_patterns(filename, patterns, printable=False, cols_per_row=
 
         if cols_per_row != -1:
             # Don't linebreak on first iteration
-            if cols_per_row != 0 and j % cols_per_row == 0:
+            if j != 0 and j % cols_per_row == 0:
                 ctx.translate(0, HEIGHT + 2 * PADDING_Y)
 
         # PADDING
