@@ -245,6 +245,8 @@ def draw_path(path, ctx):
 
     for point in path[1:]:
         x_pos, y_pos = convert_coord_to_pos(point)
+        # apply shift so between strings
+        x_pos -= X_UNIT/2
         # Draw the line
         ctx.line_to(x_pos, y_pos)
         # Move our reference point there
