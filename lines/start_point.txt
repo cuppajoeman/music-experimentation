@@ -1,0 +1,13 @@
++---------------------+-----+---+---+----+---+---+---+---+----+-----+---+---+---+----+----+---+---+---+-----------------+
+|       Analysis      |  *  | * | * |  * | s | * | * | s |  * |  *  | * | * | s |  * |  c | s | * | * |        s        |
++---------------------+-----+---+---+----+---+---+---+---+----+-----+---+---+---+----+----+---+---+---+-----------------+
+| Semitones from root |  0  | 4 | 7 | 11 | 9 | 0 | 4 | 2 | 11 |  0  | 4 | 7 | 9 | 11 | 10 | 9 | 7 | 4 |        2        |
++---------------------+-----+---+---+----+---+---+---+---+----+-----+---+---+---+----+----+---+---+---+-----------------+
+|        Rhythm       | 1/8 | - | - |  - | - | - | - | - |  1 | 1/8 | - | - | - |  - |  - | - | - | - | 1/4 + 1/8 + 1/2 |
++---------------------+-----+---+---+----+---+---+---+---+----+-----+---+---+---+----+----+---+---+---+-----------------+
+|        Octave       |  3  | - | - |  - | - | 4 | - | - |  3 |  -  | - | - | - |  - |  - | - | - | 4 |        -        |
++---------------------+-----+---+---+----+---+---+---+---+----+-----+---+---+---+----+----+---+---+---+-----------------+
+
+From here, we will make a class called line
+
+A line is the above table, we will represent the table as a series of columns, each column will represent a line element, we decide to store the lines we create on a computer so that in the future anyone will be able to see them and use them, but also to perform analysis on them and possibly generate new lines (that would be if we could teach the comptuer all the techniques we employ when creating lines themselves, which indeed one may be able to do)
