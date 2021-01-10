@@ -38,7 +38,7 @@ PATTERNS = {
     "LINE_Y_EQUALS_MINUS_3X": (0,2,4,6,8,10),
     "scale by hand": (0, 2, 4, 5, 7, 9, 11),
     "scale even": (0,  4,  7, 11),
-    "scale odd": ( 2,  5,  9 )
+    "scale odd": ( 0, 2,  5,  9 )
     }
 
 # Linear interval demonstration
