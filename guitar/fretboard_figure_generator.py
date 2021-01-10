@@ -181,8 +181,8 @@ def create_fret_representation(filename, chords, printable=False, cols_per_row=-
         ctx.stroke()
 
         # Show octaves
-        for boundary in OCTAVE_BOUNDARIES:
-            draw_path(boundary, ctx)
+        #for boundary in OCTAVE_BOUNDARIES:
+        #    draw_path(boundary, ctx)
 
         # Prepare for note generation
 
