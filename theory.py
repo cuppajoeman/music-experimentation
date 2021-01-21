@@ -70,6 +70,8 @@ intervals_to_semitone = {
         ('m13', 'A12'): 20,
         ('M13', 'd14'): 21
         }
+semitone_to_intervals = {v: k for k, v in intervals_to_semitone.items()}
+
 
 # CHORDS
 chords = {
