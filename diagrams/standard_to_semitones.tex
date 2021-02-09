@@ -63,22 +63,22 @@ Conversion from standard notation to semitones - Made by cuppajoeman - \url{http
 \begin{center}
 \begin{tikzpicture}
   \foreach \a [count=\c,evaluate=\c as \y using {{\major}[\c-1]}] in  {1,2,...,7}{
-    \draw (\a*360/7: 2.5) node {\huge{\y}};
+    \draw (\a*360/7*-1: 2.5) node {\huge{\y}};
   }
-  \node[draw] at (0,0) {Major/Minor};
+  \node[draw] at (0,0) {Major/Minor $\circlearrowright$};
 \end{tikzpicture}
 \hfill
 \begin{tikzpicture}
   \foreach \a [count=\c,evaluate=\c as \y using {{\harmonic}[\c-1]}] in  {1,2,...,7}{
-    \draw (\a*360/7: 2.5) node {\huge{\y}};
+    \draw (\a*360/7*-1: 2.5) node {\huge{\y}};
   }
-  \node[draw] at (0,0) {Harmonic};
+  \node[draw] at (0,0) {Harmonic $\circlearrowright$};
 \end{tikzpicture}\hfill
 \begin{tikzpicture}
   \foreach \a [count=\c,evaluate=\c as \y using {{\melodic}[\c-1]}] in  {1,2,...,7}{
-    \draw (\a*360/7: 2.5) node {\huge{\y}};
+    \draw (\a*360/7*-1: 2.5) node {\huge{\y}};
   }
-  \node[draw] at (0,0) {Melodic};
+  \node[draw] at (0,0) {Melodic $\circlearrowright$};
 \end{tikzpicture}
 \end{center}
 
