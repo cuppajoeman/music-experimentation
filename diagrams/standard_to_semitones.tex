@@ -5,6 +5,10 @@
 \usepackage{hyperref}
 \usepackage{tikz,pgf}
 \usepackage[margin=.5in]{geometry}
+\usepackage{floatrow}
+\usepackage{caption}
+\floatsetup[table]{capposition=top}
+
 \usetikzlibrary{calc}
 
 \usetikzlibrary{intersections, calc, fpu, decorations.pathreplacing}
@@ -48,7 +52,7 @@ Conversion from standard notation to semitones - Made by cuppajoeman - \url{http
   \draw (0,-2) -- (4.75,-2);
   % Counter
   \edef\counter{0}
-  \foreach \x in {10, 11, 0, 2, 4, 5, 7, 9, 11, 0, 2, 4, 5, 7 , 9, 11, 0} {
+  \foreach \x in {9, 11, 0, 2, 4, 5, 7, 9, 11, 0, 2, 4, 5, 7 , 9, 11, 0} {
     %\node[draw,circle,fill=white,minimum size=2] at (\counter + .5, \counter * .5 - 2) {\huge\x};
     \node[text=cyan] at (\counter + .5, \counter * .5 - 2) {\Huge\x};
     \pgfmathparse{\counter+1}
@@ -64,7 +68,13 @@ Conversion from standard notation to semitones - Made by cuppajoeman - \url{http
 \begin{tikzpicture}
   \foreach \a [count=\c,evaluate=\c as \y using {{\major}[\c-1]}] in  {1,2,...,7}{
     \draw (\a*360/7*-1: 2.5) node {\huge{\y}};
+    \draw (\a*360/7*-1: 2.5) node {\huge{\y}};
   }
+  \foreach \a in  {1,2,3,4,6}{
+    \draw (\a*360/7*-1 + 1/2*360/7*-1: 2.5) node {$\circ$};
+  }
+  \draw (0.5*360/7*-1: 2.5) node {M\huge{$\diamond$}};
+  \draw (5.5*360/7*-1: 2.5) node {m\huge{$\diamond$}};
   \node[draw] at (0,0) {Major/Minor $\circlearrowright$};
 \end{tikzpicture}
 \hfill
@@ -72,12 +82,20 @@ Conversion from standard notation to semitones - Made by cuppajoeman - \url{http
   \foreach \a [count=\c,evaluate=\c as \y using {{\harmonic}[\c-1]}] in  {1,2,...,7}{
     \draw (\a*360/7*-1: 2.5) node {\huge{\y}};
   }
+  \foreach \a in  {1,2,3,4,5,6}{
+    \draw (\a*360/7*-1 + 1/2*360/7*-1: 2.5) node {$\circ$};
+  }
+  \draw (0.5*360/7*-1: 2.5) node {\huge{$\diamond$}};
   \node[draw] at (0,0) {Harmonic $\circlearrowright$};
 \end{tikzpicture}\hfill
 \begin{tikzpicture}
   \foreach \a [count=\c,evaluate=\c as \y using {{\melodic}[\c-1]}] in  {1,2,...,7}{
     \draw (\a*360/7*-1: 2.5) node {\huge{\y}};
   }
+  \foreach \a in  {1,2,3,4,5,6}{
+    \draw (\a*360/7*-1 + 1/2*360/7*-1: 2.5) node {$\circ$};
+  }
+  \draw (0.5*360/7*-1: 2.5) node {\huge{$\diamond$}};
   \node[draw] at (0,0) {Melodic $\circlearrowright$};
 \end{tikzpicture}
 \end{center}
@@ -107,6 +125,31 @@ Conversion from standard notation to semitones - Made by cuppajoeman - \url{http
     12                                                            & Octave|Perfect octave          & P8                & Augmented seventh              \\ \hline
   \end{tabular}
 \end{table}
+
+
+\begin{table}[]
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|c|c|}
+\hline
+ $\{0,4,7\}$ & $X$ major triad , $X_M$ \\ \hline
+ $\{0,3,7\}$ & $X$ minor triad , $X_m$ \\ \hline
+ $\{0,3,6\}$ & $X$ diminished triad , $X^\circ$ \\ \hline
+  $\{0,2,7\}$& $X$ suspended second, $X_{S2}$\\ \hline
+  $\{0,5,7\}$& $X$ suspended fourth, $X_{S4}$\\ \hline
+ $X_Z \cup \{9\}$ & $X^6_Z, \quad Z \in \{ M, m, \epsilon \}$  \\ \hline
+ $X^\circ \cup \{9\}$ &  $X$ diminished, X$^{\circ 7}$ ,$X^{7}_{\text{dim}}$ \\ \hline
+ $X_Z \cup \{10\}$ & $X^7_Z, \quad Z \in \{  m, S2, S4 \}$  \\ \hline
+ $X_M \cup \{10\}$ & $X^7$ \\ \hline
+ $X^\circ \cup \{10\}$ & $X$ half diminished      , $X^{\varnothing 7}$        , $X^{7\flat 5}_{\text{min}} $  \\ \hline
+ $X_M \cup \{11\}$ & $X$ major 7              , $X_M^7$ , $X\Delta$ or $X^7\Delta$ \\ \hline
+ $X_m \cup \{11\}$ & $X$ minor major 7        , $X_{\text{min \& maj}}^7$,     $X – \Delta7$    \\ \hline
+ $X_Z^7 \cup \{2\}$ & $X^9_{\text{Z}}$ \\ \hline
+ $X^7 \cup \{1\}$ & $X^{7\flat 9}$ \\ \hline
+  $X^9_Z \cup \{5\}$&  $X^{11}_Z, \quad Z \in \{ M, m, \epsilon \}$ \\ \hline
+\end{tabular}
+\caption*{Common Chords}
+\end{table}
+\renewcommand{\arraystretch}{1}
 
 
 

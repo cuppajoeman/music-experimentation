@@ -1,0 +1,12 @@
+Main Note: 2
+Main Structure: <2 1 2 2 1 2 2>
+Generated Notes: [2 4 5 7 9 10 0 2]
+
+Pattern:
+  2 (0 2 3 7 10)
+     2 4 5 9 0
+
+  1 (0 3 6 9)
+     1 4 7 10
+
+  0 (
