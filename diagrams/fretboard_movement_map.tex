@@ -1,0 +1,37 @@
+\documentclass[margin=.5mm]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\newcommand{\dittotikz}{%
+    \tikz{
+        \draw [line width=0.12ex] (-0.2ex,0) -- +(0,0.8ex)
+            (0.2ex,0) -- +(0,0.8ex);
+        \draw [line width=0.08ex] (-0.6ex,0.4ex) -- +(-1.5em,0)
+            (0.6ex,0.4ex) -- +(1.5em,0);
+    }%
+}
+
+
+\begin{document}
+
+ \begin{tabular}{||c|c|c|c|c|c|c|c|c|c|c||} 
+ \hline
+  $4, -8$ &  $\stackrel{\rightleftharpoons}{\pm5}$ & $9, -3$  & $\stackrel{\rightleftharpoons}{\pm5}$ & $2, -10$ & $\stackrel{\rightleftharpoons}{\pm5}$ & $7, -5$ & $\stackrel{\rightleftharpoons}{\pm4}$ & $11, -1$ & $\stackrel{\rightleftharpoons}{\pm5}$ & $4, -8$  \\
+ \hline \hline 
+ $\odot$ & $\dittotikz$ & $5,-7$ & $\dittotikz$ & $10,-2$ & $\dittotikz$ & $3,-9$ & $\dittotikz$ & $7,-5$ & $\dittotikz$ & $0$ \\ 
+ \hline \hline
+ $7,-5$ &$\dittotikz$ &  $\odot$ &$\dittotikz$ & $5,-7$ &$\dittotikz$ & $10,-2$ &$\dittotikz$ & $2,-10$ &$\dittotikz$ & $7,-5$ \\ 
+ \hline \hline
+ $2,-10$ &$\dittotikz$ & $7,-5$ &$\dittotikz$ & $\odot$ &$\dittotikz$ & $5,-7$ &$\dittotikz$ & $9,-3$ &$\dittotikz$ & $2,-10$  \\ 
+ \hline \hline
+ $9,-3$ &$\dittotikz$ & $2, -10$ &$\dittotikz$ & $7,-5$ &$\dittotikz$ & $\odot$ &$\dittotikz$ & $4,-8$ &$\dittotikz$ & $9,-3$  \\
+ \hline \hline 
+ $5,-7$ &$\dittotikz$ & $10,-2$ &$\dittotikz$ & $3,-9$ &$\dittotikz$ & $8,-4$ &$\dittotikz$ & $\odot$ &$\dittotikz$ & $5,-7$ \\ 
+ \hline \hline
+ $0$ &$\dittotikz$ & $5,-7$ &$\dittotikz$ & $10,-2$ &$\dittotikz$ & $3,-9$ &$\dittotikz$ & $7,-5$ &$\dittotikz$ & $\odot$ \\ 
+ \hline 
+\end{tabular}
+
+
+
+\end{document}
+
