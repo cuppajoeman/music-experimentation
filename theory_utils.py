@@ -13,6 +13,11 @@ def sci_to_freq(sci_not):
 
     return 440 * (2 ** (octave -5 )) * (2 ** ((letter_to_semitone[note] - 9)/12.0))
 
+# === CONVERT TO AND FROM INTEGER NOTATION & FREQUENCY ===  
+
+def int_to_freq(oct_band, note_num):
+    return 440 * (2 ** (oct_band -5 )) * (2 ** ((note_num)/12.0))
+
 
 def freq_to_sci(freq):
     # The fundemental observation is that any frequency is of the following form
