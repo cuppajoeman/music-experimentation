@@ -16,8 +16,19 @@ def sci_to_freq(sci_not):
 # === CONVERT TO AND FROM INTEGER NOTATION & FREQUENCY ===  
 
 def int_to_freq(oct_band, note_num):
-    return 440 * (2 ** (oct_band -5 )) * (2 ** ((note_num)/12.0))
+    return 440 * (2 ** (oct_band -4 )) * (2 ** ((note_num)/12.0))
 
+def int_to_midi(oct_band, note_num):
+    return 69 + (oct_band - 4) * 12 + note_num
+
+def root_and_intervals_to_int(root_octave_band, root_number, intervals):
+    """ Given a root note and a set of intervals (all in integer notation),
+    we will generate the notes in integer notation and return them"""
+    notes = []
+    for interval in intervals:
+        additional_bands, new_note_num = divmod(root_number + interval, 12)
+        notes.append(SemitoneIntegerNotation(root_octave_band + additional_bands, new_note_num))
+    return notes
 
 def freq_to_sci(freq):
     # The fundemental observation is that any frequency is of the following form
@@ -92,6 +103,8 @@ def analyze_roman_chords(rf):
     return rf
 
 
+
+
 #sf = generate_scale_frequencies(110, scales['mel_min'])
 #sn = [freq_to_sci(y) for y in sf ]
 #
@@ -103,4 +116,5 @@ def analyze_roman_chords(rf):
 #    rf[k] = [freq_to_sci(y) for y in rf[k] ]
 #
 #print(rf)
+
 

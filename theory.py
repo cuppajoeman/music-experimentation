@@ -167,3 +167,8 @@ letter_to_semitone = {
         'B':11
 }
 semitone_to_letter = {v: k for k, v in letter_to_semitone.items()}
+
+class SemitoneIntegerNotation:
+    def __init__(self, octave_band, number):
+        self.octave_band = octave_band
+        self.number = number
