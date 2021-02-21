@@ -73,5 +73,16 @@ def create_midi_song(title, BPM, song):
             MyMIDI.addNote(track, channel, pitch, current_beat, se.duration, volume)
         current_beat += se.duration
 
+    # add beat
+    MyMIDI.addProgramChange(track, 10, 0, 10)
+    for i in range(current_beat):
+        MyMIDI.addNote(track, 9, 51, i, 1, volume)
+        if i % 2 == 0:
+            MyMIDI.addNote(track, 9, 35, i, 1, volume)
+        else:
+            MyMIDI.addNote(track, 9, 38, i, 1, volume)
+
+
+
     with open(title, "wb") as output_file:
         MyMIDI.writeFile(output_file)
