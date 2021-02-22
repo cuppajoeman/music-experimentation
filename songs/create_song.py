@@ -109,7 +109,7 @@ def parse_drum_beat_into_objects(drum_part):
     return new_song
 
 
-def create_midi_song(title, BPM, song, beat):
+def create_midi_song(title, BPM, song, beat = {}):
     track    = 0
     channel  = 0
     time     = 0    # In beats
