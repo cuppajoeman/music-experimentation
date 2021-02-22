@@ -6,6 +6,57 @@ from midiutil import MIDIFile
 from theory_utils import *
 from sound_utils import *
 
+midi_inst_to_name_perc = {
+35: "Acoustic Bass Drum",
+36: "Electric Bass Drum",
+37: "Side Stick",
+38: "Acoustic Snare",
+39: "Hand Clap",
+40: "Electric Snare",
+41: "Low Floor Tom",
+42: "Closed Hi-hat",
+43: "High Floor Tom",
+44: "Pedal Hi-hat",
+45: "Low Tom",
+46: "Open Hi-hat",
+47: "Low-Mid Tom",
+48: "Hi-Mid Tom",
+49: "Crash Cymbal 1",
+50: "High Tom",
+51: "Ride Cymbal 1",
+52: "Chinese Cymbal",
+53: "Ride Bell",
+54: "Tambourine",
+55: "Splash Cymbal",
+56: "Cowbell",
+57: "Crash Cymbal 2",
+58: "Vibra Slap",
+59: "Ride Cymbal 2",
+60: "High Bongo",
+61: "Low Bongo",
+62: "Mute High Conga",
+63: "Open High Conga",
+64: "Low Conga",
+65: "High Timbale",
+66: "Low Timbale",
+67: "High Agogô",
+68: "Low Agogô",
+69: "Cabasa",
+70: "Maracas",
+71: "Short Whistle",
+72: "Long Whistle",
+73: "Short Guiro",
+74: "Long Guiro",
+75: "Claves",
+76: "High Woodblock",
+77: "Low Woodblock",
+78: "Mute Cuica",
+79: "Open Cuica",
+80: "Mute Triangle"
+}
+
+name_perc_to_midi_inst =  {v: k for k, v in midi_inst_to_name_perc.items()}
+
 class SongEvent:
     # Represents a moment of sound in a song (the start of notes ringing)
     # The time it should be sounded at is implied by the duration of events before it
@@ -49,7 +100,16 @@ def parse_note_song_into_objects(song):
         new_song.append(se)
     return new_song
 
-def create_midi_song(title, BPM, song):
+def parse_drum_beat_into_objects(drum_part):
+    new_song = []
+    for event in drum_part:
+        converted = [name_perc_to_midi_inst[x] for x in event[0]]
+        se = SongEvent(converted, event[1]) 
+        new_song.append(se)
+    return new_song
+
+
+def create_midi_song(title, BPM, song, drum_part):
     track    = 0
     channel  = 0
     time     = 0    # In beats
@@ -73,15 +133,16 @@ def create_midi_song(title, BPM, song):
             MyMIDI.addNote(track, channel, pitch, current_beat, se.duration, volume)
         current_beat += se.duration
 
-    # add beat
-    MyMIDI.addProgramChange(track, 10, 0, 10)
-    for i in range(current_beat):
-        MyMIDI.addNote(track, 9, 51, i, 1, volume)
-        if i % 2 == 0:
-            MyMIDI.addNote(track, 9, 35, i, 1, volume)
-        else:
-            MyMIDI.addNote(track, 9, 38, i, 1, volume)
 
+    current_beat = 0
+    for se in drum_part:
+        # looks like (int_not, {0,4,7,11}, 4)
+        for note in se.notes:
+            # Have some counter so that we know when to play the beat
+            # Means you have to be explicit about your rests
+            print(track, channel, note, current_beat, se.duration, volume)
+            MyMIDI.addNote(track, 9, note, current_beat, se.duration, volume)
+        current_beat += se.duration
 
 
     with open(title, "wb") as output_file:
