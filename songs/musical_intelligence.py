@@ -1,5 +1,10 @@
 import random
 from math import ceil
+
+
+
+
+
 # Aka a drummer (lol)
 def random_partition_with_choices_differing_length(n, choices):
     # assuming the choices will always give rise to a paritition
