@@ -109,7 +109,7 @@ def parse_drum_beat_into_objects(drum_part):
     return new_song
 
 
-def create_midi_song(title, BPM, song, drum_part):
+def create_midi_song(title, BPM, song, beat):
     track    = 0
     channel  = 0
     time     = 0    # In beats
@@ -135,14 +135,13 @@ def create_midi_song(title, BPM, song, drum_part):
 
 
     current_beat = 0
-    for se in drum_part:
-        # looks like (int_not, {0,4,7,11}, 4)
-        for note in se.notes:
-            # Have some counter so that we know when to play the beat
-            # Means you have to be explicit about your rests
-            print(track, channel, note, current_beat, se.duration, volume)
-            MyMIDI.addNote(track, 9, note, current_beat, se.duration, volume)
-        current_beat += se.duration
+    for k, v in beat.items():
+        moment_occured = k
+        events = v
+        for e in events:
+            midi_instrument = name_perc_to_midi_inst[e[0]]
+            print(track, 9, midi_instrument, moment_occured, e[1], volume)
+            MyMIDI.addNote(track, 9, midi_instrument, moment_occured, e[1], e[2])
 
 
     with open(title, "wb") as output_file:
