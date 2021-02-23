@@ -16,23 +16,36 @@ def mid_to_int(mid_num):
 def pos_mod(x,m):
     return (x%m + m) % m
 
+def convert_same_len(lst, row_size):
+    for i in range(0, len(lst), row_size):
+        yield lst[i: i + row_size]
+
+def matrix_print_diff_size_ele(matrix):
+    s = [[str(e) for e in row] for row in matrix]
+    lens = [max(map(len, col)) for col in zip(*s)]
+    fmt = '\t\t'.join('{{:{}}}'.format(x) for x in lens)
+    table = [fmt.format(*row) for row in s]
+    return '\n\n'.join(table)
+
 def construct_song(mid):
     song = {"chords": [], "bass": []}
     chord = []
+    duration = 0
     for i, track in enumerate(mid.tracks):
-        #print('Track {}: {}'.format(i, track.name))
+        print('Track {}: {}'.format(i, track.name))
         # just for initial run
         # if i = 1, then we are on chords, if i = 2, then we are on bass
         song_part = "chords" if i == 1 else "bass"
         for msg in track:
             if msg.is_meta:
-                #print(msg)
-                pass
+                print(msg)
             else:
-                #print(msg)
+                print(msg)
                 if msg.time != 0:
                     #print(chord)
-                    song[song_part].append(chord)
+                    #if chord != []: 
+                    duration = msg.time/384
+                    song[song_part].append((chord, duration))
                     if msg.type == 'note_on':
                         chord = [mid_to_int(msg.note)]
                     else:
@@ -42,7 +55,7 @@ def construct_song(mid):
                         chord.append(mid_to_int(msg.note))
                 #print(msg)
                 #print(mid_to_int(msg.note))
-        #pprint.pprint(song)
+    #pprint(song)
     return song
 
 def convert_to_chord_integer_notation(song):
@@ -52,9 +65,11 @@ def convert_to_chord_integer_notation(song):
     chord_notation = []
 
     for i in range(1, len(chords)):
-        chord = chords[i]
+        chord = chords[i][0]
+        duration = chords[i][1]
         # Assuming singleton
-        root_tone = bass[i][0]
+        root_tone = bass[i][0][0]
+        print(root_tone)
         #print(chord,root_tone)
 
         intervals = []
@@ -63,7 +78,7 @@ def convert_to_chord_integer_notation(song):
             intervals.append(pos_mod(chord_tone - root_tone, 12))
         intervals.sort()
 
-        chord_notation.append( [root_tone, intervals])
+        chord_notation.append( [root_tone, intervals, duration])
     return chord_notation
 
 
@@ -77,8 +92,11 @@ if __name__ == "__main__":
     s = construct_song(mid)
     cin = convert_to_chord_integer_notation(s)
     abstract_key_away(key, cin)
+    cin = list(convert_same_len(cin, 5))
     with open(argv[1][:-4] + '.txt', 'wt') as out:
-            pprint(cin, stream=out)
+        print("KEY: ", key, file=out)
+        print(matrix_print_diff_size_ele(cin), file=out)
+            #pprint(cin, stream=out)
 
 
 
