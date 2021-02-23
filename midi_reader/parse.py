@@ -1,7 +1,10 @@
 import mido
 from pprint import pprint
 from sys import argv
+
 """
+INSTRUCTIONS: Download FIXED TEMPO MIDI file from the chordify page
+
 SAMPLE CALL: python3 parse.py Chordify_Her-s-What-Once-Was_Quantized_at_97_BPM.mid 8
 """
 
