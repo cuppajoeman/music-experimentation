@@ -11,7 +11,7 @@ def sci_to_freq(sci_not):
         note = sci_not[0]
         octave = int(sci_not[1])
 
-    return 440 * (2 ** (octave -5 )) * (2 ** ((letter_to_semitone[note] - 9)/12.0))
+    return 440 * (2 ** (octave -4 )) * (2 ** ((letter_to_semitone[note] - 9)/12.0))
 
 # === CONVERT TO AND FROM INTEGER NOTATION & FREQUENCY ===  
 
@@ -40,8 +40,8 @@ def freq_to_sci(freq):
     oct_range = math.floor(exp)
     # modulo one gives the decimal part of the number
     semi_count = round((exp % 1) * 12)
-    # Since it's relative to A5, which is in the 5th octave range
-    shifted_oct_range = oct_range+5
+    # Since it's relative to A4, which is in the 5th octave range
+    shifted_oct_range = oct_range+4
     letter = semitone_to_letter[semi_count]
     return letter + str(shifted_oct_range)
 

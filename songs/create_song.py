@@ -85,11 +85,11 @@ def create_song(title, BPM, chord_changes, times=1):
     # Write the samples to a file
     wavio.write('generated_songs/' + title + ".wav", final, RATE, sampwidth=3)
 
-def parse_song_into_notes(song):
+def parse_song_into_notes(song, key=0):
     new_song = []
     for event in song:
         root_octave_band, root_number, intervals, beats = event[0][0], event[0][1], event[1], event[2]    
-        notes = root_and_intervals_to_int(root_octave_band, root_number, intervals)
+        notes = root_and_intervals_to_int(root_octave_band, root_number +key, intervals)
         new_song.append( (notes, beats))
     return new_song
 

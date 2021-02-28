@@ -22,6 +22,7 @@ def random_partition_with_choices_differing_length(n, choices):
 #class ChordPlayer:
 
 class Drummer:
+    # The beat is represented by a dictionary of timestamps to events that occur at that timestamp
     def __init__(self, beat_length):
         self.beat = {}
         self.beat_length = beat_length
@@ -73,6 +74,9 @@ class Drummer:
             time_stamp += b[1]
 
     def play_for_whole_song(self, song_length):
+        """
+        This repeats the beat for the whole song or longer
+        """
         # song length measured in beats
         beat_repeats = ceil(song_length/self.beat_length)
         # So that we don't clobber existing beat

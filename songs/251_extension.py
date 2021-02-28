@@ -19,8 +19,8 @@ for i in range(48):
     idx = 1 + 2*((i+1)%2)
     intervals[idx] = (intervals[idx] + 1) % 12
 
-  #chords.append( (  (4+oct_band, int_not), intervals.copy(), 4) )
-  chords.append( (  (3, int_not), intervals.copy(), 2 + 2*(i%2) ))
+  chords.append( (  (3, int_not), intervals.copy(), 4) )
+  #chords.append( (  (3, int_not), intervals.copy(), 2 + 2*(i%2) ))
 
 beats_chords_length = sum([x[2] for x in chords])
 
