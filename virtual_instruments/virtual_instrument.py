@@ -8,6 +8,7 @@ class VirtualInstrument:
 
     def parse_input_to_sound_get_pressed(self):
         keys = pygame.key.get_pressed()
+        print(keys)
         for k, v in self.key_mapping.items():
             note = v
             if keys[k]:
@@ -18,7 +19,6 @@ class VirtualInstrument:
                 if note in self.notes_pressed:
                     self.notes_pressed.remove(note)
                     self.sound_generator.stop_playing_note(note)
-        print(self.notes_pressed)
 
     def parse_input_to_sound_single_event(self, e):
         if e.type == pygame.KEYDOWN:
