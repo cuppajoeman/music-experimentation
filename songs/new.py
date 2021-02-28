@@ -36,11 +36,11 @@ main = [
     [(3, 4), [0, 4, 7, 9], 2],
     [(3, 6), [0, 2, 4, 7], 2],
     [(3, 7), [0, 3, 9], 4],
-    [(3, 5), [0, 3, 7, 10], 4],
+    [(3, 5), [0, 3, 7, 10], 2],
 
-    [(3, 0), [0, 3, 7, 10], 4],
-    [(3, 2), [0, 3, 7, 10], 4],
+    [(3, 2), [0, 3, 7, 10], 2],
     [(3, 3), [0,2, 4, 7, 11], 4],
+    [(3, 0), [0, 3, 7, 10], 4],
 ]
 
 ending = [
@@ -66,5 +66,5 @@ beats_chords_length = sum([x[2] for x in song])
 d = Drummer(8)
 d.create_jazz_groove(beats_chords_length)
 
-create_midi_song("new.mid", 120,parse_note_song_into_objects(parse_song_into_notes(song,key)), d.beat)
+create_midi_song("new.mid", 120,parse_note_song_into_objects(parse_song_into_notes(main,key)))
 #create_midi_song("new.mid", 120,parse_note_song_into_objects(parse_song_into_notes(ending,key)), d.beat)
