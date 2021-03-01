@@ -19,7 +19,8 @@ def int_to_freq(oct_band, note_num):
     return 440 * (2 ** (oct_band -4 )) * (2 ** ((note_num)/12.0))
 
 def int_to_midi(oct_band, note_num):
-    return 69 + (oct_band - 4) * 12 + note_num
+    # We use 60 because that is c4
+    return 60 + (oct_band - 4) * 12 + note_num
 
 def root_and_intervals_to_int(root_octave_band, root_number, intervals):
     """ Given a root note and a set of intervals (all in integer notation),
