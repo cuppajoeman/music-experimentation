@@ -10,7 +10,7 @@ FPS = 60
 
 ## initialize pygame and create window
 pygame.init()
-pygame.mixer.init()  ## For sound
+#pygame.mixer.init()  ## For sound
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 pygame.display.set_caption("Name")
