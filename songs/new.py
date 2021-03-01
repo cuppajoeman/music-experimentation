@@ -66,5 +66,5 @@ beats_chords_length = sum([x[2] for x in song])
 d = Drummer(8)
 d.create_jazz_groove(beats_chords_length)
 
-create_midi_song("new.mid", 100,parse_note_song_into_objects(parse_song_into_notes(song,key)))
+create_midi_song("new.mid", 100,parse_note_song_into_objects(parse_song_into_notes(song,key)),d.beat)
 #create_midi_song("new.mid", 120,parse_note_song_into_objects(parse_song_into_notes(ending,key)), d.beat)
