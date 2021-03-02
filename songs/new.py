@@ -3,6 +3,11 @@ import pprint
 from math import ceil
 from musical_intelligence import *
 
+import os,sys
+# Hack in parent dir
+sys.path.insert(1, os.path.join(sys.path[0], '../visualizations'))
+from chord_drawer import *
+
 def pos_mod(x,m):
     return (x%m + m)%m;
 
@@ -67,4 +72,5 @@ d = Drummer(8)
 d.create_jazz_groove(beats_chords_length)
 
 create_midi_song("new.mid", 100,parse_note_song_into_objects(parse_song_into_notes(song,key)),d.beat)
+visualize_chords(song)
 #create_midi_song("new.mid", 120,parse_note_song_into_objects(parse_song_into_notes(ending,key)), d.beat)

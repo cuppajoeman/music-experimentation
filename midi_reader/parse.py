@@ -3,6 +3,10 @@ from pprint import pprint
 from sys import argv
 from prettytable import PrettyTable
 import prettytable
+import sys,os
+
+sys.path.insert(1, os.path.join(sys.path[0], '../visualizations'))
+from chord_drawer import *
 
 
 
@@ -36,8 +40,6 @@ def matrix_print_diff_size_ele(matrix):
 def matrix_print_simple(matrix):
         return '\n'.join(['\t'.join([str(cell) for cell in row]) for row in matrix])
 
-
-print(matrix_print_diff_size_ele(list(convert_same_len([x for x in range(100)], 5))))
 
 def construct_song(mid):
     song = {"chords": [], "bass": []}
@@ -100,14 +102,22 @@ def abstract_key_away(key, chord_notation):
         cn[0] = pos_mod(cn[0] - key, 12)
 
 if __name__ == "__main__":
+
+
+    f_name_mid_removed = argv[1][:-4]
+
+
     mid = mido.MidiFile(argv[1])
     key = int(argv[2])
     s = construct_song(mid)
     cin = convert_to_chord_integer_notation(s)
     abstract_key_away(key, cin)
+    #print(cin)
+    visualize_chords(cin, f_name_mid_removed)
     cin = list(convert_same_len(cin, 5))
 
-    with open(argv[1][:-4] + '.txt', 'wt') as out:
+
+    with open(f_name_mid_removed + '.txt', 'wt') as out:
 
 
         p = PrettyTable()
