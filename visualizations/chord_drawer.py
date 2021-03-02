@@ -11,6 +11,8 @@ from sound_utils import *
 WIDTH = 1920
 HEIGHT = 1080
 
+NUM_ROWS = 37
+
 
 colors = {
     0: pygame.color.THECOLORS['blue'],
@@ -27,11 +29,28 @@ colors = {
     11: pygame.color.THECOLORS['red']
 }
 
-NUM_SEMITONES = 24 
+
 def invert_color(rgb_color):
     return (255 - rgb_color[0], 255 - rgb_color[1], 255 - rgb_color[2])
 
-def visualize_chords(chords, name):
+def pos_mod(x,m):
+    return (x%m + m)%m;
+
+def draw_text_in_block(screen, x,y, x_block_size, y_block_size, text,block_color):
+
+    block = pygame.Rect((x_block_size * x, y_block_size * y), (x_block_size, y_block_size))
+    pygame.draw.rect(screen, block_color, block)
+
+    center_of_block = (x_block_size * x + x_block_size/2, y_block_size * y + y_block_size/2)
+
+    fitted_size = floor(min(x_block_size, y_block_size))
+
+    font = pygame.font.Font(None, fitted_size)
+    text = font.render(text, True, invert_color(block_color))
+    text_rect = text.get_rect(center=center_of_block)
+    screen.blit(text, text_rect)
+
+def visualize_chords(chords,key, name):
 
     ## initialize pygame and create window
     pygame.init()
@@ -41,54 +60,45 @@ def visualize_chords(chords, name):
     pygame.display.set_caption("Name")
     clock = pygame.time.Clock()     ## For syncing the FPS
 
-
-
     x_block_size = WIDTH/len(chords)
-    y_block_size = HEIGHT/NUM_SEMITONES
+    y_block_size = HEIGHT/NUM_ROWS
+
+
     for i,chord in enumerate(chords): 
         if isinstance(chord[0], list):
-            root_tone = chord[0][1] 
+            root_tone = chord[0][1]
         else:
             root_tone = chord[0]
+        #root_tone = pos_mod(root_tone,12)
+        root_tone += key
         intervals = chord[1]
-        generated_notes = root_and_intervals_to_int_basic(root_tone, intervals, 2)
+        duration = chord[2]
+
+        draw_text_in_block(screen, i,0, x_block_size, y_block_size, "D: "+str(duration), pygame.color.THECOLORS['white'])
+
+        generated_notes = root_and_intervals_to_int_basic(root_tone, intervals, 3)
+        print(generated_notes )
         # j represents a note in integer notation
-        for j in range(NUM_SEMITONES):
+        # minus one for the duration band
+        for j in range(0, NUM_ROWS-1):
 
             note_data = str(j % 12)
 
             if j in generated_notes:
-                semitones_from_root = j - root_tone
+                semitones_from_root = j - root_tone 
                 
                 color = colors[semitones_from_root]
 
-                #note_data += ", " + str(semitones_from_root)
-                note_data = str(semitones_from_root)
+                note_data += ", " + str(semitones_from_root)
+                #note_data = str(semitones_from_root)
             else:
                 # Draw normally
-                if j % 12 == 0:
-                    color = pygame.color.THECOLORS['gold']
-                elif j % 2 == 0:
+                if j % 12 == key:
                     color = pygame.color.THECOLORS['white']
                 else:
                     color = pygame.color.THECOLORS['black']
-                color = pygame.color.THECOLORS['black']
 
-
-            block = pygame.Rect((x_block_size * i, y_block_size * j), (x_block_size, y_block_size))
-            pygame.draw.rect(screen, color, block)
-
-            print(j)
-            center_of_block = (x_block_size * i + x_block_size/2, y_block_size * j + y_block_size/2)
-
-            fitted_size = floor(min(x_block_size, y_block_size))
-
-            font = pygame.font.Font(None, fitted_size)
-            text = font.render(note_data, True, invert_color(color))
-            text_rect = text.get_rect(center=center_of_block)
-            screen.blit(text, text_rect)
-
-
+            draw_text_in_block(screen, i,j+1, x_block_size, y_block_size, note_data, color)
 
     pygame.display.update()
 
@@ -96,6 +106,7 @@ def visualize_chords(chords, name):
     screenshot = pygame.Surface((WIDTH, HEIGHT))
     screenshot.blit(screen, rect)
     pygame.image.save(screenshot, name+".jpg")
+    pygame.QUIT
 
 
     #running = True

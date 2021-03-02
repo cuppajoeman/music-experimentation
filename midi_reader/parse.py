@@ -112,8 +112,15 @@ if __name__ == "__main__":
     s = construct_song(mid)
     cin = convert_to_chord_integer_notation(s)
     abstract_key_away(key, cin)
-    #print(cin)
-    visualize_chords(cin, f_name_mid_removed)
+    if len(cin) > 20:
+        for i, chunk in enumerate([cin[x:x+20] for x in range(0, len(cin), 20)]):
+            new_name = f_name_mid_removed+str(i+1)
+            visualize_chords(chunk, key, new_name)
+    else:
+        visualize_chords(cin, f_name_mid_removed)
+
+
+
     cin = list(convert_same_len(cin, 5))
 
 
