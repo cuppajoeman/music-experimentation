@@ -23,10 +23,11 @@ all_sprites = pygame.sprite.Group()
 font = pg.font.SysFont(None, 50)
 
 MP = MidiPlayer()
-CIB = ChordInputBox(0,HEIGHT/2,WIDTH,font)
-VCI = VirtualChordInstrument(MP, CIB)
+VCI = VirtualChordInstrument(MP, font, screen, WIDTH, HEIGHT)
 
-all_sprites.add(CIB)
+all_sprites.add(VCI.human_interface)
+all_sprites.add(VCI.PBB)
+all_sprites.add(VCI.DB)
 
 ## Game loop
 running = True
@@ -41,15 +42,16 @@ while running:
             midi.quit()
             running = False
 
+    screen.fill(pygame.color.THECOLORS['black'])
 
     #2 Update
     all_sprites.update(events)
     #VI.parse_input_to_sound(events)
     VCI.parse_input_to_sound()
+    VCI.record_chord()
 
 
     #3 Draw/render
-    screen.fill(pygame.color.THECOLORS['black'])
 
     all_sprites.draw(screen)
     ########################
