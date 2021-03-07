@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 1: file name
+# 2: key 
+
 MIDIFILE=$(basename -- "$1")
 KEY=$2
 
