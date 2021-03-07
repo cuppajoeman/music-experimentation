@@ -1,4 +1,6 @@
 import pygame.midi as midi
+import time
+
 class MidiPlayer:
     def __init__(self):
         midi.init()
@@ -21,6 +23,7 @@ class MidiPlayer:
 
     def stop_playing_note(self,note):
         self.out.note_off(self.convert_note_to_midi(note), 0)
+
 
     def play_notes(self,notes):
         # Convert notes into midi format

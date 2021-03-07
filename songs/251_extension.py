@@ -19,6 +19,7 @@ for i in range(48):
     idx = 1 + 2*((i+1)%2)
     intervals[idx] = (intervals[idx] + 1) % 12
 
+  print(intervals)
   chords.append( (  (3, int_not), intervals.copy(), 4) )
   #chords.append( (  (3, int_not), intervals.copy(), 2 + 2*(i%2) ))
 
