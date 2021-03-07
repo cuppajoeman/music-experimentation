@@ -31,6 +31,15 @@ def root_and_intervals_to_int(root_octave_band, root_number, intervals):
         notes.append(SemitoneIntegerNotation(root_octave_band + additional_bands, new_note_num))
     return notes
 
+def root_and_intervals_to_int_no_obj(root_octave_band, root_number, intervals):
+    """ Given a root note and a set of intervals (all in integer notation),
+    we will generate the notes in integer notation and return them"""
+    notes = []
+    for interval in intervals:
+        additional_bands, new_note_num = divmod(root_number + interval, 12)
+        notes.append((root_octave_band + additional_bands, new_note_num))
+    return notes
+
 def root_and_intervals_to_int_basic(root_number, intervals, octs = 1):
     """ 
     This one actually returns integers, and doesn't use octave band

@@ -14,15 +14,27 @@ class MidiPlayer:
         self.instrument = 0
         self.out.set_instrument(self.instrument)
 
-    def convert_note_to_midi(self, note):
-        return note + 48
+    def convert_note_to_midi(self, note, oct_band = 0):
+        if oct_band != 0:
+            return 12 * oct_band + note
+        else:
+            return note + 48
 
-    def play_note(self,note):
+
+    def play_note(self,note,oct_band=False):
         # Convert notes into midi format, Using full velocity
-        self.out.note_on(self.convert_note_to_midi(note), 127)
+        print(note)
+        if oct_band:
+            self.out.note_on(self.convert_note_to_midi(note[1], note[0]), 127)
+        else:
+            self.out.note_on(self.convert_note_to_midi(note), 127)
 
-    def stop_playing_note(self,note):
-        self.out.note_off(self.convert_note_to_midi(note), 0)
+    def stop_playing_note(self,note, oct_band=False):
+        print(note)
+        if oct_band:
+            self.out.note_off(self.convert_note_to_midi(note[1], note[0]), 0)
+        else:
+            self.out.note_off(self.convert_note_to_midi(note), 0)
 
 
     def play_notes(self,notes):

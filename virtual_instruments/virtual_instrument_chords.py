@@ -59,31 +59,47 @@ class VirtualChordInstrument:
             10: pg.color.THECOLORS['orchid4'],
             11: pg.color.THECOLORS['red']
         }
+        dist_so_far = 0
+        self.human_interface = ChordInputBox(0,0,0.25 * self.w,font)
+        dist_so_far += 0.25 * self.w
 
-        self.human_interface = ChordInputBox(0,0,0.5 * self.w,font)
         button_dimensions = self.human_interface.rect.h 
-        self.PBB = PlayBackButton(0.5 * self.w, 0, button_dimensions, button_dimensions , pg.color.THECOLORS['green'], self)
-        self.DB = DeleteButton(0.5 * self.w + button_dimensions, 0, button_dimensions, button_dimensions , pg.color.THECOLORS['red'], self)
+        self.PBB = PlayBackButton(dist_so_far, 0, button_dimensions, button_dimensions , pg.color.THECOLORS['green'], self)
+        dist_so_far += button_dimensions
 
-    def playback_song(self):
-        for data in self.song:
-            root_tone, intervals, duration = data[0], data[1], data[2]
-            notes = root_and_intervals_to_int_basic(root_tone, intervals, 2)
+        self.DB = DeleteButton(dist_so_far, 0, button_dimensions, button_dimensions , pg.color.THECOLORS['red'], self)
+        dist_so_far += button_dimensions
+
+        self.slice_player_input = PlaybackInputBox(dist_so_far,0,0.25 * self.w ,font, "Slice Player")
+        dist_so_far += 0.25 * self.w
+
+        self.SB = PlayBackButton(dist_so_far, 0, button_dimensions, button_dimensions , pg.color.THECOLORS['yellow'], self, self.slice_player_input )
+        
+
+    def playback_song(self, start=-1, end =-1):
+        if start != -1 and end != -1:
+            section = self.song[start:end]
+        else:
+            section = self.song
+
+        for data in section:
+            oct_band, root_tone, intervals, duration = data[0][0], data[0][1], data[1], data[2] 
+            notes = root_and_intervals_to_int_no_obj(oct_band, root_tone, intervals)
             # play the chord
             for note in notes:
-                self.sound_generator.play_note(note)
+                self.sound_generator.play_note(note, True)
 
             time.sleep(duration)
 
             # silence the notes
             for note in notes:
-                self.sound_generator.stop_playing_note(note)
+                self.sound_generator.stop_playing_note(note, True)
 
 
     def record_chord(self):
         keys = pg.key.get_pressed()
 
-        chord_data = self.human_interface.parse_input_to_root_and_intervals()
+        chord_data = self.human_interface.parse_input_to_oct_root_and_intervals()
 
         if keys[pg.K_TAB]:
             if not self.tab_already_pressed:
@@ -109,7 +125,7 @@ class VirtualChordInstrument:
             for note in notes:
                 if note not in self.notes_pressed:
                     self.notes_pressed.add(note)
-                    self.sound_generator.play_note(note)
+                    self.sound_generator.play_note(note, True)
                 else:
                     # We don't repeat the note
                     pass
@@ -117,19 +133,19 @@ class VirtualChordInstrument:
             for note in notes:
                 if note in self.notes_pressed:
                     self.notes_pressed.remove(note)
-                    self.sound_generator.stop_playing_note(note)
+                    self.sound_generator.stop_playing_note(note, True)
                 else:
                     # We've already removed the note
                     pass
 
     def draw_song(self, screen):
         y_offset = self.human_interface.rect.h
-        print(y_offset)
         x_block_size = self.w/len(self.song)
         y_block_size = (self.h - y_offset)/NUM_ROWS
 
         for i,chord in enumerate(self.song): 
             if isinstance(chord[0], list):
+                oct_band = chord[0][0]
                 root_tone = chord[0][1]
             else:
                 root_tone = chord[0]
@@ -140,17 +156,21 @@ class VirtualChordInstrument:
 
             draw_text_in_block(screen, i,0, x_block_size, y_block_size, "D: "+str(duration), pg.color.THECOLORS['white'], y_offset)
 
-            generated_notes = root_and_intervals_to_int_basic(root_tone, intervals, 3)
+            generated_notes = root_and_intervals_to_int_no_obj(oct_band, root_tone, intervals)
             # j represents a note in integer notation
             # minus one for the duration band
             for j in range(0, NUM_ROWS-1):
 
+                # we will work on octave range 3, 4, 5
+                current_octave = j // 12 + 3
+
                 note_data = str(j % 12)
 
-                if j in generated_notes:
+
+                if (current_octave,j%12) in generated_notes:
                     semitones_from_root = j - root_tone 
                     
-                    color = self.colors[semitones_from_root]
+                    color = self.colors[pos_mod(semitones_from_root, 12)]
 
                     note_data += ", " + str(semitones_from_root)
                     #note_data = str(semitones_from_root)
@@ -189,16 +209,17 @@ class ChordInputBox(pg.sprite.Sprite):
         pg.draw.rect(self.image, self.color, self.image.get_rect().inflate(-2, -2), 2)
         self.rect = self.image.get_rect(topleft = self.pos)
 
-    def parse_input_to_root_and_intervals(self):
+    def parse_input_to_oct_root_and_intervals(self):
         data = self.text.split()
         try:
-            root_tone, intervals = data[0], data[1:]
+            oct_band, root_tone, intervals = data[0], data[1], data[2:]
 
+            oct_band = int(oct_band)
             root_tone = int(root_tone)
             intervals = [int(x) for x in intervals]
 
             # Hardcoding the duration for now
-            chord_data = [ root_tone, intervals, 1]
+            chord_data = [ [oct_band, root_tone], intervals, 1]
 
         except: 
             chord_data = []
@@ -209,12 +230,13 @@ class ChordInputBox(pg.sprite.Sprite):
         # Put this in a try except block
         data = self.text.split()
         try:
-            root_tone, intervals = data[0], data[1:]
+            octave_band, root_tone, intervals = data[0], data[1],  data[2:]
 
+            octave_band = int(octave_band)
             root_tone = int(root_tone)
             intervals = [int(x) for x in intervals]
 
-            notes = root_and_intervals_to_int_basic(root_tone, intervals, 2)
+            notes = root_and_intervals_to_int_no_obj(octave_band, root_tone, intervals)
         except: 
             notes = []
 
@@ -223,13 +245,56 @@ class ChordInputBox(pg.sprite.Sprite):
 
     def update(self, event_list):
         for event in event_list:
-            if event.type == pg.MOUSEBUTTONDOWN and not self.active:
+            #if event.type == pg.MOUSEBUTTONDOWN and not self.active:
+            if event.type == pg.MOUSEBUTTONDOWN:
                 self.active = self.rect.collidepoint(event.pos)
-                self.color = pg.color.THECOLORS['green']
+                self.color = pg.color.THECOLORS['green'] if self.active else pg.color.THECOLORS['grey']
             if event.type == pg.KEYDOWN and self.active:
                 if event.key == pg.K_ESCAPE:
-                    #self.active = False
-                    #self.color = pg.color.THECOLORS['grey']
+                    self.text = self.text[1]
+                elif event.key == pg.K_BACKSPACE:
+                    self.text = self.text[:-1]
+                elif event.key == pg.K_RETURN:
+                    # Don't do anything, VCI plays sound
+                    pass
+                elif event.key == pg.K_TAB:
+                    pass
+                else:
+                    self.text += event.unicode
+            self.render_text()
+
+class PlaybackInputBox(pg.sprite.Sprite):
+    # This class gives input to the Virtual Chord Instrument
+    def __init__(self, x, y, w, font, type = "Standard"):
+        super().__init__()
+        self.color = pg.color.THECOLORS['grey']
+        self.backcolor = None
+        self.pos = (x, y) 
+        self.width = w
+        self.font = font
+        self.active = False
+        self.text = ""
+        self.render_text()
+        self.type = type
+
+    def render_text(self):
+        t_surf = self.font.render(self.text, True, self.color, self.backcolor)
+        self.image = pg.Surface((max(self.width, t_surf.get_width()+10), t_surf.get_height()+10), pg.SRCALPHA)
+        if self.backcolor:
+            self.image.fill(self.backcolor)
+        self.image.blit(t_surf, (5, 5))
+        pg.draw.rect(self.image, self.color, self.image.get_rect().inflate(-2, -2), 2)
+        self.rect = self.image.get_rect(topleft = self.pos)
+
+
+    def update(self, event_list):
+        for event in event_list:
+            #if event.type == pg.MOUSEBUTTONDOWN and not self.active:
+            if event.type == pg.MOUSEBUTTONDOWN:
+                self.active = self.rect.collidepoint(event.pos)
+                self.color = pg.color.THECOLORS['green'] if self.active else pg.color.THECOLORS['grey']
+            if event.type == pg.KEYDOWN and self.active:
+                if event.key == pg.K_ESCAPE:
                     self.text = ''
                 elif event.key == pg.K_BACKSPACE:
                     self.text = self.text[:-1]
@@ -240,11 +305,11 @@ class ChordInputBox(pg.sprite.Sprite):
                     pass
                 else:
                     self.text += event.unicode
-                self.render_text()
+            self.render_text()
 
 
 class PlayBackButton(pg.sprite.Sprite):
-    def __init__(self, x, y, w, h, color, device):
+    def __init__(self, x, y, w, h, color, device, text_box_input = None):
         super().__init__()
         self.color = color
         self.backcolor = None
@@ -253,6 +318,7 @@ class PlayBackButton(pg.sprite.Sprite):
         self.height = h
         # What device it belongs to, in this case an instrument
         self.device = device
+        self.text_box_input = text_box_input
 
         # Create an image of the block, and fill it with a color.
         # This could also be an image loaded from the disk.
@@ -270,7 +336,16 @@ class PlayBackButton(pg.sprite.Sprite):
                     # `event.pos` is the mouse position.
                     if self.rect.collidepoint(event.pos):
                         # logic here - 
-                        self.device.playback_song()
+                        if self.text_box_input:
+                            if self.text_box_input.type == "Slice Player":
+                                try:
+                                    start, end = [int(x) for x in self.text_box_input.text.split()]
+                                    self.device.playback_song(start,end)
+                                except:
+                                    pass
+                        else:
+                            self.device.playback_song()
+
     
 
 class DeleteButton(pg.sprite.Sprite):

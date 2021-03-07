@@ -28,6 +28,8 @@ VCI = VirtualChordInstrument(MP, font, screen, WIDTH, HEIGHT)
 all_sprites.add(VCI.human_interface)
 all_sprites.add(VCI.PBB)
 all_sprites.add(VCI.DB)
+all_sprites.add(VCI.slice_player_input)
+all_sprites.add(VCI.SB)
 
 ## Game loop
 running = True
