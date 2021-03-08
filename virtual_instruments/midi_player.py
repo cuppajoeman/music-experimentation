@@ -16,7 +16,8 @@ class MidiPlayer:
 
     def convert_note_to_midi(self, note, oct_band = 0):
         if oct_band != 0:
-            return 12 * oct_band + note
+            #because 60 = c4
+            return 12 * (oct_band + 1) + note
         else:
             return note + 48
 

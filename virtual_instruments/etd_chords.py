@@ -54,6 +54,7 @@ while running:
     #VI.parse_input_to_sound(events)
     VCI.parse_input_to_sound()
     VCI.record_chord()
+    VCI.switch_between_inputs()
 
 
     #3 Draw/render
