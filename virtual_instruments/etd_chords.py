@@ -3,8 +3,8 @@ from midi_player import *
 import pygame
 import pygame as pg
 
-WIDTH = 800
-HEIGHT = 800
+WIDTH = 1600
+HEIGHT = 900
 FPS = 60
 
 
@@ -30,6 +30,9 @@ all_sprites.add(VCI.PBB)
 all_sprites.add(VCI.DB)
 all_sprites.add(VCI.slice_player_input)
 all_sprites.add(VCI.SB)
+all_sprites.add(VCI.oct_band_input)
+all_sprites.add(VCI.duration_input)
+all_sprites.add(VCI.root_box)
 
 ## Game loop
 running = True

@@ -59,9 +59,20 @@ class VirtualChordInstrument:
             10: pg.color.THECOLORS['orchid4'],
             11: pg.color.THECOLORS['red']
         }
+
         dist_so_far = 0
-        self.human_interface = ChordInputBox(0,0,0.25 * self.w,font)
+
+        self.oct_band_input = SimpleInputBox(dist_so_far, 0, 0.1 * self.w, font)
+        dist_so_far += 0.1 * self.w
+
+        self.root_box = SimpleInputBox(dist_so_far, 0, 0.1 * self.w, font)
+        dist_so_far += 0.1 * self.w
+
+        self.human_interface = ChordInputBox(dist_so_far,0,0.25 * self.w,font)
         dist_so_far += 0.25 * self.w
+
+        self.duration_input = SimpleInputBox(dist_so_far, 0, 0.1 * self.w, font)
+        dist_so_far += 0.1 * self.w
 
         button_dimensions = self.human_interface.rect.h 
         self.PBB = PlayBackButton(dist_so_far, 0, button_dimensions, button_dimensions , pg.color.THECOLORS['green'], self)
@@ -96,10 +107,21 @@ class VirtualChordInstrument:
                 self.sound_generator.stop_playing_note(note, True)
 
 
+
     def record_chord(self):
         keys = pg.key.get_pressed()
 
-        chord_data = self.human_interface.parse_input_to_oct_root_and_intervals()
+        try:
+            intervals = self.human_interface.parse_input_to_intervals()
+
+            oct_band = int(self.oct_band_input.text)
+            root_tone = int(self.root_box.text)
+            duration = int(self.duration_input.text)
+        except:
+            return
+
+
+        chord_data = [ [oct_band, root_tone], intervals, duration]
 
         if keys[pg.K_TAB]:
             if not self.tab_already_pressed:
@@ -113,13 +135,28 @@ class VirtualChordInstrument:
         if len(self.song) > 0:
             self.draw_song(self.screen)
 
+
     def remove_chord(self):
         self.song = self.song[:-1]
+
+    def parse_input_to_notes(self):
+        keys = pg.key.get_pressed()
+
+        try:
+            intervals = self.human_interface.parse_input_to_intervals()
+            root_tone = int(self.root_box.text)
+            oct_band = int(self.oct_band_input.text)
+
+            notes = root_and_intervals_to_int_no_obj(oct_band, root_tone, intervals)
+        except: 
+            notes = []
+
+        return notes
 
     def parse_input_to_sound(self):
         keys = pg.key.get_pressed()
 
-        notes = self.human_interface.parse_input_to_notes()
+        notes = self.parse_input_to_notes()
 
         if keys[pg.K_RETURN]:
             for note in notes:
@@ -162,13 +199,13 @@ class VirtualChordInstrument:
             for j in range(0, NUM_ROWS-1):
 
                 # we will work on octave range 3, 4, 5
-                current_octave = j // 12 + 3
+                current_octave = j // 12 + 4
 
                 note_data = str(j % 12)
 
 
                 if (current_octave,j%12) in generated_notes:
-                    semitones_from_root = j - root_tone 
+                    semitones_from_root = pos_mod(j - root_tone, 12)
                     
                     color = self.colors[pos_mod(semitones_from_root, 12)]
 
@@ -209,38 +246,13 @@ class ChordInputBox(pg.sprite.Sprite):
         pg.draw.rect(self.image, self.color, self.image.get_rect().inflate(-2, -2), 2)
         self.rect = self.image.get_rect(topleft = self.pos)
 
-    def parse_input_to_oct_root_and_intervals(self):
+    def parse_input_to_intervals(self):
         data = self.text.split()
-        try:
-            oct_band, root_tone, intervals = data[0], data[1], data[2:]
 
-            oct_band = int(oct_band)
-            root_tone = int(root_tone)
-            intervals = [int(x) for x in intervals]
+        intervals = [int(x) for x in data]
 
-            # Hardcoding the duration for now
-            chord_data = [ [oct_band, root_tone], intervals, 1]
+        return intervals
 
-        except: 
-            chord_data = []
-            
-        return chord_data
-
-    def parse_input_to_notes(self):
-        # Put this in a try except block
-        data = self.text.split()
-        try:
-            octave_band, root_tone, intervals = data[0], data[1],  data[2:]
-
-            octave_band = int(octave_band)
-            root_tone = int(root_tone)
-            intervals = [int(x) for x in intervals]
-
-            notes = root_and_intervals_to_int_no_obj(octave_band, root_tone, intervals)
-        except: 
-            notes = []
-
-        return notes
 
 
     def update(self, event_list):
@@ -276,6 +288,49 @@ class PlaybackInputBox(pg.sprite.Sprite):
         self.text = ""
         self.render_text()
         self.type = type
+
+    def render_text(self):
+        t_surf = self.font.render(self.text, True, self.color, self.backcolor)
+        self.image = pg.Surface((max(self.width, t_surf.get_width()+10), t_surf.get_height()+10), pg.SRCALPHA)
+        if self.backcolor:
+            self.image.fill(self.backcolor)
+        self.image.blit(t_surf, (5, 5))
+        pg.draw.rect(self.image, self.color, self.image.get_rect().inflate(-2, -2), 2)
+        self.rect = self.image.get_rect(topleft = self.pos)
+
+
+    def update(self, event_list):
+        for event in event_list:
+            #if event.type == pg.MOUSEBUTTONDOWN and not self.active:
+            if event.type == pg.MOUSEBUTTONDOWN:
+                self.active = self.rect.collidepoint(event.pos)
+                self.color = pg.color.THECOLORS['green'] if self.active else pg.color.THECOLORS['grey']
+            if event.type == pg.KEYDOWN and self.active:
+                if event.key == pg.K_ESCAPE:
+                    self.text = ''
+                elif event.key == pg.K_BACKSPACE:
+                    self.text = self.text[:-1]
+                elif event.key == pg.K_RETURN:
+                    # Don't do anything, VCI plays sound
+                    pass
+                elif event.key == pg.K_TAB:
+                    pass
+                else:
+                    self.text += event.unicode
+            self.render_text()
+
+class SimpleInputBox(pg.sprite.Sprite):
+    # This just has text and doesn't do an action
+    def __init__(self, x, y, w, font, type = "Standard"):
+        super().__init__()
+        self.color = pg.color.THECOLORS['grey']
+        self.backcolor = None
+        self.pos = (x, y) 
+        self.width = w
+        self.font = font
+        self.active = False
+        self.text = ""
+        self.render_text()
 
     def render_text(self):
         t_surf = self.font.render(self.text, True, self.color, self.backcolor)
