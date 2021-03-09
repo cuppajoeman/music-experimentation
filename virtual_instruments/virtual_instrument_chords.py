@@ -47,6 +47,7 @@ class VirtualChordInstrument:
         self.h = h
         self.font = font
         self.bound_keys = [pg.K_RETURN, pg.K_TAB,pg.K_l, pg.K_h]
+        self.current_chord = []
         self.colors = {
             0: pg.color.THECOLORS['blue'],
             1: pg.color.THECOLORS['orangered4'],
@@ -97,18 +98,27 @@ class VirtualChordInstrument:
         else:
             section = self.song
 
-        for data in section:
+        for i,data in enumerate(section):
             oct_band, root_tone, intervals, duration = data[0][0], data[0][1], data[1], data[2] 
             notes = root_and_intervals_to_int_no_obj(oct_band, root_tone, intervals)
+
             # play the chord
             for note in notes:
                 self.sound_generator.play_note(note, True)
 
+            self.current_chord[i] = True
+            self.draw_song(self.screen)
+
             time.sleep(duration)
+
 
             # silence the notes
             for note in notes:
                 self.sound_generator.stop_playing_note(note, True)
+
+            self.current_chord[i] = False
+            self.draw_song(self.screen)
+
 
 
 
@@ -121,23 +131,23 @@ class VirtualChordInstrument:
             oct_band = int(self.oct_band_input.text)
             root_tone = int(self.root_box.text)
             duration = int(self.duration_input.text)
+            self.current_chord.append(False)
+
+            chord_data = [ [oct_band, root_tone], intervals, duration]
+
+            if keys[pg.K_TAB]:
+                if not self.tab_already_pressed:
+                    self.tab_already_pressed = True
+                    self.song.append(chord_data)
+                else:
+                    pass
+            else:
+                self.tab_already_pressed = False
         except:
             return
-
-
-        chord_data = [ [oct_band, root_tone], intervals, duration]
-
-        if keys[pg.K_TAB]:
-            if not self.tab_already_pressed:
-                self.tab_already_pressed = True
-                self.song.append(chord_data)
-            else:
-                pass
-        else:
-            self.tab_already_pressed = False
-
-        if len(self.song) > 0:
-            self.draw_song(self.screen)
+        finally:
+            if len(self.song) > 0:
+                self.draw_song(self.screen)
 
 
     def remove_chord(self):
@@ -242,6 +252,9 @@ class VirtualChordInstrument:
                     #else:
                     #    color = pg.color.THECOLORS['black']
                     color = pg.color.THECOLORS['black']
+
+                if self.current_chord[i]:
+                    color = invert_color(color)
 
                 draw_text_in_block(screen, i,j+1, x_block_size, y_block_size, note_data, color, y_offset)
 
