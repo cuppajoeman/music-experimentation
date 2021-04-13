@@ -2,6 +2,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 #include <cairo-pdf.h>
 
 int min(int x, int y) {
@@ -17,7 +18,7 @@ struct sector {
 };
 
   
-void trace_layer(cairo_t *cr, int width, int height, double start_radius, double layer_width, char symbols[12][3]) {
+void trace_layer(cairo_t *cr, int width, int height, double start_radius, double layer_width, struct sector sectors[12]) {
   cairo_set_source_rgb(cr, 0, 0, 0);
   cairo_select_font_face (cr, "Sans", CAIRO_FONT_SLANT_NORMAL,
   CAIRO_FONT_WEIGHT_NORMAL);
@@ -53,7 +54,7 @@ void trace_layer(cairo_t *cr, int width, int height, double start_radius, double
       // -- Text setup --
       cairo_text_extents_t te;
 
-      char *symbol = symbols[(int)i];
+      char *symbol = sectors[(int)i].symbol;
 
       cairo_save(cr);
 
@@ -88,7 +89,7 @@ void trace_layer(cairo_t *cr, int width, int height, double start_radius, double
 
 }
 
-void highlight_layer(cairo_t *cr, int width, int height, double start_radius, double layer_width, char symbols[12][3]) {
+void highlight_layer(cairo_t *cr, int width, int height, double start_radius, double layer_width, struct sector sectors[12]) {
 
   cairo_set_source_rgba(cr, 255, 0, 0, 0.5);
 
@@ -106,8 +107,7 @@ void highlight_layer(cairo_t *cr, int width, int height, double start_radius, do
       // -- Rotation -- 
       cairo_rotate(cr, ang);
 
-      if ((int)i % 2 == 0) {
-        printf("shit happening");
+      if (sectors[(int)i].highlighted) {
 
         cairo_arc(cr, 0, 0, start_radius , 0, wedge_angle);
 
@@ -124,10 +124,10 @@ void highlight_layer(cairo_t *cr, int width, int height, double start_radius, do
   cairo_translate(cr, -width/2, -height/2);
 }
 
-void draw_layer(cairo_t *cr, int width, int height, double start_radius, double layer_width, char symbols[12][3]) {
+void draw_layer(cairo_t *cr, int width, int height, double start_radius, double layer_width, struct sector sectors[12]) {
   // Highlight first so we can cover seams with the trace
-  highlight_layer(cr, width, height, start_radius, layer_width, symbols);
-  trace_layer(cr, width, height, start_radius, layer_width, symbols);
+  highlight_layer(cr, width, height, start_radius, layer_width, sectors);
+  trace_layer(cr, width, height, start_radius, layer_width, sectors);
 }
 
 
@@ -152,22 +152,35 @@ int main(void)
   double radius = min(xc, yc) - 8;
   double gap_width = radius/8.0;
 
-  char symbols [12][3] = {
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "11"
-  };
+  struct sector layer_1[12];
 
-  draw_layer(cr, width, height, 100, 50, symbols);
+  strcpy(layer_1[0].symbol, "0");
+  layer_1[0].highlighted = true;
+  strcpy(layer_1[1].symbol, "1");
+  layer_1[1].highlighted = false;
+  strcpy(layer_1[2].symbol, "2");
+  layer_1[2].highlighted = true;
+  strcpy(layer_1[3].symbol, "3");
+  layer_1[3].highlighted = false;
+  strcpy(layer_1[4].symbol, "4");
+  layer_1[4].highlighted = true;
+  strcpy(layer_1[5].symbol, "5");
+  layer_1[5].highlighted = true;
+  strcpy(layer_1[6].symbol, "6");
+  layer_1[6].highlighted = false;
+  strcpy(layer_1[7].symbol, "7");
+  layer_1[7].highlighted = true;
+  strcpy(layer_1[8].symbol, "8");
+  layer_1[8].highlighted = false;
+  strcpy(layer_1[9].symbol, "9");
+  layer_1[9].highlighted = true;
+  strcpy(layer_1[10].symbol, "10");
+  layer_1[10].highlighted = false;
+  strcpy(layer_1[11].symbol, "11");
+  layer_1[11].highlighted = true;
+
+
+  draw_layer(cr, width, height, 100, 50, layer_1);
 
   //char symbols_2 [12][3] = {
   //  "",
