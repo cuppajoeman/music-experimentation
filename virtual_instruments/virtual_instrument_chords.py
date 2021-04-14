@@ -46,7 +46,7 @@ class VirtualChordInstrument:
         self.w = w
         self.h = h
         self.font = font
-        self.bound_keys = [pg.K_RETURN, pg.K_TAB,pg.K_l, pg.K_h]
+        self.bound_keys = [pg.K_RETURN, pg.K_r,pg.K_l, pg.K_h, pg.K_TAB]
         self.current_chord = []
         self.colors = {
             0: pg.color.THECOLORS['blue'],
@@ -135,7 +135,7 @@ class VirtualChordInstrument:
 
             chord_data = [ [oct_band, root_tone], intervals, duration]
 
-            if keys[pg.K_TAB]:
+            if keys[pg.K_r]:
                 if not self.tab_already_pressed:
                     self.tab_already_pressed = True
                     self.song.append(chord_data)

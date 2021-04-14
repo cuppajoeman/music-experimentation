@@ -10,6 +10,11 @@ int main(void)
   surface = cairo_pdf_surface_create("pdffile.pdf", width, height);
   cr = cairo_create(surface);
 
+  draw_title(cr, width, height, "A 2 5 1 or (2 7 0) chord progression moving radially outward.");
+  sign_name(cr, width, height);
+
+
+
   // Drawing data
   // Useful vim regexs for creating data
   /*
@@ -58,7 +63,7 @@ int main(void)
   struct sector layer_1[12];
 
   strcpy(layer_1[0].symbol, "0"); layer_1[0].highlighted = true;
-  strcpy(layer_1[1].symbol, "1"); layer_1[1].highlighted = true;
+  strcpy(layer_1[1].symbol, "1"); layer_1[1].highlighted = false;
   strcpy(layer_1[2].symbol, "2"); layer_1[2].highlighted = true;
   strcpy(layer_1[3].symbol, "3"); layer_1[3].highlighted = false;
   strcpy(layer_1[4].symbol, "4"); layer_1[4].highlighted = true;
@@ -70,64 +75,65 @@ int main(void)
   strcpy(layer_1[10].symbol, "10"); layer_1[10].highlighted = false;
   strcpy(layer_1[11].symbol, "11"); layer_1[11].highlighted = true;
 
-  draw_layer(cr, width, height, 100, 50, layer_1);
+  draw_layer(cr, width, height, 100, 50, layer_1, true);
 
   radius_so_far = 150;
 
   struct sector layer_2[12];
 
-  strcpy(layer_2[2].symbol, "0"); layer_2[2].highlighted = false;
+  strcpy(layer_2[2].symbol, "0"); layer_2[2].highlighted = true;
   strcpy(layer_2[3].symbol, ""); layer_2[3].highlighted = false;
   strcpy(layer_2[4].symbol, ""); layer_2[4].highlighted = false;
-  strcpy(layer_2[5].symbol, "3"); layer_2[5].highlighted = false;
+  strcpy(layer_2[5].symbol, "3"); layer_2[5].highlighted = true;
   strcpy(layer_2[6].symbol, ""); layer_2[6].highlighted = false;
   strcpy(layer_2[7].symbol, ""); layer_2[7].highlighted = false;
   strcpy(layer_2[8].symbol, ""); layer_2[8].highlighted = false;
-  strcpy(layer_2[9].symbol, "7"); layer_2[9].highlighted = false;
+  strcpy(layer_2[9].symbol, "7"); layer_2[9].highlighted = true;
   strcpy(layer_2[10].symbol, ""); layer_2[10].highlighted = false;
   strcpy(layer_2[11].symbol, ""); layer_2[11].highlighted = false;
-  strcpy(layer_2[0].symbol, "10"); layer_2[0].highlighted = false;
+  strcpy(layer_2[0].symbol, "10"); layer_2[0].highlighted = true;
   strcpy(layer_2[1].symbol, ""); layer_2[1].highlighted = false;
 
-  draw_layer(cr, width, height, radius_so_far, 50, layer_2);
+
+  draw_layer(cr, width, height, radius_so_far, 50, layer_2, false);
 
   radius_so_far += 50;
 
   struct sector layer_3[12];
 
-  strcpy(layer_3[7].symbol, "0"); layer_3[7].highlighted = false;
+  strcpy(layer_3[7].symbol, "0"); layer_3[7].highlighted = true;
   strcpy(layer_3[8].symbol, ""); layer_3[8].highlighted = false;
   strcpy(layer_3[9].symbol, ""); layer_3[9].highlighted = false;
   strcpy(layer_3[10].symbol, ""); layer_3[10].highlighted = false;
-  strcpy(layer_3[11].symbol, "4"); layer_3[11].highlighted = false;
+  strcpy(layer_3[11].symbol, "4"); layer_3[11].highlighted = true;
   strcpy(layer_3[0].symbol, ""); layer_3[0].highlighted = false;
   strcpy(layer_3[1].symbol, ""); layer_3[1].highlighted = false;
-  strcpy(layer_3[2].symbol, "7"); layer_3[2].highlighted = false;
+  strcpy(layer_3[2].symbol, "7"); layer_3[2].highlighted = true;
   strcpy(layer_3[3].symbol, ""); layer_3[3].highlighted = false;
   strcpy(layer_3[4].symbol, ""); layer_3[4].highlighted = false;
-  strcpy(layer_3[5].symbol, "10"); layer_3[5].highlighted = false;
+  strcpy(layer_3[5].symbol, "10"); layer_3[5].highlighted = true;
   strcpy(layer_3[6].symbol, ""); layer_3[6].highlighted = false;
 
-  draw_layer(cr, width, height, radius_so_far, 50, layer_3);
+  draw_layer(cr, width, height, radius_so_far, 50, layer_3, false);
 
   radius_so_far += 50;
 
   struct sector layer_4[12];
 
-  strcpy(layer_4[0].symbol, "0"); layer_4[0].highlighted = false;
+  strcpy(layer_4[0].symbol, "0"); layer_4[0].highlighted = true;
   strcpy(layer_4[1].symbol, ""); layer_4[1].highlighted = false;
-  strcpy(layer_4[2].symbol, ""); layer_4[2].highlighted = false;
-  strcpy(layer_4[3].symbol, ""); layer_4[3].highlighted = false;
-  strcpy(layer_4[4].symbol, "4"); layer_4[4].highlighted = false;
-  strcpy(layer_4[5].symbol, ""); layer_4[5].highlighted = false;
-  strcpy(layer_4[6].symbol, ""); layer_4[6].highlighted = false;
-  strcpy(layer_4[7].symbol, "7"); layer_4[7].highlighted = false;
-  strcpy(layer_4[8].symbol, ""); layer_4[8].highlighted = false;
-  strcpy(layer_4[9].symbol, ""); layer_4[9].highlighted = false;
-  strcpy(layer_4[10].symbol, ""); layer_4[10].highlighted = false;
-  strcpy(layer_4[11].symbol, "11"); layer_4[11].highlighted = false;
+  strcpy(layer_4[2].symbol, ""); layer_4[2].highlighted = true;
+  strcpy(layer_4[3].symbol, ""); layer_4[3].highlighted = true;
+  strcpy(layer_4[4].symbol, "4"); layer_4[4].highlighted = true;
+  strcpy(layer_4[5].symbol, ""); layer_4[5].highlighted = true;
+  strcpy(layer_4[6].symbol, ""); layer_4[6].highlighted = true;
+  strcpy(layer_4[7].symbol, "7"); layer_4[7].highlighted = true;
+  strcpy(layer_4[8].symbol, ""); layer_4[8].highlighted = true;
+  strcpy(layer_4[9].symbol, ""); layer_4[9].highlighted = true;
+  strcpy(layer_4[10].symbol, ""); layer_4[10].highlighted = true;
+  strcpy(layer_4[11].symbol, "11"); layer_4[11].highlighted = true;
 
-  draw_layer(cr, width, height, radius_so_far, 50, layer_4);
+  draw_layer(cr, width, height, radius_so_far, 50, layer_4, false);
 
   radius_so_far += 50;
 

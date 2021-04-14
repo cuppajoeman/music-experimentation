@@ -9,7 +9,7 @@ class MidiPlayer:
         print(midi.get_device_info(1))
         print(midi.get_device_info(2))
         port = midi.get_default_output_id()
-        port = 0
+        port = 2
         self.out = midi.Output(port, 0)
         self.instrument = 0
         self.out.set_instrument(self.instrument)
