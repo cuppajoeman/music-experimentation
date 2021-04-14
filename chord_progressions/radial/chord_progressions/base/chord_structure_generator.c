@@ -18,10 +18,10 @@ int main(void)
   /*
    
   double mod and addition make sure it's positive
-  '<,'>s/\[\(\d\+\)\]/\='[' .((submatch(1)-2)%12+12)%12. ']'/g
+  s/\[\(\d\+\)\]/\='[' .((submatch(1)-2)%12+12)%12. ']'/g
   incrementer
-  '<,'>s/_\(\d\+\)/\='_' .(submatch(1)+1)/g
-  '<,'>s/true/false/g
+  s/_\(\d\+\)/\='_' .(submatch(1)+1)/g
+  s/true/false/g
   */
 
   // General form of data for copy pasting
