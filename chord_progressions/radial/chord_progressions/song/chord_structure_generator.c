@@ -215,18 +215,37 @@ int main(void)
 
   strcpy(layer_9[10].symbol, "0"); layer_9[10].highlighted = true;
   strcpy(layer_9[11].symbol, ""); layer_9[11].highlighted = true;
-  strcpy(layer_9[0].symbol, ""); layer_9[0].highlighted = true;
+  strcpy(layer_9[0].symbol, "2"); layer_9[0].highlighted = true;
   strcpy(layer_9[1].symbol, ""); layer_9[1].highlighted = true;
-  strcpy(layer_9[2].symbol, "4"); layer_9[2].highlighted = true;
-  strcpy(layer_9[3].symbol, ""); layer_9[3].highlighted = true;
+  strcpy(layer_9[2].symbol, ""); layer_9[2].highlighted = true;
+  strcpy(layer_9[3].symbol, "5"); layer_9[3].highlighted = true;
   strcpy(layer_9[4].symbol, ""); layer_9[4].highlighted = true;
   strcpy(layer_9[5].symbol, "7"); layer_9[5].highlighted = true;
   strcpy(layer_9[6].symbol, ""); layer_9[6].highlighted = true;
-  strcpy(layer_9[7].symbol, ""); layer_9[7].highlighted = true;
-  strcpy(layer_9[8].symbol, "10"); layer_9[8].highlighted = true;
+  strcpy(layer_9[7].symbol, "9"); layer_9[7].highlighted = true;
+  strcpy(layer_9[8].symbol, ""); layer_9[8].highlighted = true;
   strcpy(layer_9[9].symbol, ""); layer_9[9].highlighted = true;
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_9, false);
+
+  radius_so_far += 50;
+
+  // ------ NEW LAYER ------
+  struct sector layer_10[12];
+  strcpy(layer_10[10].symbol, "0"); layer_10[10].highlighted = true;
+  strcpy(layer_10[11].symbol, ""); layer_10[11].highlighted = true;
+  strcpy(layer_10[0].symbol, "2"); layer_10[0].highlighted = true;
+  strcpy(layer_10[1].symbol, ""); layer_10[1].highlighted = true;
+  strcpy(layer_10[2].symbol, "4"); layer_10[2].highlighted = true;
+  strcpy(layer_10[3].symbol, ""); layer_10[3].highlighted = true;
+  strcpy(layer_10[4].symbol, ""); layer_10[4].highlighted = true;
+  strcpy(layer_10[5].symbol, "8"); layer_10[5].highlighted = true;
+  strcpy(layer_10[6].symbol, ""); layer_10[6].highlighted = true;
+  strcpy(layer_10[7].symbol, ""); layer_10[7].highlighted = true;
+  strcpy(layer_10[8].symbol, ""); layer_10[8].highlighted = true;
+  strcpy(layer_10[9].symbol, ""); layer_10[9].highlighted = true;
+
+  draw_layer(cr, width, height, radius_so_far, 50, layer_10, false);
 
   radius_so_far += 50;
 
