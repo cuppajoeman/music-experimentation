@@ -1,5 +1,5 @@
 all:
-	gcc chord_structure_generator.c drawing_service.c -o chord_structure_generator `pkg-config --cflags --libs gtk+-3.0` 
+	gcc chord_structure_generator.c drawing_service.c dynamic_array.c -o chord_structure_generator -g `pkg-config --cflags --libs gtk+-3.0` 
 
 
 
