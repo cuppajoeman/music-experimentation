@@ -4,7 +4,7 @@
 #define DYNAMIC_ARRAY_H
 
 typedef struct {
-  char *static_array;
+  void **static_array;
   size_t used;
   size_t length;
   size_t elem_size;

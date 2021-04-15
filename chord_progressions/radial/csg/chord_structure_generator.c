@@ -70,6 +70,8 @@ int main(void)
 
   struct chord Dm7 = {2, (int[]){0, 3, 7, 10}, 4};
 
+  printf("root tone %d \n", Dm7.root_tone);
+
   insert_darray(&changes, &Dm7);
   
   // Setup Base Layer
@@ -91,14 +93,23 @@ int main(void)
   //draw_chord_layer(cr, width, height, radius_so_far, 50, layer_1, Dm7);
 
   // Add in chord changes
+  
+  
+  struct chord curr_chord;
+  //struct sector chord_layer[12];
+  at(&changes, &curr_chord, 0);
+  printf("root tone %d \n", curr_chord.root_tone);
 
-  for (int i  = 0; i < changes.length; i++) {
-    struct chord curr_chord;
-    struct sector chord_layer[12];
-    at(&changes, &curr_chord, i);
-    draw_chord_layer(cr, width, height, radius_so_far, layer_width, chord_layer, curr_chord);
-    radius_so_far += layer_width + layer_gap_size;
-  }
+  //for (int i  = 0; i < changes.length; i++) {
+  //struct chord curr_chord;
+  //struct sector chord_layer[12];
+  //at(&changes, &curr_chord, i);
+  //printf("root tone %d \n", curr_chord.root_tone);
+  //draw_chord_layer(cr, width, height, radius_so_far, layer_width, chord_layer, curr_chord);
+  //radius_so_far += layer_width + layer_gap_size;
+  //}
+
+  free_darray(&changes);
 
   //struct sector layer_2[12];
 
