@@ -46,19 +46,19 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_N, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
    
  */
 
   struct sector base_layer[12];
 
-  strcpy(base_layer[0].symbol, "0"); base_layer[0].highlighted = true;
-  strcpy(base_layer[1].symbol, "1"); base_layer[1].highlighted = false;
+  strcpy(base_layer[0].symbol, "0"); base_layer[0].highlighted = false;
+  strcpy(base_layer[1].symbol, "1"); base_layer[1].highlighted = true;
   strcpy(base_layer[2].symbol, "2"); base_layer[2].highlighted = true;
   strcpy(base_layer[3].symbol, "3"); base_layer[3].highlighted = false;
   strcpy(base_layer[4].symbol, "4"); base_layer[4].highlighted = true;
-  strcpy(base_layer[5].symbol, "5"); base_layer[5].highlighted = true;
-  strcpy(base_layer[6].symbol, "6"); base_layer[6].highlighted = false;
+  strcpy(base_layer[5].symbol, "5"); base_layer[5].highlighted = false;
+  strcpy(base_layer[6].symbol, "6"); base_layer[6].highlighted = true;
   strcpy(base_layer[7].symbol, "7"); base_layer[7].highlighted = true;
   strcpy(base_layer[8].symbol, "8"); base_layer[8].highlighted = false;
   strcpy(base_layer[9].symbol, "9"); base_layer[9].highlighted = true;
@@ -69,27 +69,27 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, base_layer, true);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_1[12];
 
   strcpy(layer_1[11].symbol, "0"); layer_1[11].highlighted = true;
-  strcpy(layer_1[0].symbol, "1"); layer_1[0].highlighted = true;
-  strcpy(layer_1[1].symbol, "2"); layer_1[1].highlighted = true;
+  strcpy(layer_1[0].symbol, ""); layer_1[0].highlighted = true;
+  strcpy(layer_1[1].symbol, ""); layer_1[1].highlighted = true;
   strcpy(layer_1[2].symbol, "3"); layer_1[2].highlighted = true;
-  strcpy(layer_1[3].symbol, "4"); layer_1[3].highlighted = true;
-  strcpy(layer_1[4].symbol, "5"); layer_1[4].highlighted = true;
-  strcpy(layer_1[5].symbol, "6"); layer_1[5].highlighted = true;
+  strcpy(layer_1[3].symbol, ""); layer_1[3].highlighted = true;
+  strcpy(layer_1[4].symbol, ""); layer_1[4].highlighted = true;
+  strcpy(layer_1[5].symbol, ""); layer_1[5].highlighted = true;
   strcpy(layer_1[6].symbol, "7"); layer_1[6].highlighted = true;
-  strcpy(layer_1[7].symbol, "8"); layer_1[7].highlighted = true;
-  strcpy(layer_1[8].symbol, "9"); layer_1[8].highlighted = true;
+  strcpy(layer_1[7].symbol, ""); layer_1[7].highlighted = true;
+  strcpy(layer_1[8].symbol, ""); layer_1[8].highlighted = true;
   strcpy(layer_1[9].symbol, "10"); layer_1[9].highlighted = true;
-  strcpy(layer_1[10].symbol, "11"); layer_1[10].highlighted = true;
+  strcpy(layer_1[10].symbol, ""); layer_1[10].highlighted = true;
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_1, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
 
   // ------ NEW LAYER ------
@@ -110,7 +110,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_2, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_3[12];
@@ -130,7 +130,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_3, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_4[12];
@@ -150,7 +150,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_4, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_5[12];
@@ -170,7 +170,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_5, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_6[12];
@@ -190,7 +190,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_6, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_7[12];
@@ -210,7 +210,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_7, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_8[12];
@@ -230,7 +230,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_8, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_9[12];
@@ -250,7 +250,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_9, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_10[12];
@@ -270,7 +270,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_10, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_11[12];
@@ -290,7 +290,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_11, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_12[12];
@@ -310,7 +310,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_12, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_13[12];
@@ -330,7 +330,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_13, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_14[12];
@@ -350,7 +350,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_14, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_15[12];
@@ -370,7 +370,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_15, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_16[12];
@@ -390,7 +390,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_16, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_17[12];
@@ -410,7 +410,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_17, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_18[12];
@@ -430,7 +430,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_18, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_19[12];
@@ -450,7 +450,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_19, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_20[12];
@@ -470,7 +470,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_20, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_21[12];
@@ -490,7 +490,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_21, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_22[12];
@@ -510,7 +510,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_22, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
   // ------ NEW LAYER ------
   struct sector layer_23[12];
@@ -530,7 +530,7 @@ int main(void)
 
   draw_layer(cr, width, height, radius_so_far, 50, layer_23, false);
 
-  radius_so_far += 50;
+  radius_so_far += 50 + 10;
 
 
 

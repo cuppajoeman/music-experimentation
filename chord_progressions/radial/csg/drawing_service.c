@@ -29,6 +29,7 @@ void trace_layer(cairo_t *cr, int width, int height, double start_radius, double
   double wedge_angle = (2.0 * M_PI)/12.0;
 
   for (double i = 0; i < 12; i ++) {
+    int idx = (int) i;
     double ang = wedge_angle * i;
 
     cairo_save(cr);
@@ -45,7 +46,7 @@ void trace_layer(cairo_t *cr, int width, int height, double start_radius, double
       // -- Text setup --
       cairo_text_extents_t te;
 
-      char *symbol = sectors[(int)i].symbol;
+      char *symbol = sectors[idx].symbol;
 
       cairo_save(cr);
 
@@ -65,6 +66,10 @@ void trace_layer(cairo_t *cr, int width, int height, double start_radius, double
 
         cairo_rel_move_to(cr, -te.width/2, +te.height/2);
 
+        // invert color for readability
+
+        cairo_set_source_rgb(cr, 1 - sectors[idx].red, 1 - sectors[idx].green, 1 - sectors[idx].blue);
+
         cairo_show_text(cr, symbol);
 
       cairo_restore(cr);
@@ -76,6 +81,25 @@ void trace_layer(cairo_t *cr, int width, int height, double start_radius, double
   cairo_translate(cr, -width/2, -height/2);
 
   cairo_stroke (cr);
+}
+
+void setup_base_layer_colors(struct sector sectors[12], int root_tone, int *sequence, int seq_len) {
+  // Assumption is that the sequence must bring you back to where you start
+  // eg 2212221 the sum is 12.
+  for (int i = 0; i < 12; i++) {
+    // Make everything grey
+    sectors[i].red = .5; sectors[i].green = .5; sectors[i].blue = .5;
+  }
+  int position = root_tone;
+  for (int j = 0; j < seq_len; j++) {
+    if (position == root_tone) {
+      // Special color for root tone
+      sectors[position].red = 1; sectors[position].green = 1; sectors[position].blue = 1;
+    } else {
+      sectors[position].red = 0; sectors[position].green = 0; sectors[position].blue = 0;
+    }
+    position += sequence[j];
+  }
 }
 
 void setup_layer_colors(struct sector sectors[12]) {
@@ -97,7 +121,7 @@ void setup_layer_colors(struct sector sectors[12]) {
       break; 
 
       case 1:
-        sectors[idx].red = 139/255.0; sectors[idx].green = 37/255.0; sectors[idx].blue = 0/255.0;
+        sectors[idx].red = 128/255.0; sectors[idx].green = 128/255.0; sectors[idx].blue = 51/255.0;
       break; 
 
       case 2:
@@ -149,7 +173,7 @@ void setup_layer_colors(struct sector sectors[12]) {
   }
 }
 
-void highlight_layer(cairo_t *cr, int width, int height, double start_radius, double layer_width, struct sector sectors[12], bool single_color) {
+void highlight_layer(cairo_t *cr, int width, int height, double start_radius, double layer_width, struct sector sectors[12]) {
 
   cairo_translate(cr, width/2, height/2);
 
@@ -171,12 +195,7 @@ void highlight_layer(cairo_t *cr, int width, int height, double start_radius, do
       cairo_arc_negative(cr, 0, 0, start_radius + layer_width , wedge_angle, 0);
 
       if (sectors[idx].highlighted) {
-          if (single_color) {
-            // use the red color for everything
-            cairo_set_source_rgb(cr, 1, 0, 0);
-          } else {
-            cairo_set_source_rgb(cr, sectors[idx].red, sectors[idx].green, sectors[idx].blue);
-          }
+        cairo_set_source_rgb(cr, sectors[idx].red, sectors[idx].green, sectors[idx].blue);
       } else {
         cairo_set_source_rgb(cr, .5 , .5, .5);
       }
@@ -240,12 +259,45 @@ void sign_name(cairo_t *cr, int width, int height) {
 
 }
 
-
-void draw_layer(cairo_t *cr, int width, int height, double start_radius, double layer_width, struct sector sectors[12], bool single_color) {
+void draw_base_layer(cairo_t *cr, int width, int height, double start_radius, double layer_width, struct sector sectors[12], int root_tone, int *sequence, int seq_len) {
+  setup_base_layer_colors(sectors, root_tone, sequence, seq_len);
   // Highlight first so we can cover seams with the trace
+  highlight_layer(cr, width, height, start_radius, layer_width, sectors);
+  trace_layer(cr, width, height, start_radius, layer_width, sectors);
+}
+
+void draw_chord_layer(cairo_t *cr, int width, int height, double start_radius, double layer_width, struct sector sectors[12], struct chord chord) {
+  construct_sectors_from_chord(sectors, chord);
   setup_layer_colors(sectors);
-  highlight_layer(cr, width, height, start_radius, layer_width, sectors, single_color);
+  // Highlight first so we can cover seams with the trace
+  highlight_layer(cr, width, height, start_radius, layer_width, sectors);
   trace_layer(cr, width, height, start_radius, layer_width, sectors);
   // Just was propoating title through to the main program.
+}
+
+void construct_sectors_from_chord(struct sector sectors[12], struct chord chord) {
+  // Sets up the data, symbols and highlighted data
+  // Initialize everything to be the empty string
+  for (int i = 0; i < 12; i++) {
+   strcpy(sectors[i].symbol,""); 
+  }
+
+  for (int j = 0; j < chord.num_intervals; j++) {
+    int interval = chord.intervals[j];
+    char i_str[3];
+    sprintf(i_str, "%d", interval);
+    strcpy(sectors[(chord.root_tone + interval) % 12].symbol, i_str);
+    sectors[(chord.root_tone + interval) % 12].highlighted = true;
+  }
+}
+
+void construct_sectors_all_notes(struct sector sectors[12]) {
+  // Initializes the sector array
+  for (int i = 0; i < 12; i++) {
+    char i_str[3];
+    sprintf(i_str, "%d", i);
+    strcpy(sectors[i].symbol, i_str); 
+    sectors[i].highlighted = true;
+  }
 }
 
