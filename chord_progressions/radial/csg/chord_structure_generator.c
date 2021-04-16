@@ -14,51 +14,6 @@ int main(void)
   draw_title(cr, width, height, "A 2 5 1 or (2 7 0) chord progression moving radially outward.");
   sign_name(cr, width, height);
 
-
-
-  // Drawing data
-  // Useful vim regexs for creating data
-  /*
-  '<,'>s/\[\(\d\+\)/\=(submatch(1)+5)%12/
-  '<,'>s/_3/_3[
-  '<,'>s/true/false/g
-  */
-
-  // General form of data for copy pasting
-  /*
-  struct sector layer_N[12];
-
-  strcpy(layer_N[0].symbol, "0");
-  layer_N[0].highlighted = true;
-  strcpy(layer_N[1].symbol, "1");
-  layer_N[1].highlighted = false;
-  strcpy(layer_N[2].symbol, "2");
-  layer_N[2].highlighted = true;
-  strcpy(layer_N[3].symbol, "3");
-  layer_N[3].highlighted = false;
-  strcpy(layer_N[4].symbol, "4");
-  layer_N[4].highlighted = true;
-  strcpy(layer_N[5].symbol, "5");
-  layer_N[5].highlighted = true;
-  strcpy(layer_N[6].symbol, "6");
-  layer_N[6].highlighted = false;
-  strcpy(layer_N[7].symbol, "7");
-  layer_N[7].highlighted = true;
-  strcpy(layer_N[8].symbol, "8");
-  layer_N[8].highlighted = false;
-  strcpy(layer_N[9].symbol, "9");
-  layer_N[9].highlighted = true;
-  strcpy(layer_N[10].symbol, "10");
-  layer_N[10].highlighted = false;
-  strcpy(layer_N[11].symbol, "11");
-  layer_N[11].highlighted = true;
-
-  draw_layer(cr, width, height, radius_so_far, 50, layer_N);
-
-  radius_so_far += 50;
-   
- */
-
   double start_radius = 100;
   double layer_width = 50;
   double layer_gap_size = 10;
@@ -69,10 +24,12 @@ int main(void)
   init_darray(&changes, 1, sizeof(struct chord*));
 
   struct chord Dm7 = {2, (int[]){0, 3, 7, 10}, 4};
-
-  printf("root tone %d \n", Dm7.root_tone);
+  struct chord G7 = {7, (int[]){0, 4, 7, 10}, 4};
+  struct chord CM7 = {0, (int[]){0, 4, 7, 11}, 4};
 
   insert_darray(&changes, &Dm7);
+  insert_darray(&changes, &G7);
+  insert_darray(&changes, &CM7);
   
   // Setup Base Layer
 
@@ -86,40 +43,18 @@ int main(void)
 
   radius_so_far += layer_width + layer_gap_size;
 
-  // to be removed
-
-  //struct sector layer_1[12];
-
-  //draw_chord_layer(cr, width, height, radius_so_far, 50, layer_1, Dm7);
-
   // Add in chord changes
   
-  
-  struct chord curr_chord;
-  //struct sector chord_layer[12];
-  at(&changes, &curr_chord, 0);
-  printf("root tone %d \n", curr_chord.root_tone);
-
-  //for (int i  = 0; i < changes.length; i++) {
-  //struct chord curr_chord;
-  //struct sector chord_layer[12];
-  //at(&changes, &curr_chord, i);
-  //printf("root tone %d \n", curr_chord.root_tone);
-  //draw_chord_layer(cr, width, height, radius_so_far, layer_width, chord_layer, curr_chord);
-  //radius_so_far += layer_width + layer_gap_size;
-  //}
+  for (int i  = 0; i < changes.used; i++) {
+    struct chord *curr_chord_ptr;
+    struct sector chord_layer[12];
+    at(&changes, &curr_chord_ptr, i);
+    struct chord curr_chord = * ((struct chord *) curr_chord_ptr);
+    draw_chord_layer(cr, width, height, radius_so_far, layer_width, chord_layer, curr_chord);
+    radius_so_far += layer_width + layer_gap_size;
+  }
 
   free_darray(&changes);
-
-  //struct sector layer_2[12];
-
-  //int intervals_2[] = {0, 3, 7, 10};
-
-  //construct_sectors_from_chord(layer_2, 2, intervals_2, 4);
-
-  //draw_chord_layer(cr, width, height, radius_so_far, 50, layer_2);
-
-  //radius_so_far += 60;
 
   cairo_show_page(cr);
 

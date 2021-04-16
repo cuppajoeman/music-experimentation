@@ -112,7 +112,6 @@ void setup_layer_colors(struct sector sectors[12]) {
       relative_position = -1;
     }
 
-    //printf("rel pos: %d \n", relative_position);
     switch(relative_position) {
 
       case 0:
