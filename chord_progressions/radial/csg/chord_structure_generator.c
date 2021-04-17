@@ -39,7 +39,7 @@ int main(void)
 
   construct_sectors_all_notes(base_layer);
 
-  draw_base_layer(cr, width, height, radius_so_far, layer_width, base_layer, 0, sequence, 7);
+  draw_base_layer(cr, width, height, radius_so_far, layer_width, base_layer, 11, sequence, 7);
 
   radius_so_far += layer_width + layer_gap_size;
 

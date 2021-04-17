@@ -98,6 +98,7 @@ void setup_base_layer_colors(struct sector sectors[12], int root_tone, int *sequ
       sectors[position].red = 0; sectors[position].green = 0; sectors[position].blue = 0;
     }
     position += sequence[j];
+    position %= 12;
   }
 }
 
