@@ -10,10 +10,10 @@ int main(void)
 
   int width = scale * 1024, height = scale * 1024;
 
-  surface = cairo_pdf_surface_create("Enter File Name.pdf", width, height);
+  surface = cairo_pdf_surface_create("New Song", width, height);
   cr = cairo_create(surface);
 
-  draw_title(cr, width, height, "Enter Title");
+  draw_title(cr, width, height, "Not yet determined");
   sign_name(cr, width, height);
 
   // Start drawing
@@ -44,19 +44,7 @@ int main(void)
 
   init_darray(&changes, 1, sizeof(struct chord*));
 
-  struct chord Bm7 = {11, (int[]){0, 3, 7, 10}, 4};
-
-  insert_darray(&changes, &Bm7);
-
-  // Add in chord changes
-  for (int i  = 0; i < changes.used; i++) {
-    struct chord *curr_chord_ptr;
-    struct sector chord_layer[12];
-    at(&changes, &curr_chord_ptr, i);
-    struct chord curr_chord = * ((struct chord *) curr_chord_ptr);
-    draw_chord_layer(cr, width, height, radius_so_far, layer_width, chord_layer, curr_chord);
-    radius_so_far += layer_width + layer_gap_size;
-  }
+  insert_darray(&changes, &( (struct chord){11, (int[]){0, 3, 7, 10}, 4} ));
 
   free_darray(&changes);
 

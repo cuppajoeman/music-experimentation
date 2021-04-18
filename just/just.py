@@ -64,21 +64,21 @@ complexity_ordered_intervals = sorted(jir_list, key=process_lcm)
 
 pprint.pprint(complexity_ordered_intervals)
 
-from itertools import chain, combinations
-
-all_chords = combinations([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 4)
-
-def chord_complexity(chord):
-    all_ratios = []
-    for interval in chord:
-        all_ratios.extend(just_interval_ratios[interval])
-    print(all_ratios)
-    return lcm(list(all_ratios))
-
-complexity_ordered_chords = sorted(all_chords, key=chord_complexity)
-
-print('ordered')
-pprint.pprint(complexity_ordered_chords)
+#from itertools import chain, combinations
+#
+#all_chords = combinations([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 4)
+#
+#def chord_complexity(chord):
+#    all_ratios = []
+#    for interval in chord:
+#        all_ratios.extend(just_interval_ratios[interval])
+#    print(all_ratios)
+#    return lcm(list(all_ratios))
+#
+#complexity_ordered_chords = sorted(all_chords, key=chord_complexity)
+#
+#print('ordered')
+#pprint.pprint(complexity_ordered_chords)
 
 
 
