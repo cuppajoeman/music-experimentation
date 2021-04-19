@@ -10,10 +10,10 @@ int main(void)
 
   int width = scale * 1024, height = scale * 1024;
 
-  surface = cairo_pdf_surface_create("Enter File Name.pdf", width, height);
+  surface = cairo_pdf_surface_create("Mack the Knife.pdf", width, height);
   cr = cairo_create(surface);
 
-  draw_title(cr, width, height, "Enter Title");
+  draw_title(cr, width, height, "Mack the Knife");
   sign_name(cr, width, height);
 
   // Start drawing
