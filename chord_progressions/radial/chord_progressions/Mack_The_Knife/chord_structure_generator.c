@@ -6,7 +6,7 @@ int main(void)
   cairo_surface_t *surface;
   cairo_t *cr;
 
-  int scale = 1;
+  int scale = 2;
 
   int width = scale * 1024, height = scale * 1024;
 
