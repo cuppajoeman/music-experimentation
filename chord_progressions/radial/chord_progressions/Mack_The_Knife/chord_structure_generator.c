@@ -44,16 +44,16 @@ int main(void)
 
   init_darray(&changes, 1, sizeof(struct chord*));
 
-  insert_darray(&changes, &((struct chord){10, (int[]){0, 4, 6, 9}, 4}));
+  insert_darray(&changes, &((struct chord){10, (int[]){0, 4, 7, 9}, 4}));
   insert_darray(&changes, &((struct chord){0, (int[]){0, 3, 7, 10}, 4}));
   insert_darray(&changes, &((struct chord){5, (int[]){0, 4, 7, 10}, 4}));
 
-  insert_darray(&changes, &((struct chord){10, (int[]){0, 4, 6, 9}, 4}));
+  insert_darray(&changes, &((struct chord){10, (int[]){0, 4, 7, 9}, 4}));
   insert_darray(&changes, &((struct chord){7, (int[]){0, 3, 7, 10}, 4}));
   insert_darray(&changes, &((struct chord){0, (int[]){0, 3, 7, 10}, 4}));
 
   insert_darray(&changes, &((struct chord){5, (int[]){0, 4, 7, 10}, 4}));
-  insert_darray(&changes, &((struct chord){10, (int[]){0, 4, 6, 9}, 4}));
+  insert_darray(&changes, &((struct chord){10, (int[]){0, 4, 7, 9}, 4}));
 
   // Add in chord changes
   for (int i  = 0; i < changes.used; i++) {
