@@ -31,7 +31,7 @@ int main(void)
 
   construct_sectors_all_notes(base_layer);
 
-  draw_base_layer(cr, width, height, radius_so_far, layer_width, base_layer, 0, sequence, 7);
+  draw_base_layer(cr, width, height, radius_so_far, layer_width, base_layer, 10, sequence, 7);
 
   radius_so_far += layer_width + layer_gap_size;
   
@@ -44,7 +44,16 @@ int main(void)
 
   init_darray(&changes, 1, sizeof(struct chord*));
 
-  insert_darray(&changes, &((struct chord){11, (int[]){0, 3, 7, 10}, 4}));
+  insert_darray(&changes, &((struct chord){10, (int[]){0, 4, 6, 9}, 4}));
+  insert_darray(&changes, &((struct chord){0, (int[]){0, 3, 7, 10}, 4}));
+  insert_darray(&changes, &((struct chord){5, (int[]){0, 4, 7, 10}, 4}));
+
+  insert_darray(&changes, &((struct chord){10, (int[]){0, 4, 6, 9}, 4}));
+  insert_darray(&changes, &((struct chord){7, (int[]){0, 3, 7, 10}, 4}));
+  insert_darray(&changes, &((struct chord){0, (int[]){0, 3, 7, 10}, 4}));
+
+  insert_darray(&changes, &((struct chord){5, (int[]){0, 4, 7, 10}, 4}));
+  insert_darray(&changes, &((struct chord){10, (int[]){0, 4, 6, 9}, 4}));
 
   // Add in chord changes
   for (int i  = 0; i < changes.used; i++) {
