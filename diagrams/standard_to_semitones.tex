@@ -24,19 +24,29 @@
 
 Conversion from standard notation to semitones - Made by cuppajoeman - \url{http://cuppajoeman.com}
 
-\[ 
-  \huge
-\begin{array}{ccccccccccccc}
-    C& \cdot& D& \cdot& E& F& \cdot& G& \cdot& A& \cdot& B & C \\
-    \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow \\
-    0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 0\\
-\end{array} 
-\] 
-
 \vspace{.15cm}
 
+
 \begin{center}
-\begin{tikzpicture}
+\scalebox{2}{
+$\begin{array}{ccccccccccccc}
+    C& \cdot& D& \cdot& E& F& \cdot& G& \cdot& A& \cdot& B & C \\
+    \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow \\
+    \widehat{0} & \widehat{1} & \widehat{2} & \widehat{3} & \widehat{4} & \widehat{5} & \widehat{6} & \widehat{7} & \widehat{8} & \widehat{9} & \widehat{10} & \widehat{11} & \widehat{0}\\
+\end{array} $
+}
+\end{center}
+
+\vspace{.30cm}
+\begin{center}
+  \line(1,0){300}
+\end{center}
+\vspace{.30cm}
+
+\begin{center}
+  \begin{tikzpicture}[scale=0.5]
+  % Label diagram
+  \node[draw] at (8.5,6) {Treble Clef};
   % Ledger lines
   \draw (13.25,6) -- (17,6);
   % Main section
@@ -54,15 +64,46 @@ Conversion from standard notation to semitones - Made by cuppajoeman - \url{http
   \edef\counter{0}
   \foreach \x in {9, 11, 0, 2, 4, 5, 7, 9, 11, 0, 2, 4, 5, 7 , 9, 11, 0} {
     %\node[draw,circle,fill=white,minimum size=2] at (\counter + .5, \counter * .5 - 2) {\huge\x};
-    \node[text=cyan] at (\counter + .5, \counter * .5 - 2) {\Huge\x};
+    \node[text=cyan] at (\counter + .5, \counter * .5 - 1.95) {$\widehat{\x}$};
     \pgfmathparse{\counter+1}
     \xdef\counter{\pgfmathresult}
   }
     %\draw at (\x + .5, \x * .5) {\x}
 \end{tikzpicture}
+\hfill
+  \begin{tikzpicture}[scale=0.5]
+  % Label diagram
+  \node[draw] at (8.5,6) {Bass Clef};
+  % Ledger lines
+  \draw (13.25,6) -- (17,6);
+  % Main section
+  \draw (8.5,5) -- (17,5);
+  \foreach \y in {0, 1, 2, 3, 4} {
+    \draw (0, \y) -- (17, \y);
+  }
+  \draw (0,0) -- (0, 4);
+  \draw (17,0) -- (17, 4);
+  %\draw [step=1.0,black] (0,0) grid (17,4);
+  % Lower lines
+  \draw (0,-1) -- (8.5,-1);
+  \draw (0,-2) -- (4.75,-2);
+  % Counter
+  \edef\counter{0}
+  \foreach \x in {0, 2, 4, 5, 7, 9, 11, 0, 2, 4, 5, 7 , 9, 11, 0, 2, 4} {
+    %\node[draw,circle,fill=white,minimum size=2] at (\counter + .5, \counter * .5 - 2) {\huge\x};
+    \node[text=cyan] at (\counter + .5, \counter * .5 - 1.95) {$\widehat{\x}$};
+    \pgfmathparse{\counter+1}
+    \xdef\counter{\pgfmathresult}
+  }
+    %\draw at (\x + .5, \x * .5) {\x}
+  \end{tikzpicture}
 \end{center}
 
-\vspace{.15cm}
+\vspace{.30cm}
+\begin{center}
+  \line(1,0){300}
+\end{center}
+\vspace{.30cm}
 
 \begin{center}
 \begin{tikzpicture}
@@ -100,7 +141,11 @@ Conversion from standard notation to semitones - Made by cuppajoeman - \url{http
 \end{tikzpicture}
 \end{center}
 
-\vspace{.15cm}
+\vspace{.30cm}
+\begin{center}
+  \line(1,0){300}
+\end{center}
+\vspace{.30cm}
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
