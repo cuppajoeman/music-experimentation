@@ -1,0 +1,1171 @@
+ 
+        <table class="center" id="analysis-table" border="3">
+<tbody>
+  <tr>
+    <td>
+    </td>
+    <td id="0" onclick="colorChange(&quot;0&quot;)" style="background-color: rgb(255, 255, 255); color: black; outline: gold solid thin;">0̚</td>
+    <td id="1" onclick="colorChange(&quot;1&quot;)">1̚</td>
+    <td id="2" onclick="colorChange(&quot;2&quot;)" style="background-color: rgb(255, 255, 255); color: black; outline: gold solid thin;">2̚</td>
+    <td id="3" onclick="colorChange(&quot;3&quot;)">3̚</td>
+    <td id="4" onclick="colorChange(&quot;4&quot;)" style="background-color: rgb(255, 255, 255); color: black; outline: gold solid thin;">4̚</td>
+    <td id="5" onclick="colorChange(&quot;5&quot;)">5̚</td>
+    <td id="6" onclick="colorChange(&quot;6&quot;)" style="background-color: rgb(255, 255, 255); color: black; outline: gold solid thin;">6̚</td>
+    <td id="7" onclick="colorChange(&quot;7&quot;)" style="background-color: rgb(255, 255, 255); color: black; outline: gold solid thin;">7̚</td>
+    <td id="8" onclick="colorChange(&quot;8&quot;)">8̚</td>
+    <td id="9" onclick="colorChange(&quot;9&quot;)" style="background-color: rgb(255, 255, 255); color: black; outline: gold solid thin;">9̚</td>
+    <td id="10" onclick="colorChange(&quot;10&quot;)">10̚</td>
+    <td id="11" onclick="colorChange(&quot;11&quot;)" style="background-color: rgb(255, 255, 255); color: black; outline: gold solid thin;">11̚</td>
+  </tr>
+  <tr>
+    <td>#1: </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#2: </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(46, 139, 87); outline: gold solid thin; color: rgb(209, 116, 168);" contenteditable="true">5</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 71, 137); outline: gold solid thin; color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 0, 255); outline: gold solid thin; color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(127, 255, 212); outline: gold solid thin; color: rgb(128, 0, 43);" contenteditable="true">2</td>
+  </tr>
+  <tr>
+    <td>#3: </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#4: </td>
+    <td style="background-color: rgb(139, 71, 137); outline: gold solid thin; color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 0, 255); outline: gold solid thin; color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 0, 0); outline: gold solid thin; color: rgb(116, 255, 255);" contenteditable="true">4</td>
+    <td style="background-color: rgb(46, 139, 87); outline: gold solid thin; color: rgb(209, 116, 168);" contenteditable="true">5</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#5: </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+  </tr>
+  <tr>
+    <td>#6: </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 255, 0); outline: gold solid thin; color: rgb(255, 0, 255);" contenteditable="true">7</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 20, 147); outline: gold solid thin; color: rgb(0, 235, 108);" contenteditable="true">11</td>
+    <td style="background-color: rgb(0, 0, 255); outline: gold solid thin; color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(127, 255, 212); outline: gold solid thin; color: rgb(128, 0, 43);" contenteditable="true">2</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#7: </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+  </tr>
+  <tr>
+    <td>#8: </td>
+    <td style="background-color: rgb(0, 0, 255); outline: gold solid thin; color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 41, 98); outline: gold solid thin; color: rgb(0, 214, 157);" contenteditable="true">6</td>
+    <td style="background-color: rgb(0, 255, 0); outline: gold solid thin; color: rgb(255, 0, 255);" contenteditable="true">7</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(16, 143, 194); outline: gold solid thin; color: rgb(239, 112, 61);" contenteditable="true">9</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#9: </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#10: </td>
+    <td style="background-color: rgb(255, 41, 98); outline: gold solid thin; color: rgb(0, 214, 157);" contenteditable="true">6</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 71, 137); outline: gold solid thin; color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 0, 255); outline: gold solid thin; color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(128, 128, 51); outline: gold solid thin; color: rgb(127, 127, 204);" contenteditable="true">1</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#11: </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+  </tr>
+  <tr>
+    <td>#12: </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 0, 0); color: rgb(116, 255, 255);" contenteditable="true">4</td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 255, 0); outline: gold solid thin; color: rgb(255, 0, 255);" contenteditable="true">7</td>
+    <td style="background-color: rgb(255, 248, 220); outline: gold solid thin; color: rgb(0, 7, 35);" contenteditable="true">8</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 0, 255); outline: gold solid thin; color: rgb(255, 255, 0);" contenteditable="true">0</td>
+  </tr>
+  <tr>
+    <td>#13: </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#14: </td>
+    <td style="background-color: rgb(255, 248, 220); outline: gold solid thin; color: rgb(0, 7, 35);" contenteditable="true">8</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 71, 137); outline: gold solid thin; color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 0, 255); outline: gold solid thin; color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(46, 139, 87); outline: gold solid thin; color: rgb(209, 116, 168);" contenteditable="true">5</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#15: </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#16: </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(127, 255, 212); color: rgb(128, 0, 43);" contenteditable="true">2</td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 0, 0); color: rgb(116, 255, 255);" contenteditable="true">4</td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 71, 137); outline: gold solid thin; color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 0, 255); outline: gold solid thin; color: rgb(255, 255, 0);" contenteditable="true">0</td>
+  </tr>
+  <tr>
+    <td>#17: </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#18: </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(139, 71, 137); color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(0, 0, 255); color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 165, 0); color: rgb(0, 90, 255);" contenteditable="true">3</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 41, 98); color: rgb(0, 214, 157);" contenteditable="true">6</td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#19: </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+  </tr>
+  <tr>
+    <td>#20: </td>
+    <td style="background-color: rgb(255, 41, 98); outline: gold solid thin; color: rgb(0, 214, 157);" contenteditable="true">6</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 71, 137); outline: gold solid thin; color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 0, 255); outline: gold solid thin; color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 165, 0); outline: gold solid thin; color: rgb(0, 90, 255);" contenteditable="true">3</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#21: </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#22: </td>
+    <td style="outline: gold solid thin; background-color: rgb(128, 128, 51); color: rgb(127, 127, 204);" contenteditable="true">1</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 0, 0); color: rgb(116, 255, 255);" contenteditable="true">4</td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(139, 71, 137); color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(0, 0, 255); color: rgb(255, 255, 0);" contenteditable="true">0</td>
+  </tr>
+  <tr>
+    <td>#23: </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#24: </td>
+    <td style="background-color: rgb(255, 248, 220); outline: gold solid thin; color: rgb(0, 7, 35);" contenteditable="true">8</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 71, 137); outline: gold solid thin; color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 0, 255); outline: gold solid thin; color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(46, 139, 87); outline: gold solid thin; color: rgb(209, 116, 168);" contenteditable="true">5</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#25: </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#26: </td>
+    <td style="background-color: rgb(255, 165, 0); outline: gold solid thin; color: rgb(0, 90, 255);" contenteditable="true">3</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 255, 0); outline: gold solid thin; color: rgb(255, 0, 255);" contenteditable="true">7</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 71, 137); outline: gold solid thin; color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 0, 255); outline: gold solid thin; color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#27: </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#28: </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 0, 255); outline: gold solid thin; color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(127, 255, 212); outline: gold solid thin; color: rgb(128, 0, 43);" contenteditable="true">2</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 0, 0); outline: gold solid thin; color: rgb(116, 255, 255);" contenteditable="true">4</td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(16, 143, 194); outline: gold solid thin; color: rgb(239, 112, 61);" contenteditable="true">9</td>
+  </tr>
+  <tr>
+    <td>#29: </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255); outline: gold solid thin;" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255); outline: gold solid thin;" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+  </tr>
+  <tr>
+    <td>#30: </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 255, 0); outline: gold solid thin; color: rgb(255, 0, 255);" contenteditable="true">7</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 20, 147); outline: gold solid thin; color: rgb(0, 235, 108);" contenteditable="true">11</td>
+    <td style="background-color: rgb(0, 0, 255); outline: gold solid thin; color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(127, 255, 212); outline: gold solid thin; color: rgb(128, 0, 43);" contenteditable="true">2</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#31: </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255); outline: gold solid thin;" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#32: </td>
+    <td style="background-color: rgb(255, 41, 98); outline: gold solid thin; color: rgb(0, 214, 157);" contenteditable="true">6</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 71, 137); outline: gold solid thin; color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 0, 255); outline: gold solid thin; color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(128, 128, 51); outline: gold solid thin; color: rgb(127, 127, 204);" contenteditable="true">1</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); outline: gold solid thin; color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#33: </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255); outline: gold solid thin;" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255); outline: gold solid thin;" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); outline: gold solid thin;" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255); outline: gold solid thin;" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255); outline: gold solid thin;" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255); outline: gold solid thin;" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#34: </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 165, 0); color: rgb(0, 90, 255);" contenteditable="true">3</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(46, 139, 87); color: rgb(209, 116, 168);" contenteditable="true">5</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(139, 71, 137); color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(0, 0, 255); color: rgb(255, 255, 0);" contenteditable="true">0</td>
+  </tr>
+  <tr>
+    <td>#35: </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+  </tr>
+  <tr>
+    <td>#36: </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(139, 71, 137); color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(0, 0, 255); color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(127, 255, 212); color: rgb(128, 0, 43);" contenteditable="true">2</td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 165, 0); color: rgb(0, 90, 255);" contenteditable="true">3</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#37: </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+  </tr>
+  <tr>
+    <td>#38: </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 71, 137); color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(139, 0, 0); color: rgb(116, 255, 255);" contenteditable="true">4</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 255, 0); color: rgb(255, 0, 255);" contenteditable="true">7</td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#39: </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+  </tr>
+  <tr>
+    <td>#40: </td>
+    <td style="outline: gold solid thin; background-color: rgb(139, 71, 137); color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(0, 0, 255); color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(255, 165, 0); color: rgb(0, 90, 255);" contenteditable="true">3</td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(0, 255, 0); color: rgb(255, 0, 255);" contenteditable="true">7</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#41: </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#42: </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 0, 255); color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 0, 0); color: rgb(116, 255, 255);" contenteditable="true">4</td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(0, 255, 0); color: rgb(255, 0, 255);" contenteditable="true">7</td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(139, 71, 137); color: rgb(116, 184, 118);" contenteditable="true">10</td>
+  </tr>
+  <tr>
+    <td>#43: </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#44: </td>
+    <td style="outline: gold solid thin; background-color: rgb(0, 0, 255); color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(139, 0, 0); color: rgb(116, 255, 255);" contenteditable="true">4</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 41, 98); color: rgb(0, 214, 157);" contenteditable="true">6</td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 20, 147); color: rgb(0, 235, 108);" contenteditable="true">11</td>
+  </tr>
+  <tr>
+    <td>#45: </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+  </tr>
+  <tr>
+    <td>#46: </td>
+    <td style="outline: gold solid thin; background-color: rgb(128, 128, 51); color: rgb(127, 127, 204);" contenteditable="true">1</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(139, 0, 0); color: rgb(116, 255, 255);" contenteditable="true">4</td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(139, 71, 137); color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(0, 0, 255); color: rgb(255, 255, 0);" contenteditable="true">0</td>
+  </tr>
+  <tr>
+    <td>#47: </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" contenteditable="true">X</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+  </tr>
+  <tr>
+    <td>#48: </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(139, 71, 137); color: rgb(116, 184, 118);" contenteditable="true">10</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(0, 0, 255); color: rgb(255, 255, 0);" contenteditable="true">0</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(255, 165, 0); color: rgb(0, 90, 255);" contenteditable="true">3</td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="background-color: rgb(125, 125, 125); color: rgb(255, 255, 255);" contenteditable="true">
+    </td>
+    <td style="outline: gold solid thin; background-color: rgb(0, 255, 0); color: rgb(255, 0, 255);" contenteditable="true">7</td>
+  </tr>
+</tbody>
+</table>
+      
+

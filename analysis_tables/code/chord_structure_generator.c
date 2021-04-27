@@ -26,10 +26,13 @@ int main(void)
   struct chord Dm7 = {2, (int[]){0, 3, 7, 10}, 4};
   struct chord G7 = {7, (int[]){0, 4, 7, 10}, 4};
   struct chord CM7 = {0, (int[]){0, 4, 7, 11}, 4};
+  struct chord BLANK = {0, (int[]){}, 0};
+  struct chord single = {3, (int[]){0}, 1};
 
   insert_darray(&changes, &Dm7);
   insert_darray(&changes, &G7);
   insert_darray(&changes, &CM7);
+  insert_darray(&changes, &BLANK);
   
   // Setup Base Layer
 

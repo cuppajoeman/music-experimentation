@@ -261,7 +261,9 @@ void draw_chord_layer(cairo_t *cr, int width, int height, double start_radius, d
   construct_sectors_from_chord(sectors, chord);
   setup_layer_colors(sectors);
   // Highlight first so we can cover seams with the trace
-  highlight_layer(cr, width, height, start_radius, layer_width, sectors);
+  if (chord.num_intervals != 0) {
+    highlight_layer(cr, width, height, start_radius, layer_width, sectors);
+  }
   trace_layer(cr, width, height, start_radius, layer_width, sectors);
   // Just was propoating title through to the main program.
 }
