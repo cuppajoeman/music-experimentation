@@ -1,0 +1,28 @@
+\documentclass[varwidth]{standalone}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{subfiles}
+\usetikzlibrary{calc} 
+
+\begin{document}
+
+\begin{center}
+  Fretboard \\
+  \vspace{2}
+\subfile{horizontal.tex}
+\end{center}
+\begin{center}
+Note Names \\
+  \vspace{2}
+\subfile{canonical_mapping.tex}
+\end{center}
+\begin{center}
+Intervals\\ 
+  \vspace{2}
+\subfile{intervals.tex}
+\end{center}
+
+
+\end{document}
