@@ -64,7 +64,7 @@ $\begin{array}{ccccccccccccc}
   \edef\counter{0}
   \foreach \x in {9, 11, 0, 2, 4, 5, 7, 9, 11, 0, 2, 4, 5, 7 , 9, 11, 0} {
     %\node[draw,circle,fill=white,minimum size=2] at (\counter + .5, \counter * .5 - 2) {\huge\x};
-    \node[text=cyan] at (\counter + .5, \counter * .5 - 1.95) {$\widehat{\x}$};
+    \node[text=cyan] at (\counter + .5, \counter * .5 - 1.95) {$\x^{\star}$};
     \pgfmathparse{\counter+1}
     \xdef\counter{\pgfmathresult}
   }
