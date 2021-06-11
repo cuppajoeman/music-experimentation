@@ -1,4 +1,5 @@
 from theory import *
+from theory_utils import *
 import numpy as np
 import wavio
 import random
@@ -6,11 +7,34 @@ import random
 # Parameters
 RATE = 44100    # samples per second
 
-def single_tone_generator(frequency, duration):
+def single_tone_generator(frequency, duration,scale=1):
     # Compute waveform samples
     t = np.linspace(0, duration, int(duration*RATE), endpoint=False)
     x = np.sin(2*np.pi * frequency* t)  
+    x *= scale
     return x
+
+def harmonic_tone_generator(frequency, duration, num_harmonics=3):
+    out_wave = np.zeros(int(duration * RATE))
+    for i in range(1, num_harmonics + 1):
+        single_tone = single_tone_generator(frequency * i, duration, 1/i)
+        out_wave= np.add(out_wave, single_tone)
+    return out_wave
+
+def generate_chord_with_harmonics(base_frequency, intervals, duration, num_harmonics=3):
+    out_wave = np.zeros(int(duration * RATE))
+    for i in intervals:
+        harmonic_tone = harmonic_tone_generator(base_frequency * (2**(i/12)), duration, num_harmonics)
+        out_wave= np.add(out_wave, harmonic_tone)
+    return out_wave
+
+
+def sum_waves(waves):
+    # assuming they are all the same duration
+    out_wave = np.zeros(int(duration * RATE))
+    for w in waves:
+        out_wave= np.add(out_wave, w)
+    return out_wave
 
 def sum_frequencies(frequencies, duration):
     out_wave = np.zeros(int(duration * RATE))
@@ -106,7 +130,7 @@ def generate_scale_frequencies(root_freq, scale_pattern):
 
     return scale
 
-def gen_chord_progression(chord_waves):
+def combine_waves_over_time(chord_waves):
     """chord waves is a list of sums of sin waves"""
     chord_progression = np.array([])
     for chord in chord_waves:
@@ -129,10 +153,8 @@ def augment_chord(frequencies, interval):
     root_freq = frequencies[0]
     frequencies.append(root_freq * (EQUIVALENCE_RATIO ** (interval/NUMBER_ATOMIC_UNITS)))
 
-# Write the samples to a file
-#print(construct_romans(generate_scale_frequencies(sci_to_freq("C4"), scales['maj'])))
-#print(generate_scale_frequencies(sci_to_freq("C5"), scales['maj']))
-#r = construct_romans(generate_scale_frequencies(sci_to_freq("C5"), scales['maj'])).values()
+two_five_one = [generate_chord_with_harmonics(shift_freq_by_n_semitones(440,2), [-24, 0,3,7,10, 2], 1.5, 3), generate_chord_with_harmonics(shift_freq_by_n_semitones(440, 7), [-24, 0,4,7,10, 1], 1.5, 3) , generate_chord_with_harmonics(440, [24,4,7,11, 2], 1.5, 3)]
 
-#wavio.write("sine.wav", construct_scale(sci_to_freq("C4"), scales['maj'], 2), RATE, sampwidth=3)
-#wavio.write("romans.wav", gen_chord_progression(r), RATE, sampwidth=3)
+new_one = [generate_chord_with_harmonics(shift_freq_by_n_semitones(440,8), [-24, 0,4,9,10], 1.5, 3), generate_chord_with_harmonics(shift_freq_by_n_semitones(440, 7), [-24, 0,4,8,10], 1.5, 3) , generate_chord_with_harmonics(440, [-24, 0,3,9,2], 1.5, 3)]
+
+wavio.write("simple.wav", combine_waves_over_time(new_one) , RATE, sampwidth=3)
