@@ -32,7 +32,7 @@ Conversion from standard notation to semitones - Made by cuppajoeman - \url{http
 $\begin{array}{ccccccccccccc}
     C& \cdot& D& \cdot& E& F& \cdot& G& \cdot& A& \cdot& B & C \\
     \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow \\
-    \widehat{0} & \widehat{1} & \widehat{2} & \widehat{3} & \widehat{4} & \widehat{5} & \widehat{6} & \widehat{7} & \widehat{8} & \widehat{9} & \widehat{10} & \widehat{11} & \widehat{0}\\
+    0^{\star} & 1^{\star} & 2^{\star} & 3^{\star} & 4^{\star} & 5^{\star} & 6^{\star} & 7^{\star} & 8^{\star} & 9^{\star} & 10^{\star} & 11^{\star} & 0^{\star}\\
 \end{array} $
 }
 \end{center}
@@ -64,7 +64,7 @@ $\begin{array}{ccccccccccccc}
   \edef\counter{0}
   \foreach \x in {9, 11, 0, 2, 4, 5, 7, 9, 11, 0, 2, 4, 5, 7 , 9, 11, 0} {
     %\node[draw,circle,fill=white,minimum size=2] at (\counter + .5, \counter * .5 - 2) {\huge\x};
-    \node[text=cyan] at (\counter + .5, \counter * .5 - 1.95) {$\widehat{\x}$};
+    \node[text=cyan] at (\counter + .5, \counter * .5 - 1.95) {$\x^{\star}$};
     \pgfmathparse{\counter+1}
     \xdef\counter{\pgfmathresult}
   }
@@ -91,7 +91,7 @@ $\begin{array}{ccccccccccccc}
   \edef\counter{0}
   \foreach \x in {0, 2, 4, 5, 7, 9, 11, 0, 2, 4, 5, 7 , 9, 11, 0, 2, 4} {
     %\node[draw,circle,fill=white,minimum size=2] at (\counter + .5, \counter * .5 - 2) {\huge\x};
-    \node[text=cyan] at (\counter + .5, \counter * .5 - 1.95) {$\widehat{\x}$};
+    \node[text=cyan] at (\counter + .5, \counter * .5 - 1.95) {$\x^{\star}$};
     \pgfmathparse{\counter+1}
     \xdef\counter{\pgfmathresult}
   }
