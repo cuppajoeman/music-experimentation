@@ -110,25 +110,54 @@ plt.yticks(np.arange(float(min(y)-1), float(max(y)+1), 1.0))
 
 
 # Add rhythm markers
+
+k = 0 
 for i in range(len(x)):
     x_pos = x[i]
     y_pos = y[i]
     rhythm_line = rhythm_lines[i]
     plt.plot([x_pos, x_pos+rhythm_line],[y_pos, y_pos], 'r-|')
 
-k = 0 
+    # assuming plot of more than 2 notes
+    if i == 0:
+        #about to figure out the direction of it 
+        y_next = y[i+1]
+        if y_next > y_pos:
+            # put text 
+            annotate_pos = (x_pos, y_pos - .5)
+        else:
+            annotate_pos = (x_pos, y_pos + .5)
+    elif i == len(x)-1:
+        y_prev = y[i-1]
+        if y_prev > y_pos:
+            # put text 
+            annotate_pos = (x_pos, y_pos - .5)
+        else:
+            annotate_pos = (x_pos, y_pos + .5)
+    else:
+        y_prev = y[i-1]
+        y_next = y[i+1]
+        between = y_prev <= y_pos <= y_next or y_prev >= y_pos >= y_next
+        if between:
+            # downhill
+            if y_prev >= y_pos:
+                annotate_pos = (x_pos, y_pos + .5)
+            else:
+                annotate_pos = (x_pos, y_pos + .5)
+        elif y_pos <= y_prev:
+            # v formation put text under
+            annotate_pos = (x_pos, y_pos - 1.5)
+        elif y_pos >= y_prev:
+            # mountain top
+            annotate_pos = (x_pos, y_pos + .5)
+
+    txt = pos_mod(y_pos - k, 12)
+
+    plt.annotate(txt, (x_pos, y_pos), annotate_pos)
+
 
 
 # give it a key shift 
-k_y = []
-for p in y:
-    k_y.append(pos_mod(p, 12))
-
-for i, txt in enumerate(k_y):
-    x_pos = x[i]
-    y_pos = y[i]
-    if y != None:
-        plt.annotate(txt, (x_pos, y_pos))
 
 #add slider 
 #axcolor = 'lightgoldenrodyellow'
