@@ -125,6 +125,39 @@ def analyze_roman_chords(rf):
         rf[k] = interval_to_chord[tuple(intervals)]
     return rf
 
+def bpm_to_measure_length(BPM, beats_in_a_measure=4):
+    # returns in seconds
+    beats_per_second = BPM * 1/60
+    seconds_per_beat = 1/beats_per_second
+    measure_length = seconds_per_beat * beats_in_a_measure
+
+    return measure_length
+
+import re
+
+# Voicing Notation
+
+def get_intervals(x):
+  intervals = []
+  for notation in x.split():
+    intervals.append(parse_notation(notation))
+  return intervals
+
+def parse_notation(notation):
+  # It will always have a digit
+  d = re.search(r"[0-9]+", notation)
+  digit = int(notation[d.start():d.end()])
+
+  m = re.search(r"[,']", notation)
+
+  if m:
+     direction = notation[m.start()]
+     count = len(notation[m.start():])
+     multiplier = -1 if direction == ',' else 1
+
+     return digit + multiplier * count * 12
+  else:
+    return digit
 
 
 
