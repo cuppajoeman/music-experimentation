@@ -126,8 +126,6 @@ def analyze_roman_chords(rf):
     return rf
 
 
-
-
 #sf = generate_scale_frequencies(110, scales['mel_min'])
 #sn = [freq_to_sci(y) for y in sf ]
 #
