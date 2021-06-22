@@ -1,51 +1,14 @@
 import numpy as np
 import re
-from fractions import Fraction
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
+from song_data import *
 
 plt.rcParams["figure.figsize"] = (20,5)
 
-# single beat (4 beats in a measure
-b = 1
-# half
-h = 1/2
-# thirds
-t = Fraction(b, 3)
-# two thirds
-tt = 2 * t
 
-song = [
-    ("0' 4' 7' 11' R", [tt, t, tt, t+b, b]), ("R 7' 4' 7' 7'", [tt, t, tt, t + b, b]),
-    ("9' 6' R", [b + tt, t + b, b]), ("6' 2' 9' 6' 0'' 9' R",[tt, t, tt, t, tt, t, b]),
+song = all_examples_cont
 
-    ("5' 2' 9' 0'' 5'", [tt, t, tt, t + b, b]),
-    ("2' 7 11 2' 5' 2' R", [tt, t, tt, t, tt, t, b]),
-    ("4' 4' 4' 0'",  [b, tt, t + b, b]),
-    ("11 7 11 2' 5' 2' R", [tt, t, tt, t, tt, t, b]),
-
-    ("4' 0' R 4' R 4' R 4'",[tt, t, tt, t, tt, t, tt, t]), ("7' 4' 7' 7' R 11'", [tt, t, tt, t, 1 + tt, t]),
-    ("0'' 0'' 9' R 9' 6'", [b, tt, t, tt, t, b]), ( "R 2' 2' 2' R",[ b, b, tt, t, b]),
-
-    ("0'' 0'' 9' R 9' 5'", [b, tt, t, tt, t, b]),
-    ("R 2' 11 5' 2' 11 7", [b, tt, t, tt, t, tt, t]),
-    ("4' 0' R 4' 0' R", [tt, t, tt, t, b, b]),
-    ("7' 4' 7' 10' R", [tt, t, tt, t + b, b]),
-    
-    ("R 9 0' 9 0' 9",[b, b, tt, t, tt, t]), ("5 9 0' 4' R",[tt, t, tt, t + b, b]), ( "R 0' 4' 0' R",[b, b, tt, t, b]), ("9 0' 5 R", [b, tt, t + b, b]),
-
-    ("2' R 0'' 6' 9' 6'",[b, b, tt, t, tt, t]), ( "0'' 0'' 9' R",[b, tt, t + b, b]),
-    ("9' R 9' 2' 5' 2'", [b, b, tt, t, tt, t]),
-    ("11 11 2' R", [b, tt, t + b, b]),
-    
-    ("4' 0' 7' 0' R 4' 7' 11'", [tt, t, tt, t, tt, t, tt, t+b]),("7' 11' R", [tt, t + b, b]),
-    ("6' 2' 9' 2' R 9'", [tt, t, tt, t, b, b]),("0'' 6' R 9' R",[tt, t, tt, t + b, b]),
-
-    ("9' 2' R 5' 2'", [tt, t, tt, t + b, b]),
-    ("5' 11 R 2' 5'", [tt, t, tt, t + b, b]),
-    ("4' 0' 7' 4' 7' 11'", [tt, t, tt, t, tt, t + b]),
-    ("R", [4 * b]),
-]
 
 def get_intervals(x):
   intervals = []
@@ -64,12 +27,12 @@ def parse_notation(notation):
   else:
       digit = int(found)
 
-  m = re.search(r"[,']", notation)
+  m = re.search(r"[,'ud]", notation)
 
   if m:
      direction = notation[m.start()]
      count = len(notation[m.start():])
-     multiplier = -1 if direction == ',' else 1
+     multiplier = -1 if direction in ['d',','] else 1
 
      return digit + multiplier * count * 12
   else:
@@ -173,11 +136,26 @@ for i in range(len(x)):
 #
 #spos.on_changed(update)
 
-for i in range(8):
-    start = i * 16
-    end = start + 16
-    ax.axis([start, end, min(y)-1, max(y)+1])
-    fig.canvas.draw_idle()
-    plt.savefig(str(i) + 'analysis.png',pad_inches=0)
+#for i in range(8):
+#    start = i * 16
+#    end = start + 16
+#    ax.axis([start, end, min(y)-1, max(y)+1])
+#    fig.canvas.draw_idle()
+#    plt.savefig(str(i) + 'analysis.png',pad_inches=0)
+
+pos = 0
+i=0
+for example in all_examples:
+   start = pos
+   end = start + 4 * len(example)
+   all_notes = ' '.join([tup[0] for tup in example if tup])
+   intervals = [x for x in get_intervals(all_notes) if x is not None]
+   print(all_notes, intervals, sep="|")
+   ax.axis([start, end, min(intervals)-1, max(intervals)+1])
+   fig.canvas.draw_idle()
+   plt.savefig(str(i) + 'example.png',pad_inches=0)
+   pos = end
+   i+=1
+
 
 #plt.show()
